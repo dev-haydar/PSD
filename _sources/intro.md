@@ -1,11 +1,5 @@
-# Welcome to your Jupyter Book
+# Introduction
 
-This is a small sample book to give you a feel for how book content is
-structured.
-It shows off a few of the major file types, as well as some sample content.
-It does not go in-depth into any particular topic - check out [the Jupyter Book documentation](https://jupyterbook.org) for more information.
-
-Check out the content pages bundled with this sample book to see more.
-
+Let me introduce my self, my name is Ahmad Haydar Al Abror. I’m from Sidoarjo. Currently I am studying at Trunojoyo Madura University, majoring in Informatics Engineering and I have a student ID number of 230411100105. I also have an active email address, namely 230411100105@student.trunojoyo.ac.id.
 ```{tableofcontents}
 ```
