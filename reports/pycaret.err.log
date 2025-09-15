@@ -19,18 +19,41 @@ Traceback (most recent call last):
            ^^^^^^^^^^^^^^^
   File "/home/codespace/.local/lib/python3.12/site-packages/nbclient/client.py", line 709, in async_execute
     await self.async_execute_cell(
-  File "/home/codespace/.local/lib/python3.12/site-packages/nbclient/client.py", line 1005, in async_execute_cell
-    exec_reply = await self.task_poll_for_reply
-                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/codespace/.local/lib/python3.12/site-packages/nbclient/client.py", line 806, in _async_poll_for_reply
-    error_on_timeout_execute_reply = await self._async_handle_timeout(timeout, cell)
-                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/codespace/.local/lib/python3.12/site-packages/nbclient/client.py", line 856, in _async_handle_timeout
-    raise CellTimeoutError.error_from_timeout_and_cell(
-nbclient.exceptions.CellTimeoutError: A cell timed out while it was being executed, after 30 seconds.
-The message was: Cell execution timed out.
-Here is a preview of the cell contents:
--------------------
-pip install pycaret
--------------------
+  File "/home/codespace/.local/lib/python3.12/site-packages/nbclient/client.py", line 1062, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/home/codespace/.local/lib/python3.12/site-packages/nbclient/client.py", line 918, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+import sys
+import pycaret
+
+print("Python version:", sys.version)
+print("PyCaret version:", pycaret.__version__)
+
+------------------
+
+
+[31m---------------------------------------------------------------------------[39m
+[31mRuntimeError[39m                              Traceback (most recent call last)
+[36mCell[39m[36m [39m[32mIn[4][39m[32m, line 2[39m
+[32m      1[39m [38;5;28;01mimport[39;00m[38;5;250m [39m[34;01msys[39;00m
+[32m----> [39m[32m2[39m [38;5;28;01mimport[39;00m[38;5;250m [39m[34;01mpycaret[39;00m
+[32m      4[39m [38;5;28mprint[39m([33m"[39m[33mPython version:[39m[33m"[39m, sys.version)
+[32m      5[39m [38;5;28mprint[39m([33m"[39m[33mPyCaret version:[39m[33m"[39m, pycaret.__version__)
+
+[36mFile [39m[32m/usr/local/python/3.12.1/lib/python3.12/site-packages/pycaret/__init__.py:22[39m
+[32m     16[39m     [38;5;28;01mraise[39;00m [38;5;167;01mRuntimeError[39;00m(
+[32m     17[39m         [33m"[39m[33mPycaret only supports python 3.9, 3.10, 3.11. Your actual Python version: [39m[33m"[39m,
+[32m     18[39m         sys.version_info,
+[32m     19[39m         [33m"[39m[33mPlease UPGRADE your Python version.[39m[33m"[39m,
+[32m     20[39m     )
+[32m     21[39m [38;5;28;01melif[39;00m sys.version_info >= ([32m3[39m, [32m12[39m):
+[32m---> [39m[32m22[39m     [38;5;28;01mraise[39;00m [38;5;167;01mRuntimeError[39;00m(
+[32m     23[39m         [33m"[39m[33mPycaret only supports python 3.9, 3.10, 3.11. Your actual Python version: [39m[33m"[39m,
+[32m     24[39m         sys.version_info,
+[32m     25[39m         [33m"[39m[33mPlease DOWNGRADE your Python version.[39m[33m"[39m,
+[32m     26[39m     )
+
+[31mRuntimeError[39m: ('Pycaret only supports python 3.9, 3.10, 3.11. Your actual Python version: ', sys.version_info(major=3, minor=12, micro=1, releaselevel='final', serial=0), 'Please DOWNGRADE your Python version.')
 
