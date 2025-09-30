@@ -894,20 +894,20 @@ Iterasi 4: menggunakan k_neighbors=19
 Hasil iterasi 4: [(&#39;cp&#39;, 143), (&#39;im&#39;, 77), (&#39;imL&#39;, 142), (&#39;imS&#39;, 142), (&#39;imU&#39;, 35), (&#39;om&#39;, 143), (&#39;omL&#39;, 143), (&#39;pp&#39;, 52)]
 
 Iterasi 5: menggunakan k_neighbors=34
-Hasil iterasi 5: [(&#39;cp&#39;, 143), (&#39;im&#39;, 77), (&#39;imL&#39;, 142), (&#39;imS&#39;, 142), (&#39;imU&#39;, 145), (&#39;om&#39;, 143), (&#39;omL&#39;, 143), (&#39;pp&#39;, 52)]
+Hasil iterasi 5: [(&#39;cp&#39;, 143), (&#39;im&#39;, 77), (&#39;imL&#39;, 142), (&#39;imS&#39;, 142), (&#39;imU&#39;, 143), (&#39;om&#39;, 143), (&#39;omL&#39;, 143), (&#39;pp&#39;, 52)]
 
 Iterasi 6: menggunakan k_neighbors=51
-Hasil iterasi 6: [(&#39;cp&#39;, 143), (&#39;im&#39;, 77), (&#39;imL&#39;, 142), (&#39;imS&#39;, 142), (&#39;imU&#39;, 145), (&#39;om&#39;, 143), (&#39;omL&#39;, 143), (&#39;pp&#39;, 143)]
+Hasil iterasi 6: [(&#39;cp&#39;, 143), (&#39;im&#39;, 77), (&#39;imL&#39;, 142), (&#39;imS&#39;, 142), (&#39;imU&#39;, 143), (&#39;om&#39;, 143), (&#39;omL&#39;, 143), (&#39;pp&#39;, 142)]
 
 Iterasi 7: menggunakan k_neighbors=76
-Hasil iterasi 7: [(&#39;cp&#39;, 143), (&#39;im&#39;, 152), (&#39;imL&#39;, 142), (&#39;imS&#39;, 142), (&#39;imU&#39;, 145), (&#39;om&#39;, 143), (&#39;omL&#39;, 143), (&#39;pp&#39;, 143)]
+Hasil iterasi 7: [(&#39;cp&#39;, 143), (&#39;im&#39;, 149), (&#39;imL&#39;, 142), (&#39;imS&#39;, 142), (&#39;imU&#39;, 143), (&#39;om&#39;, 143), (&#39;omL&#39;, 143), (&#39;pp&#39;, 142)]
 
 Distribusi kelas setelah ADASYN:
-[(&#39;cp&#39;, 143), (&#39;im&#39;, 152), (&#39;imL&#39;, 142), (&#39;imS&#39;, 142), (&#39;imU&#39;, 145), (&#39;om&#39;, 143), (&#39;omL&#39;, 143), (&#39;pp&#39;, 143)]
+[(&#39;cp&#39;, 143), (&#39;im&#39;, 149), (&#39;imL&#39;, 142), (&#39;imS&#39;, 142), (&#39;imU&#39;, 143), (&#39;om&#39;, 143), (&#39;omL&#39;, 143), (&#39;pp&#39;, 142)]
 
 Total samples sebelum: 336
-Total samples setelah: 1153
-Data yang ditambahkan: 817
+Total samples setelah: 1147
+Data yang ditambahkan: 811
 </pre></div>
 </div>
 </div>
@@ -966,17 +966,17 @@ Data yang ditambahkan: 817
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/05c310bae7008b6a122bfd7db09fc4c3a125f631e42310dc2cf3909e114aa364.png" src="_images/05c310bae7008b6a122bfd7db09fc4c3a125f631e42310dc2cf3909e114aa364.png" />
+<img alt="_images/5a228d70a4fe4c99d4456549c3cf36cb4dd3d959eea55c86bd94d078f213b8d4.png" src="_images/5a228d70a4fe4c99d4456549c3cf36cb4dd3d959eea55c86bd94d078f213b8d4.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>=== SUMMARY ADASYN ===
 Peningkatan per kelas:
   cp: 0 samples (143 → 143)
-  im: +75 samples (77 → 152)
+  im: +72 samples (77 → 149)
   imL: +140 samples (2 → 142)
   imS: +140 samples (2 → 142)
-  imU: +110 samples (35 → 145)
+  imU: +108 samples (35 → 143)
   om: +123 samples (20 → 143)
   omL: +138 samples (5 → 143)
-  pp: +91 samples (52 → 143)
+  pp: +90 samples (52 → 142)
 </pre></div>
 </div>
 </div>
@@ -1008,34 +1008,34 @@ Peningkatan per kelas:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>🔹 Akurasi Naive Bayes (ADASYN): 0.791907514450867
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>🔹 Akurasi Naive Bayes (ADASYN): 0.8173913043478261
 
 Classification Report:
                precision    recall  f1-score   support
 
-          cp       0.91      1.00      0.96        43
-          im       0.88      0.50      0.64        46
-         imL       1.00      1.00      1.00        43
-         imS       0.89      1.00      0.94        42
-         imU       0.69      0.56      0.62        43
-          om       0.88      0.35      0.50        43
+          cp       0.80      1.00      0.89        43
+          im       0.88      0.51      0.65        45
+         imL       1.00      1.00      1.00        42
+         imS       0.98      1.00      0.99        43
+         imU       0.80      0.77      0.79        43
+          om       1.00      0.35      0.52        43
          omL       1.00      1.00      1.00        43
-          pp       0.47      0.95      0.63        43
+          pp       0.50      0.93      0.65        43
 
-    accuracy                           0.79       346
-   macro avg       0.84      0.80      0.78       346
-weighted avg       0.84      0.79      0.78       346
+    accuracy                           0.82       345
+   macro avg       0.87      0.82      0.81       345
+weighted avg       0.87      0.82      0.81       345
 
 
 Confusion Matrix:
  [[43  0  0  0  0  0  0  0]
- [ 2 23  0  2 11  0  0  8]
- [ 0  0 43  0  0  0  0  0]
- [ 0  0  0 42  0  0  0  0]
- [ 0  3  0  3 24  2  0 11]
+ [ 6 23  0  1  8  0  0  7]
+ [ 0  0 42  0  0  0  0  0]
+ [ 0  0  0 43  0  0  0  0]
+ [ 2  3  0  0 33  0  0  5]
  [ 0  0  0  0  0 15  0 28]
  [ 0  0  0  0  0  0 43  0]
- [ 2  0  0  0  0  0  0 41]]
+ [ 3  0  0  0  0  0  0 40]]
 </pre></div>
 </div>
 </div>
@@ -1068,34 +1068,34 @@ Confusion Matrix:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>🔹 Akurasi Random Forest (ADASYN): 0.9523809523809523
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>🔹 Akurasi Random Forest (ADASYN): 0.9260869565217391
 
 Classification Report:
                precision    recall  f1-score   support
 
-          cp       0.94      1.00      0.97        29
-          im       0.89      0.80      0.84        30
+          cp       0.91      1.00      0.95        29
+          im       0.81      0.70      0.75        30
          imL       1.00      1.00      1.00        28
          imS       1.00      1.00      1.00        28
-         imU       0.81      0.90      0.85        29
+         imU       0.74      0.86      0.79        29
           om       1.00      1.00      1.00        29
          omL       1.00      1.00      1.00        29
-          pp       1.00      0.93      0.96        29
+          pp       1.00      0.86      0.92        28
 
-    accuracy                           0.95       231
-   macro avg       0.95      0.95      0.95       231
-weighted avg       0.95      0.95      0.95       231
+    accuracy                           0.93       230
+   macro avg       0.93      0.93      0.93       230
+weighted avg       0.93      0.93      0.93       230
 
 
 Confusion Matrix:
  [[29  0  0  0  0  0  0  0]
- [ 0 24  0  0  6  0  0  0]
+ [ 0 21  0  0  9  0  0  0]
  [ 0  0 28  0  0  0  0  0]
  [ 0  0  0 28  0  0  0  0]
- [ 0  3  0  0 26  0  0  0]
+ [ 0  4  0  0 25  0  0  0]
  [ 0  0  0  0  0 29  0  0]
  [ 0  0  0  0  0  0 29  0]
- [ 2  0  0  0  0  0  0 27]]
+ [ 3  1  0  0  0  0  0 24]]
 </pre></div>
 </div>
 </div>
@@ -1121,34 +1121,34 @@ BaggingClassifier menggunakan decision tree classifier sebagai base estimator</p
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>🔹 Akurasi Bagging (Decision Tree, ADASYN): 0.9523809523809523
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>🔹 Akurasi Bagging (Decision Tree, ADASYN): 0.9217391304347826
 
 Classification Report:
                precision    recall  f1-score   support
 
-          cp       0.94      1.00      0.97        29
-          im       0.86      0.83      0.85        30
+          cp       0.88      1.00      0.94        29
+          im       0.82      0.77      0.79        30
          imL       1.00      1.00      1.00        28
-         imS       1.00      1.00      1.00        28
-         imU       0.83      0.86      0.85        29
-          om       1.00      1.00      1.00        29
+         imS       0.97      1.00      0.98        28
+         imU       0.77      0.83      0.80        29
+          om       0.97      1.00      0.98        29
          omL       1.00      1.00      1.00        29
-          pp       1.00      0.93      0.96        29
+          pp       1.00      0.79      0.88        28
 
-    accuracy                           0.95       231
-   macro avg       0.95      0.95      0.95       231
-weighted avg       0.95      0.95      0.95       231
+    accuracy                           0.92       230
+   macro avg       0.93      0.92      0.92       230
+weighted avg       0.92      0.92      0.92       230
 
 
 Confusion Matrix:
  [[29  0  0  0  0  0  0  0]
- [ 0 25  0  0  5  0  0  0]
+ [ 0 23  0  0  7  0  0  0]
  [ 0  0 28  0  0  0  0  0]
  [ 0  0  0 28  0  0  0  0]
- [ 0  4  0  0 25  0  0  0]
+ [ 0  4  0  1 24  0  0  0]
  [ 0  0  0  0  0 29  0  0]
  [ 0  0  0  0  0  0 29  0]
- [ 2  0  0  0  0  0  0 27]]
+ [ 4  1  0  0  0  1  0 22]]
 </pre></div>
 </div>
 </div>
@@ -1260,10 +1260,38 @@ Peningkatan per kelas:
 <p>NAIVE BAYES (SMOTE)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Split data SMOTE</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Pastikan semua library yang dibutuhkan sudah diimpor</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.model_selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.naive_bayes</span><span class="w"> </span><span class="kn">import</span> <span class="n">GaussianNB</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.metrics</span><span class="w"> </span><span class="kn">import</span> <span class="n">accuracy_score</span><span class="p">,</span> <span class="n">classification_report</span><span class="p">,</span> <span class="n">confusion_matrix</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.preprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">StandardScaler</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">imblearn.over_sampling</span><span class="w"> </span><span class="kn">import</span> <span class="n">SMOTE</span> 
+<span class="kn">from</span><span class="w"> </span><span class="nn">collections</span><span class="w"> </span><span class="kn">import</span> <span class="n">Counter</span>
+
+<span class="c1"># --- LANGKAH 1: Standardisasi Fitur Numerik ---</span>
+<span class="c1"># Scaling sangat penting sebelum menggunakan SMOTE dan Naive Bayes.</span>
+<span class="n">scaler</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span>
+<span class="n">X_scaled</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X</span><span class="p">)</span> <span class="c1"># Gunakan X yang hanya berisi fitur numerik</span>
+
+<span class="c1"># Ubah kembali ke DataFrame (opsional, untuk kemudahan)</span>
+<span class="n">X_scaled</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">X_scaled</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">X</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+
+
+<span class="c1"># --- LANGKAH 2: Terapkan SMOTE (dengan k_neighbors=1) ---</span>
+<span class="c1"># k_neighbors=1 digunakan karena kelas minoritas (imL, imS) hanya memiliki 2 sampel.</span>
+<span class="n">smote</span> <span class="o">=</span> <span class="n">SMOTE</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span> <span class="n">k_neighbors</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> 
+<span class="n">X_sm</span><span class="p">,</span> <span class="n">y_sm</span> <span class="o">=</span> <span class="n">smote</span><span class="o">.</span><span class="n">fit_resample</span><span class="p">(</span><span class="n">X_scaled</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="c1"># Terapkan pada data yang sudah di-scale</span>
+
+<span class="c1"># Cek distribusi kelas SMOTE (opsional, untuk verifikasi)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Distribusi Kelas Setelah SMOTE:&quot;</span><span class="p">,</span> <span class="n">Counter</span><span class="p">(</span><span class="n">y_sm</span><span class="p">))</span>
+
+
+<span class="c1"># --- LANGKAH 3: Split Data SMOTE ---</span>
 <span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span>
     <span class="n">X_sm</span><span class="p">,</span> <span class="n">y_sm</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span> <span class="n">stratify</span><span class="o">=</span><span class="n">y_sm</span>
 <span class="p">)</span>
+
+<span class="c1"># --- LANGKAH 4: Train dan Evaluasi Naive Bayes ---</span>
 
 <span class="c1"># Inisialisasi Naive Bayes dengan smoothing</span>
 <span class="n">nb</span> <span class="o">=</span> <span class="n">GaussianNB</span><span class="p">(</span><span class="n">var_smoothing</span><span class="o">=</span><span class="mf">1e-8</span><span class="p">)</span>
@@ -1275,24 +1303,43 @@ Peningkatan per kelas:
 <span class="n">y_pred</span> <span class="o">=</span> <span class="n">nb</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
 
 <span class="c1"># Evaluasi hasil</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;🔹 Akurasi Naive Bayes (SMOTE):&quot;</span><span class="p">,</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">🔹 Akurasi Naive Bayes (SMOTE):&quot;</span><span class="p">,</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Classification Report:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">classification_report</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Confusion Matrix:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">confusion_matrix</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">17</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># Split data SMOTE</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span>
-<span class="ne">----&gt; </span><span class="mi">3</span>     <span class="n">X_sm</span><span class="p">,</span> <span class="n">y_sm</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span> <span class="n">stratify</span><span class="o">=</span><span class="n">y_sm</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="c1"># Inisialisasi Naive Bayes dengan smoothing</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="n">nb</span> <span class="o">=</span> <span class="n">GaussianNB</span><span class="p">(</span><span class="n">var_smoothing</span><span class="o">=</span><span class="mf">1e-8</span><span class="p">)</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Distribusi Kelas Setelah SMOTE: Counter({&#39;cp&#39;: 143, &#39;im&#39;: 143, &#39;imS&#39;: 143, &#39;imL&#39;: 143, &#39;imU&#39;: 143, &#39;om&#39;: 143, &#39;omL&#39;: 143, &#39;pp&#39;: 143})
 
-<span class="ne">NameError</span>: name &#39;X_sm&#39; is not defined
+🔹 Akurasi Naive Bayes (SMOTE): 0.8646288209606987
+
+Classification Report:
+               precision    recall  f1-score   support
+
+          cp       0.80      1.00      0.89        28
+          im       1.00      0.50      0.67        28
+         imL       1.00      1.00      1.00        29
+         imS       0.97      1.00      0.98        29
+         imU       0.80      0.83      0.81        29
+          om       1.00      0.64      0.78        28
+         omL       1.00      1.00      1.00        29
+          pp       0.61      0.93      0.74        29
+
+    accuracy                           0.86       229
+   macro avg       0.90      0.86      0.86       229
+weighted avg       0.90      0.86      0.86       229
+
+
+Confusion Matrix:
+ [[28  0  0  0  0  0  0  0]
+ [ 5 14  0  0  6  0  0  3]
+ [ 0  0 29  0  0  0  0  0]
+ [ 0  0  0 29  0  0  0  0]
+ [ 0  0  0  1 24  0  0  4]
+ [ 0  0  0  0  0 18  0 10]
+ [ 0  0  0  0  0  0 29  0]
+ [ 2  0  0  0  0  0  0 27]]
 </pre></div>
 </div>
 </div>
@@ -1326,15 +1373,16 @@ Peningkatan per kelas:
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>🔹 Akurasi Random Forest (SMOTE): 0.9519650655021834
-
-Classification Report:
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Classification Report:
                precision    recall  f1-score   support
 
           cp       0.88      1.00      0.93        28
-          im       0.89      0.86      0.87        28
+          im       0.92      0.86      0.89        28
          imL       1.00      1.00      1.00        29
          imS       1.00      1.00      1.00        29
-         imU       0.89      0.86      0.88        29
+         imU       0.86      0.86      0.86        29
           om       1.00      0.96      0.98        28
          omL       1.00      1.00      1.00        29
           pp       0.96      0.93      0.95        29
@@ -1346,10 +1394,10 @@ weighted avg       0.95      0.95      0.95       229
 
 Confusion Matrix:
  [[28  0  0  0  0  0  0  0]
- [ 1 24  0  0  3  0  0  0]
+ [ 0 24  0  0  4  0  0  0]
  [ 0  0 29  0  0  0  0  0]
  [ 0  0  0 29  0  0  0  0]
- [ 1  3  0  0 25  0  0  0]
+ [ 2  2  0  0 25  0  0  0]
  [ 0  0  0  0  0 27  0  1]
  [ 0  0  0  0  0  0 29  0]
  [ 2  0  0  0  0  0  0 27]]
@@ -1378,31 +1426,31 @@ BaggingClassifier menggunakan decision tree classifier sebagai base estimator</p
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>🔹 Akurasi Bagging (Decision Tree, SMOTE): 0.9432314410480349
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>🔹 Akurasi Bagging (Decision Tree, SMOTE): 0.9519650655021834
 
 Classification Report:
                precision    recall  f1-score   support
 
-          cp       0.85      1.00      0.92        28
-          im       0.92      0.82      0.87        28
+          cp       0.90      1.00      0.95        28
+          im       0.96      0.86      0.91        28
          imL       1.00      1.00      1.00        29
-         imS       1.00      1.00      1.00        29
-         imU       0.86      0.86      0.86        29
+         imS       0.97      1.00      0.98        29
+         imU       0.90      0.90      0.90        29
           om       0.96      0.96      0.96        28
          omL       1.00      1.00      1.00        29
-          pp       0.96      0.90      0.93        29
+          pp       0.93      0.90      0.91        29
 
-    accuracy                           0.94       229
-   macro avg       0.94      0.94      0.94       229
-weighted avg       0.95      0.94      0.94       229
+    accuracy                           0.95       229
+   macro avg       0.95      0.95      0.95       229
+weighted avg       0.95      0.95      0.95       229
 
 
 Confusion Matrix:
  [[28  0  0  0  0  0  0  0]
- [ 1 23  0  0  4  0  0  0]
+ [ 0 24  0  1  3  0  0  0]
  [ 0  0 29  0  0  0  0  0]
  [ 0  0  0 29  0  0  0  0]
- [ 2  2  0  0 25  0  0  0]
+ [ 1  1  0  0 26  0  0  1]
  [ 0  0  0  0  0 27  0  1]
  [ 0  0  0  0  0  0 29  0]
  [ 2  0  0  0  0  1  0 26]]
