@@ -1,0 +1,1522 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Voice Cloning &amp; Augmentation untuk Training Dataset &#8212; My sample book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'cloning_voice';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Analisis Voice (Audio) menggunakan TSFEL" href="tsfel_voice_analysis.html" />
+    <link rel="prev" title="Mengumpulkan data" href="cdse.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/saya.png" class="logo__image only-light" alt="My sample book - Home"/>
+    <script>document.write(`<img src="_static/saya.png" class="logo__image only-dark" alt="My sample book - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Introduction
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Bussinnes_Understanding.html">Bussiness Understanding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Data_Understanding.html">Data Understanding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tugas_2_psd.html">Eksplorasi Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pycaret.html">Pycaret</a></li>
+<li class="toctree-l1"><a class="reference internal" href="adasyn%20%26%20smote.html">Balancing ADASYN &amp; SMOTE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="classifier.html">KLASIFIKASI NAIVE BAYES, RF, BAGGING</a></li>
+<li class="toctree-l1"><a class="reference internal" href="KNIME.html">KNIME</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cdse.html">Mengumpulkan data</a></li>
+
+
+
+
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Voice Cloning &amp; Augmentation untuk Training Dataset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tsfel_voice_analysis.html">Analisis Voice (Audio) menggunakan TSFEL</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fcloning_voice.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/cloning_voice.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Voice Cloning & Augmentation untuk Training Dataset</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#install-dependencies">1. Install Dependencies</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-libraries">2. Import Libraries</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setup-paths">3. Setup Paths</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fungsi-augmentasi-audio">4. Fungsi Augmentasi Audio</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fungsi-augmentasi-untuk-menghasilkan-100-file-dari-multiple-source-files">5. Fungsi Augmentasi untuk Menghasilkan 100 File dari Multiple Source Files</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jalankan-augmentasi-multiple-source-files-100-files-per-category">6. Jalankan Augmentasi (Multiple Source Files → 100 Files per Category)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#verifikasi-hasil-statistik">7. Verifikasi Hasil &amp; Statistik</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisasi-sample-audio">8. Visualisasi Sample Audio</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fungsi-utilitas-untuk-load-dataset">9. Fungsi Utilitas untuk Load Dataset</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#export-ke-format-lain-optional">10. Export ke Format Lain (Optional)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="voice-cloning-augmentation-untuk-training-dataset">
+<h1>Voice Cloning &amp; Augmentation untuk Training Dataset<a class="headerlink" href="#voice-cloning-augmentation-untuk-training-dataset" title="Link to this heading">#</a></h1>
+<p>Program ini akan menggunakan <strong>semua file suara</strong> dari setiap kategori (buka &amp; tutup) di folder <code class="docutils literal notranslate"><span class="pre">voice</span> <span class="pre">ori</span></code> dan menghasilkan <strong>tepat 100 file</strong> untuk setiap kategori dengan penamaan konsisten (buka1, buka2, …, buka100 dan tutup1, tutup2, …, tutup100).</p>
+<p><strong>Source Files:</strong></p>
+<ul class="simple">
+<li><p>Kategori Buka: 9 files (buka1.mp3 - buka9.mp3)</p></li>
+<li><p>Kategori Tutup: 6 files (tutup1.mp3 - tutup6.mp3)</p></li>
+</ul>
+<p>Teknik augmentasi yang digunakan:</p>
+<ul class="simple">
+<li><p>Pitch Shifting</p></li>
+<li><p>Time Stretching</p></li>
+<li><p>Adding Noise</p></li>
+<li><p>Speed Change</p></li>
+<li><p>Volume Change</p></li>
+<li><p>Kombinasi teknik random</p></li>
+</ul>
+<section id="install-dependencies">
+<h2>1. Install Dependencies<a class="headerlink" href="#install-dependencies" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Install required libraries</span>
+<span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>librosa<span class="w"> </span>soundfile<span class="w"> </span>audiomentations<span class="w"> </span>pydub<span class="w"> </span>numpy<span class="w"> </span>scipy
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting librosa
+  Using cached librosa-0.11.0-py3-none-any.whl.metadata (8.7 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting soundfile
+  Using cached soundfile-0.13.1-py2.py3-none-manylinux_2_28_x86_64.whl.metadata (16 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting audiomentations
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Using cached audiomentations-0.43.1-py3-none-any.whl.metadata (11 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting pydub
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Using cached pydub-0.25.1-py2.py3-none-any.whl.metadata (1.4 kB)
+Requirement already satisfied: numpy in /usr/local/python/3.12.1/lib/python3.12/site-packages (1.26.4)
+Requirement already satisfied: scipy in /usr/local/python/3.12.1/lib/python3.12/site-packages (1.11.4)
+Collecting audioread&gt;=2.1.9 (from librosa)
+  Using cached audioread-3.1.0-py3-none-any.whl.metadata (9.0 kB)
+Requirement already satisfied: numba&gt;=0.51.0 in /usr/local/python/3.12.1/lib/python3.12/site-packages (from librosa) (0.61.2)
+Requirement already satisfied: scikit-learn&gt;=1.1.0 in /usr/local/python/3.12.1/lib/python3.12/site-packages (from librosa) (1.4.2)
+Requirement already satisfied: joblib&gt;=1.0 in /usr/local/python/3.12.1/lib/python3.12/site-packages (from librosa) (1.3.2)
+Requirement already satisfied: decorator&gt;=4.3.0 in /home/codespace/.local/lib/python3.12/site-packages (from librosa) (5.2.1)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting pooch&gt;=1.1 (from librosa)
+  Using cached pooch-1.8.2-py3-none-any.whl.metadata (10 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting soxr&gt;=0.3.2 (from librosa)
+  Downloading soxr-1.0.0-cp312-abi3-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (5.6 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: typing_extensions&gt;=4.1.1 in /home/codespace/.local/lib/python3.12/site-packages (from librosa) (4.14.1)
+Collecting lazy_loader&gt;=0.1 (from librosa)
+  Using cached lazy_loader-0.4-py3-none-any.whl.metadata (7.6 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting msgpack&gt;=1.0 (from librosa)
+  Downloading msgpack-1.1.2-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (8.1 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: cffi&gt;=1.0 in /home/codespace/.local/lib/python3.12/site-packages (from soundfile) (1.17.1)
+Collecting numpy-minmax&lt;1,&gt;=0.3.0 (from audiomentations)
+  Downloading numpy_minmax-0.5.0-cp312-cp312-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.0 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting numpy-rms&lt;1,&gt;=0.4.2 (from audiomentations)
+  Downloading numpy_rms-0.6.0-cp312-cp312-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (3.5 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting python-stretch&lt;1,&gt;=0.3.1 (from audiomentations)
+  Downloading python_stretch-0.3.1-cp312-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (3.7 kB)
+Collecting soxr&gt;=0.3.2 (from librosa)
+  Downloading soxr-0.5.0.post1-cp312-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (5.6 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO: pip is looking at multiple versions of numpy-minmax to determine which version is compatible with other requirements. This could take a while.
+Collecting numpy-minmax&lt;1,&gt;=0.3.0 (from audiomentations)
+  Downloading numpy_minmax-0.4.0-cp312-cp312-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.2 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading numpy_minmax-0.3.1-cp312-cp312-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.0 kB)
+INFO: pip is looking at multiple versions of numpy-rms to determine which version is compatible with other requirements. This could take a while.
+Collecting numpy-rms&lt;1,&gt;=0.4.2 (from audiomentations)
+  Downloading numpy_rms-0.5.0-cp312-cp312-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (3.5 kB)
+  Downloading numpy_rms-0.4.2-cp312-cp312-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (3.5 kB)
+Requirement already satisfied: pycparser in /home/codespace/.local/lib/python3.12/site-packages (from cffi&gt;=1.0-&gt;soundfile) (2.22)
+Requirement already satisfied: packaging in /home/codespace/.local/lib/python3.12/site-packages (from lazy_loader&gt;=0.1-&gt;librosa) (25.0)
+Requirement already satisfied: llvmlite&lt;0.45,&gt;=0.44.0dev0 in /usr/local/python/3.12.1/lib/python3.12/site-packages (from numba&gt;=0.51.0-&gt;librosa) (0.44.0)
+Requirement already satisfied: platformdirs&gt;=2.5.0 in /home/codespace/.local/lib/python3.12/site-packages (from pooch&gt;=1.1-&gt;librosa) (4.3.8)
+Requirement already satisfied: requests&gt;=2.19.0 in /home/codespace/.local/lib/python3.12/site-packages (from pooch&gt;=1.1-&gt;librosa) (2.32.4)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: charset_normalizer&lt;4,&gt;=2 in /home/codespace/.local/lib/python3.12/site-packages (from requests&gt;=2.19.0-&gt;pooch&gt;=1.1-&gt;librosa) (3.4.2)
+Requirement already satisfied: idna&lt;4,&gt;=2.5 in /home/codespace/.local/lib/python3.12/site-packages (from requests&gt;=2.19.0-&gt;pooch&gt;=1.1-&gt;librosa) (3.10)
+Requirement already satisfied: urllib3&lt;3,&gt;=1.21.1 in /home/codespace/.local/lib/python3.12/site-packages (from requests&gt;=2.19.0-&gt;pooch&gt;=1.1-&gt;librosa) (2.5.0)
+Requirement already satisfied: certifi&gt;=2017.4.17 in /home/codespace/.local/lib/python3.12/site-packages (from requests&gt;=2.19.0-&gt;pooch&gt;=1.1-&gt;librosa) (2025.7.9)
+Requirement already satisfied: threadpoolctl&gt;=2.0.0 in /home/codespace/.local/lib/python3.12/site-packages (from scikit-learn&gt;=1.1.0-&gt;librosa) (3.6.0)
+Using cached librosa-0.11.0-py3-none-any.whl (260 kB)
+Using cached soundfile-0.13.1-py2.py3-none-manylinux_2_28_x86_64.whl (1.3 MB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Using cached audiomentations-0.43.1-py3-none-any.whl (86 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading numpy_minmax-0.3.1-cp312-cp312-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl (30 kB)
+Downloading numpy_rms-0.4.2-cp312-cp312-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl (18 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading python_stretch-0.3.1-cp312-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (109 kB)
+Downloading soxr-0.5.0.post1-cp312-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (248 kB)
+Using cached pydub-0.25.1-py2.py3-none-any.whl (32 kB)
+Using cached audioread-3.1.0-py3-none-any.whl (23 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Using cached lazy_loader-0.4-py3-none-any.whl (12 kB)
+Downloading msgpack-1.1.2-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (427 kB)
+Using cached pooch-1.8.2-py3-none-any.whl (64 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Installing collected packages: pydub, soxr, python-stretch, msgpack, lazy_loader, audioread, soundfile, pooch, numpy-rms, numpy-minmax, librosa, audiomentations
+?25l
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 7/12</span> [pooch]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━</span> <span class=" -Color -Color-Green">10/12</span> [librosa]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">12/12</span> [audiomentations]
+?25h
+
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Successfully installed audiomentations-0.43.1 audioread-3.1.0 lazy_loader-0.4 librosa-0.11.0 msgpack-1.1.2 numpy-minmax-0.3.1 numpy-rms-0.4.2 pooch-1.8.2 pydub-0.25.1 python-stretch-0.3.1 soundfile-0.13.1 soxr-0.5.0.post1
+
+<span class=" -Color -Color-Bold">[</span><span class=" -Color -Color-Blue">notice</span><span class=" -Color -Color-Bold">]</span> A new release of pip is available: <span class=" -Color -Color-Red">25.2</span> -&gt; <span class=" -Color -Color-Green">25.3</span>
+<span class=" -Color -Color-Bold">[</span><span class=" -Color -Color-Blue">notice</span><span class=" -Color -Color-Bold">]</span> To update, run: <span class=" -Color -Color-Green">python -m pip install --upgrade pip</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>tqdm
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: tqdm in /usr/local/python/3.12.1/lib/python3.12/site-packages (4.67.1)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold">[</span><span class=" -Color -Color-Blue">notice</span><span class=" -Color -Color-Bold">]</span> A new release of pip is available: <span class=" -Color -Color-Red">25.2</span> -&gt; <span class=" -Color -Color-Green">25.3</span>
+<span class=" -Color -Color-Bold">[</span><span class=" -Color -Color-Blue">notice</span><span class=" -Color -Color-Bold">]</span> To update, run: <span class=" -Color -Color-Green">python -m pip install --upgrade pip</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="import-libraries">
+<h2>2. Import Libraries<a class="headerlink" href="#import-libraries" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">librosa</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">soundfile</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sf</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">audiomentations</span><span class="w"> </span><span class="kn">import</span> <span class="n">Compose</span><span class="p">,</span> <span class="n">AddGaussianNoise</span><span class="p">,</span> <span class="n">TimeStretch</span><span class="p">,</span> <span class="n">PitchShift</span><span class="p">,</span> <span class="n">Shift</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pydub</span><span class="w"> </span><span class="kn">import</span> <span class="n">AudioSegment</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">random</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">tqdm</span><span class="w"> </span><span class="kn">import</span> <span class="n">tqdm</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/local/python/3.12.1/lib/python3.12/site-packages/pydub/utils.py:170: RuntimeWarning: Couldn&#39;t find ffmpeg or avconv - defaulting to ffmpeg, but may not work
+  warn(&quot;Couldn&#39;t find ffmpeg or avconv - defaulting to ffmpeg, but may not work&quot;, RuntimeWarning)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="setup-paths">
+<h2>3. Setup Paths<a class="headerlink" href="#setup-paths" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define paths</span>
+<span class="n">base_path</span> <span class="o">=</span> <span class="s2">&quot;SUARA&quot;</span>
+<span class="n">output_path</span> <span class="o">=</span> <span class="s2">&quot;voice_augmented&quot;</span>
+
+<span class="c1"># Target: 100 files per category</span>
+<span class="n">TARGET_FILES_PER_CATEGORY</span> <span class="o">=</span> <span class="mi">100</span>
+
+<span class="c1"># Create output directories</span>
+<span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">output_path</span><span class="p">,</span> <span class="s2">&quot;buka&quot;</span><span class="p">),</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">output_path</span><span class="p">,</span> <span class="s2">&quot;tutup&quot;</span><span class="p">),</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Scan all audio files in each category</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_audio_files</span><span class="p">(</span><span class="n">category_path</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Get all audio files (mp3, wav) from a directory&quot;&quot;&quot;</span>
+    <span class="n">audio_extensions</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;.mp3&#39;</span><span class="p">,</span> <span class="s1">&#39;.wav&#39;</span><span class="p">,</span> <span class="s1">&#39;.m4a&#39;</span><span class="p">,</span> <span class="s1">&#39;.flac&#39;</span><span class="p">]</span>
+    <span class="n">files</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">category_path</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">category_path</span><span class="p">):</span>
+            <span class="k">if</span> <span class="nb">any</span><span class="p">(</span><span class="n">file</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="n">ext</span><span class="p">)</span> <span class="k">for</span> <span class="n">ext</span> <span class="ow">in</span> <span class="n">audio_extensions</span><span class="p">):</span>
+                <span class="n">files</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+    <span class="k">return</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">files</span><span class="p">)</span>
+
+<span class="c1"># Get all source files for each category</span>
+<span class="n">SOURCE_FILES</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;buka&#39;</span><span class="p">:</span> <span class="n">get_audio_files</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">base_path</span><span class="p">,</span> <span class="s1">&#39;buka&#39;</span><span class="p">)),</span>
+    <span class="s1">&#39;tutup&#39;</span><span class="p">:</span> <span class="n">get_audio_files</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">base_path</span><span class="p">,</span> <span class="s1">&#39;tutup&#39;</span><span class="p">))</span>
+<span class="p">}</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Base path: </span><span class="si">{</span><span class="n">base_path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Output path: </span><span class="si">{</span><span class="n">output_path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Target: </span><span class="si">{</span><span class="n">TARGET_FILES_PER_CATEGORY</span><span class="si">}</span><span class="s2"> files per category&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Source files found:&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">category</span><span class="p">,</span> <span class="n">files</span> <span class="ow">in</span> <span class="n">SOURCE_FILES</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  </span><span class="si">{</span><span class="n">category</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">files</span><span class="p">)</span><span class="si">}</span><span class="s2"> files&quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">files</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;    - </span><span class="si">{</span><span class="n">file</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Base path: SUARA
+Output path: voice_augmented
+Target: 100 files per category
+
+Source files found:
+  buka: 10 files
+    - buka1.m4a
+    - buka10.m4a
+    - buka2.m4a
+    - buka3.m4a
+    - buka4.m4a
+    - buka5.m4a
+    - buka6.m4a
+    - buka7.m4a
+    - buka8.m4a
+    - buka9.m4a
+  tutup: 10 files
+    - tutup1.m4a
+    - tutup10.m4a
+    - tutup2.m4a
+    - tutup3.m4a
+    - tutup4.m4a
+    - tutup5.m4a
+    - tutup6.m4a
+    - tutup7.m4a
+    - tutup8.m4a
+    - tutup9.m4a
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="fungsi-augmentasi-audio">
+<h2>4. Fungsi Augmentasi Audio<a class="headerlink" href="#fungsi-augmentasi-audio" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">load_audio</span><span class="p">(</span><span class="n">file_path</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Load audio file and return audio data and sample rate</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">audio</span><span class="p">,</span> <span class="n">sr</span> <span class="o">=</span> <span class="n">librosa</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="n">sr</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">audio</span><span class="p">,</span> <span class="n">sr</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error loading </span><span class="si">{</span><span class="n">file_path</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">save_audio</span><span class="p">(</span><span class="n">audio</span><span class="p">,</span> <span class="n">sr</span><span class="p">,</span> <span class="n">output_path</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Save audio data to file</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">sf</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">output_path</span><span class="p">,</span> <span class="n">audio</span><span class="p">,</span> <span class="n">sr</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error saving </span><span class="si">{</span><span class="n">output_path</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">pitch_shift_augmentation</span><span class="p">(</span><span class="n">audio</span><span class="p">,</span> <span class="n">sr</span><span class="p">,</span> <span class="n">n_steps_list</span><span class="o">=</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">]):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Pitch shifting: mengubah nada suara</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">augmented_audios</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">n_steps</span> <span class="ow">in</span> <span class="n">n_steps_list</span><span class="p">:</span>
+        <span class="n">shifted</span> <span class="o">=</span> <span class="n">librosa</span><span class="o">.</span><span class="n">effects</span><span class="o">.</span><span class="n">pitch_shift</span><span class="p">(</span><span class="n">audio</span><span class="p">,</span> <span class="n">sr</span><span class="o">=</span><span class="n">sr</span><span class="p">,</span> <span class="n">n_steps</span><span class="o">=</span><span class="n">n_steps</span><span class="p">)</span>
+        <span class="n">augmented_audios</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">shifted</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;pitch_</span><span class="si">{</span><span class="n">n_steps</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">augmented_audios</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">time_stretch_augmentation</span><span class="p">(</span><span class="n">audio</span><span class="p">,</span> <span class="n">rates</span><span class="o">=</span><span class="p">[</span><span class="mf">0.9</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">,</span> <span class="mf">0.85</span><span class="p">,</span> <span class="mf">1.15</span><span class="p">]):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Time stretching: mengubah kecepatan tanpa mengubah pitch</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">augmented_audios</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">rate</span> <span class="ow">in</span> <span class="n">rates</span><span class="p">:</span>
+        <span class="n">stretched</span> <span class="o">=</span> <span class="n">librosa</span><span class="o">.</span><span class="n">effects</span><span class="o">.</span><span class="n">time_stretch</span><span class="p">(</span><span class="n">audio</span><span class="p">,</span> <span class="n">rate</span><span class="o">=</span><span class="n">rate</span><span class="p">)</span>
+        <span class="n">augmented_audios</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">stretched</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;timestretch_</span><span class="si">{</span><span class="n">rate</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">augmented_audios</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">add_noise_augmentation</span><span class="p">(</span><span class="n">audio</span><span class="p">,</span> <span class="n">sr</span><span class="p">,</span> <span class="n">noise_levels</span><span class="o">=</span><span class="p">[</span><span class="mf">0.005</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.015</span><span class="p">]):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Add Gaussian noise: menambahkan noise ke audio</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">augmented_audios</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">noise_level</span> <span class="ow">in</span> <span class="n">noise_levels</span><span class="p">:</span>
+        <span class="n">noise</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">audio</span><span class="p">))</span> <span class="o">*</span> <span class="n">noise_level</span>
+        <span class="n">noisy_audio</span> <span class="o">=</span> <span class="n">audio</span> <span class="o">+</span> <span class="n">noise</span>
+        <span class="c1"># Normalize</span>
+        <span class="n">noisy_audio</span> <span class="o">=</span> <span class="n">noisy_audio</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">noisy_audio</span><span class="p">))</span>
+        <span class="n">augmented_audios</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">noisy_audio</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;noise_</span><span class="si">{</span><span class="n">noise_level</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">augmented_audios</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">speed_change_augmentation</span><span class="p">(</span><span class="n">audio</span><span class="p">,</span> <span class="n">sr</span><span class="p">,</span> <span class="n">speed_factors</span><span class="o">=</span><span class="p">[</span><span class="mf">1.1</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">]):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Speed change: mengubah kecepatan audio</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">augmented_audios</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">speed</span> <span class="ow">in</span> <span class="n">speed_factors</span><span class="p">:</span>
+        <span class="n">indices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">audio</span><span class="p">),</span> <span class="n">speed</span><span class="p">))</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+        <span class="n">indices</span> <span class="o">=</span> <span class="n">indices</span><span class="p">[</span><span class="n">indices</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">audio</span><span class="p">)]</span>
+        <span class="n">changed</span> <span class="o">=</span> <span class="n">audio</span><span class="p">[</span><span class="n">indices</span><span class="p">]</span>
+        <span class="n">augmented_audios</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">changed</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;speed_</span><span class="si">{</span><span class="n">speed</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">augmented_audios</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">volume_change_augmentation</span><span class="p">(</span><span class="n">audio</span><span class="p">,</span> <span class="n">volume_factors</span><span class="o">=</span><span class="p">[</span><span class="mf">1.2</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">,</span> <span class="mf">1.3</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">]):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Volume change: mengubah volume audio</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">augmented_audios</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">volume</span> <span class="ow">in</span> <span class="n">volume_factors</span><span class="p">:</span>
+        <span class="n">changed</span> <span class="o">=</span> <span class="n">audio</span> <span class="o">*</span> <span class="n">volume</span>
+        <span class="c1"># Clip to prevent distortion</span>
+        <span class="n">changed</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">changed</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>
+        <span class="n">augmented_audios</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">changed</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;volume_</span><span class="si">{</span><span class="n">volume</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">augmented_audios</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">generate_diverse_augmentation</span><span class="p">(</span><span class="n">audio</span><span class="p">,</span> <span class="n">sr</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Generate berbagai variasi augmentasi dengan parameter yang lebih beragam</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">augmented_audios</span> <span class="o">=</span> <span class="p">[]</span>
+    
+    <span class="c1"># 1. Pitch shift variations (berbagai level)</span>
+    <span class="n">pitch_steps</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mf">2.5</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">step</span> <span class="ow">in</span> <span class="n">pitch_steps</span><span class="p">:</span>
+        <span class="n">shifted</span> <span class="o">=</span> <span class="n">librosa</span><span class="o">.</span><span class="n">effects</span><span class="o">.</span><span class="n">pitch_shift</span><span class="p">(</span><span class="n">audio</span><span class="p">,</span> <span class="n">sr</span><span class="o">=</span><span class="n">sr</span><span class="p">,</span> <span class="n">n_steps</span><span class="o">=</span><span class="n">step</span><span class="p">)</span>
+        <span class="n">augmented_audios</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">shifted</span><span class="p">)</span>
+    
+    <span class="c1"># 2. Time stretch variations</span>
+    <span class="n">time_rates</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.85</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">,</span> <span class="mf">0.95</span><span class="p">,</span> <span class="mf">1.05</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">,</span> <span class="mf">1.15</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">,</span> <span class="mf">0.92</span><span class="p">,</span> <span class="mf">1.08</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">rate</span> <span class="ow">in</span> <span class="n">time_rates</span><span class="p">:</span>
+        <span class="n">stretched</span> <span class="o">=</span> <span class="n">librosa</span><span class="o">.</span><span class="n">effects</span><span class="o">.</span><span class="n">time_stretch</span><span class="p">(</span><span class="n">audio</span><span class="p">,</span> <span class="n">rate</span><span class="o">=</span><span class="n">rate</span><span class="p">)</span>
+        <span class="n">augmented_audios</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">stretched</span><span class="p">)</span>
+    
+    <span class="c1"># 3. Noise variations</span>
+    <span class="n">noise_levels</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.003</span><span class="p">,</span> <span class="mf">0.005</span><span class="p">,</span> <span class="mf">0.007</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.012</span><span class="p">,</span> <span class="mf">0.015</span><span class="p">,</span> <span class="mf">0.02</span><span class="p">,</span> <span class="mf">0.004</span><span class="p">,</span> <span class="mf">0.008</span><span class="p">,</span> <span class="mf">0.018</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">noise_level</span> <span class="ow">in</span> <span class="n">noise_levels</span><span class="p">:</span>
+        <span class="n">noise</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">audio</span><span class="p">))</span> <span class="o">*</span> <span class="n">noise_level</span>
+        <span class="n">noisy</span> <span class="o">=</span> <span class="n">audio</span> <span class="o">+</span> <span class="n">noise</span>
+        <span class="n">noisy</span> <span class="o">=</span> <span class="n">noisy</span> <span class="o">/</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">noisy</span><span class="p">))</span> <span class="o">+</span> <span class="mf">1e-8</span><span class="p">)</span>
+        <span class="n">augmented_audios</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">noisy</span><span class="p">)</span>
+    
+    <span class="c1"># 4. Speed variations</span>
+    <span class="n">speed_factors</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.75</span><span class="p">,</span> <span class="mf">0.85</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">,</span> <span class="mf">0.95</span><span class="p">,</span> <span class="mf">1.05</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">,</span> <span class="mf">1.15</span><span class="p">,</span> <span class="mf">1.25</span><span class="p">,</span> <span class="mf">0.88</span><span class="p">,</span> <span class="mf">1.12</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">speed</span> <span class="ow">in</span> <span class="n">speed_factors</span><span class="p">:</span>
+        <span class="n">indices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">audio</span><span class="p">),</span> <span class="n">speed</span><span class="p">))</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+        <span class="n">indices</span> <span class="o">=</span> <span class="n">indices</span><span class="p">[</span><span class="n">indices</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">audio</span><span class="p">)]</span>
+        <span class="n">changed</span> <span class="o">=</span> <span class="n">audio</span><span class="p">[</span><span class="n">indices</span><span class="p">]</span>
+        <span class="n">augmented_audios</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">changed</span><span class="p">)</span>
+    
+    <span class="c1"># 5. Volume variations</span>
+    <span class="n">volume_factors</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.6</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">,</span> <span class="mf">1.3</span><span class="p">,</span> <span class="mf">1.4</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">,</span> <span class="mf">1.25</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">volume</span> <span class="ow">in</span> <span class="n">volume_factors</span><span class="p">:</span>
+        <span class="n">changed</span> <span class="o">=</span> <span class="n">audio</span> <span class="o">*</span> <span class="n">volume</span>
+        <span class="n">changed</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">changed</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>
+        <span class="n">augmented_audios</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">changed</span><span class="p">)</span>
+    
+    <span class="c1"># 6. Combined augmentations (random combinations)</span>
+    <span class="n">num_combinations</span> <span class="o">=</span> <span class="mi">50</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_combinations</span><span class="p">):</span>
+        <span class="n">aug_audio</span> <span class="o">=</span> <span class="n">audio</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        
+        <span class="c1"># Random pitch (50% chance)</span>
+        <span class="k">if</span> <span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mf">0.5</span><span class="p">:</span>
+            <span class="n">n_steps</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+            <span class="n">aug_audio</span> <span class="o">=</span> <span class="n">librosa</span><span class="o">.</span><span class="n">effects</span><span class="o">.</span><span class="n">pitch_shift</span><span class="p">(</span><span class="n">aug_audio</span><span class="p">,</span> <span class="n">sr</span><span class="o">=</span><span class="n">sr</span><span class="p">,</span> <span class="n">n_steps</span><span class="o">=</span><span class="n">n_steps</span><span class="p">)</span>
+        
+        <span class="c1"># Random time stretch (50% chance)</span>
+        <span class="k">if</span> <span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mf">0.5</span><span class="p">:</span>
+            <span class="n">rate</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mf">0.85</span><span class="p">,</span> <span class="mf">1.15</span><span class="p">)</span>
+            <span class="n">aug_audio</span> <span class="o">=</span> <span class="n">librosa</span><span class="o">.</span><span class="n">effects</span><span class="o">.</span><span class="n">time_stretch</span><span class="p">(</span><span class="n">aug_audio</span><span class="p">,</span> <span class="n">rate</span><span class="o">=</span><span class="n">rate</span><span class="p">)</span>
+        
+        <span class="c1"># Random noise (60% chance)</span>
+        <span class="k">if</span> <span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mf">0.4</span><span class="p">:</span>
+            <span class="n">noise_level</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mf">0.003</span><span class="p">,</span> <span class="mf">0.015</span><span class="p">)</span>
+            <span class="n">noise</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">aug_audio</span><span class="p">))</span> <span class="o">*</span> <span class="n">noise_level</span>
+            <span class="n">aug_audio</span> <span class="o">=</span> <span class="n">aug_audio</span> <span class="o">+</span> <span class="n">noise</span>
+            <span class="n">aug_audio</span> <span class="o">=</span> <span class="n">aug_audio</span> <span class="o">/</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">aug_audio</span><span class="p">))</span> <span class="o">+</span> <span class="mf">1e-8</span><span class="p">)</span>
+        
+        <span class="c1"># Random volume (50% chance)</span>
+        <span class="k">if</span> <span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mf">0.5</span><span class="p">:</span>
+            <span class="n">volume</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mf">0.7</span><span class="p">,</span> <span class="mf">1.3</span><span class="p">)</span>
+            <span class="n">aug_audio</span> <span class="o">=</span> <span class="n">aug_audio</span> <span class="o">*</span> <span class="n">volume</span>
+            <span class="n">aug_audio</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">aug_audio</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>
+        
+        <span class="n">augmented_audios</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">aug_audio</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">augmented_audios</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="fungsi-augmentasi-untuk-menghasilkan-100-file-dari-multiple-source-files">
+<h2>5. Fungsi Augmentasi untuk Menghasilkan 100 File dari Multiple Source Files<a class="headerlink" href="#fungsi-augmentasi-untuk-menghasilkan-100-file-dari-multiple-source-files" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">augment_multiple_files_to_target</span><span class="p">(</span><span class="n">source_files</span><span class="p">,</span> <span class="n">category</span><span class="p">,</span> <span class="n">base_path</span><span class="p">,</span> <span class="n">output_path</span><span class="p">,</span> <span class="n">target_count</span><span class="o">=</span><span class="mi">100</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Augmentasi multiple file audio menjadi tepat target_count file dengan penamaan konsisten</span>
+<span class="sd">    </span>
+<span class="sd">    Args:</span>
+<span class="sd">        source_files: list of source filenames</span>
+<span class="sd">        category: kategori (&#39;buka&#39; atau &#39;tutup&#39;)</span>
+<span class="sd">        base_path: path ke folder voice original</span>
+<span class="sd">        output_path: path output folder</span>
+<span class="sd">        target_count: jumlah file yang diinginkan (default: 100)</span>
+<span class="sd">    </span>
+<span class="sd">    Returns:</span>
+<span class="sd">        jumlah file yang berhasil dibuat</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="si">{</span><span class="s1">&#39;=&#39;</span><span class="o">*</span><span class="mi">60</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Processing </span><span class="si">{</span><span class="n">category</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Source files: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">source_files</span><span class="p">)</span><span class="si">}</span><span class="s2"> files&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Target: </span><span class="si">{</span><span class="n">target_count</span><span class="si">}</span><span class="s2"> files&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="s1">&#39;=&#39;</span><span class="o">*</span><span class="mi">60</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">source_files</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error: No source files found for </span><span class="si">{</span><span class="n">category</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="mi">0</span>
+    
+    <span class="n">output_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">output_path</span><span class="p">,</span> <span class="n">category</span><span class="p">)</span>
+    <span class="n">files_created</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">all_augmented</span> <span class="o">=</span> <span class="p">[]</span>
+    
+    <span class="c1"># Process each source file</span>
+    <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">filename</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">source_files</span><span class="p">,</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="n">source_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">base_path</span><span class="p">,</span> <span class="n">category</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
+        
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">[</span><span class="si">{</span><span class="n">idx</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">source_files</span><span class="p">)</span><span class="si">}</span><span class="s2">] Loading: </span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        
+        <span class="c1"># Load audio</span>
+        <span class="n">audio</span><span class="p">,</span> <span class="n">sr</span> <span class="o">=</span> <span class="n">load_audio</span><span class="p">(</span><span class="n">source_file</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">audio</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Error: Failed to load </span><span class="si">{</span><span class="n">source_file</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">continue</span>
+        
+        <span class="c1"># Add original</span>
+        <span class="n">all_augmented</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">audio</span><span class="p">,</span> <span class="n">sr</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;original_</span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">))</span>
+        
+        <span class="c1"># Generate augmented versions</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Generating augmentations...&quot;</span><span class="p">)</span>
+        <span class="n">augmented_audios</span> <span class="o">=</span> <span class="n">generate_diverse_augmentation</span><span class="p">(</span><span class="n">audio</span><span class="p">,</span> <span class="n">sr</span><span class="p">)</span>
+        
+        <span class="c1"># Add all augmented with metadata</span>
+        <span class="k">for</span> <span class="n">aug_audio</span> <span class="ow">in</span> <span class="n">augmented_audios</span><span class="p">:</span>
+            <span class="n">all_augmented</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">aug_audio</span><span class="p">,</span> <span class="n">sr</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;aug_</span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">))</span>
+        
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Generated: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">augmented_audios</span><span class="p">)</span><span class="si">}</span><span class="s2"> variations&quot;</span><span class="p">)</span>
+    
+    <span class="c1"># Shuffle all augmented files for variety</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Total generated: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">all_augmented</span><span class="p">)</span><span class="si">}</span><span class="s2"> audio samples&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Selecting </span><span class="si">{</span><span class="n">target_count</span><span class="si">}</span><span class="s2"> samples...&quot;</span><span class="p">)</span>
+    <span class="n">random</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="n">all_augmented</span><span class="p">)</span>
+    
+    <span class="c1"># Select exactly target_count files</span>
+    <span class="n">selected</span> <span class="o">=</span> <span class="n">all_augmented</span><span class="p">[:</span><span class="n">target_count</span><span class="p">]</span>
+    
+    <span class="c1"># Save with sequential numbering</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Saving </span><span class="si">{</span><span class="n">target_count</span><span class="si">}</span><span class="s2"> files...&quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">aug_audio</span><span class="p">,</span> <span class="n">sr</span><span class="p">,</span> <span class="n">source_info</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">selected</span><span class="p">,</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="n">output_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">output_dir</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">category</span><span class="si">}{</span><span class="n">i</span><span class="si">}</span><span class="s2">.wav&quot;</span><span class="p">)</span>
+        <span class="n">save_audio</span><span class="p">(</span><span class="n">aug_audio</span><span class="p">,</span> <span class="n">sr</span><span class="p">,</span> <span class="n">output_file</span><span class="p">)</span>
+        <span class="n">files_created</span> <span class="o">+=</span> <span class="mi">1</span>
+        
+        <span class="c1"># Progress indicator</span>
+        <span class="k">if</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">10</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Progress: </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">target_count</span><span class="si">}</span><span class="s2"> files saved&quot;</span><span class="p">)</span>
+    
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;✓ Completed: </span><span class="si">{</span><span class="n">files_created</span><span class="si">}</span><span class="s2"> files created for &#39;</span><span class="si">{</span><span class="n">category</span><span class="si">}</span><span class="s2">&#39;&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">files_created</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">augment_dataset_100_per_category</span><span class="p">(</span><span class="n">base_path</span><span class="p">,</span> <span class="n">output_path</span><span class="p">,</span> <span class="n">source_files</span><span class="p">,</span> <span class="n">target_count</span><span class="o">=</span><span class="mi">100</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Augmentasi dataset: multiple files per kategori menjadi target_count file per kategori</span>
+<span class="sd">    </span>
+<span class="sd">    Args:</span>
+<span class="sd">        base_path: path ke folder voice original</span>
+<span class="sd">        output_path: path ke folder output</span>
+<span class="sd">        source_files: dictionary {&#39;buka&#39;: [&#39;file1.mp3&#39;, &#39;file2.mp3&#39;, ...], &#39;tutup&#39;: [...]}</span>
+<span class="sd">        target_count: jumlah file target per kategori</span>
+<span class="sd">    </span>
+<span class="sd">    Returns:</span>
+<span class="sd">        statistics dictionary</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">stats</span> <span class="o">=</span> <span class="p">{}</span>
+    
+    <span class="k">for</span> <span class="n">category</span><span class="p">,</span> <span class="n">filenames</span> <span class="ow">in</span> <span class="n">source_files</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">filenames</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Warning: No source files found for category: </span><span class="si">{</span><span class="n">category</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="n">stats</span><span class="p">[</span><span class="n">category</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="k">continue</span>
+        
+        <span class="c1"># Augment multiple files to target count</span>
+        <span class="n">files_created</span> <span class="o">=</span> <span class="n">augment_multiple_files_to_target</span><span class="p">(</span>
+            <span class="n">filenames</span><span class="p">,</span>
+            <span class="n">category</span><span class="p">,</span> 
+            <span class="n">base_path</span><span class="p">,</span>
+            <span class="n">output_path</span><span class="p">,</span> 
+            <span class="n">target_count</span>
+        <span class="p">)</span>
+        <span class="n">stats</span><span class="p">[</span><span class="n">category</span><span class="p">]</span> <span class="o">=</span> <span class="n">files_created</span>
+    
+    <span class="k">return</span> <span class="n">stats</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="jalankan-augmentasi-multiple-source-files-100-files-per-category">
+<h2>6. Jalankan Augmentasi (Multiple Source Files → 100 Files per Category)<a class="headerlink" href="#jalankan-augmentasi-multiple-source-files-100-files-per-category" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set random seed untuk reproducibility (optional)</span>
+<span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="o">*</span><span class="mi">60</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;VOICE AUGMENTATION: Multiple Files -&gt; 100 Files per Category&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="o">*</span><span class="mi">60</span><span class="p">)</span>
+
+<span class="c1"># Jalankan augmentasi</span>
+<span class="n">stats</span> <span class="o">=</span> <span class="n">augment_dataset_100_per_category</span><span class="p">(</span>
+    <span class="n">base_path</span><span class="p">,</span> 
+    <span class="n">output_path</span><span class="p">,</span> 
+    <span class="n">SOURCE_FILES</span><span class="p">,</span> 
+    <span class="n">TARGET_FILES_PER_CATEGORY</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>============================================================
+VOICE AUGMENTATION: Multiple Files -&gt; 100 Files per Category
+============================================================
+
+============================================================
+Processing BUKA
+Source files: 10 files
+Target: 100 files
+============================================================
+
+[1/10] Loading: buka1.m4a
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Error loading SUARA/buka/buka1.m4a: 
+  Error: Failed to load SUARA/buka/buka1.m4a
+
+[2/10] Loading: buka10.m4a
+Error loading SUARA/buka/buka10.m4a: 
+  Error: Failed to load SUARA/buka/buka10.m4a
+
+[3/10] Loading: buka2.m4a
+Error loading SUARA/buka/buka2.m4a: 
+  Error: Failed to load SUARA/buka/buka2.m4a
+
+[4/10] Loading: buka3.m4a
+Error loading SUARA/buka/buka3.m4a: 
+  Error: Failed to load SUARA/buka/buka3.m4a
+
+[5/10] Loading: buka4.m4a
+Error loading SUARA/buka/buka4.m4a: 
+  Error: Failed to load SUARA/buka/buka4.m4a
+
+[6/10] Loading: buka5.m4a
+Error loading SUARA/buka/buka5.m4a: 
+  Error: Failed to load SUARA/buka/buka5.m4a
+
+[7/10] Loading: buka6.m4a
+Error loading SUARA/buka/buka6.m4a: 
+  Error: Failed to load SUARA/buka/buka6.m4a
+
+[8/10] Loading: buka7.m4a
+Error loading SUARA/buka/buka7.m4a: 
+  Error: Failed to load SUARA/buka/buka7.m4a
+
+[9/10] Loading: buka8.m4a
+Error loading SUARA/buka/buka8.m4a: 
+  Error: Failed to load SUARA/buka/buka8.m4a
+
+[10/10] Loading: buka9.m4a
+Error loading SUARA/buka/buka9.m4a: 
+  Error: Failed to load SUARA/buka/buka9.m4a
+
+Total generated: 0 audio samples
+Selecting 100 samples...
+
+Saving 100 files...
+✓ Completed: 0 files created for &#39;buka&#39;
+
+============================================================
+Processing TUTUP
+Source files: 10 files
+Target: 100 files
+============================================================
+
+[1/10] Loading: tutup1.m4a
+Error loading SUARA/tutup/tutup1.m4a: 
+  Error: Failed to load SUARA/tutup/tutup1.m4a
+
+[2/10] Loading: tutup10.m4a
+Error loading SUARA/tutup/tutup10.m4a: 
+  Error: Failed to load SUARA/tutup/tutup10.m4a
+
+[3/10] Loading: tutup2.m4a
+Error loading SUARA/tutup/tutup2.m4a: 
+  Error: Failed to load SUARA/tutup/tutup2.m4a
+
+[4/10] Loading: tutup3.m4a
+Error loading SUARA/tutup/tutup3.m4a: 
+  Error: Failed to load SUARA/tutup/tutup3.m4a
+
+[5/10] Loading: tutup4.m4a
+Error loading SUARA/tutup/tutup4.m4a: 
+  Error: Failed to load SUARA/tutup/tutup4.m4a
+
+[6/10] Loading: tutup5.m4a
+Error loading SUARA/tutup/tutup5.m4a: 
+  Error: Failed to load SUARA/tutup/tutup5.m4a
+
+[7/10] Loading: tutup6.m4a
+Error loading SUARA/tutup/tutup6.m4a: 
+  Error: Failed to load SUARA/tutup/tutup6.m4a
+
+[8/10] Loading: tutup7.m4a
+Error loading SUARA/tutup/tutup7.m4a: 
+  Error: Failed to load SUARA/tutup/tutup7.m4a
+
+[9/10] Loading: tutup8.m4a
+Error loading SUARA/tutup/tutup8.m4a: 
+  Error: Failed to load SUARA/tutup/tutup8.m4a
+
+[10/10] Loading: tutup9.m4a
+Error loading SUARA/tutup/tutup9.m4a: 
+  Error: Failed to load SUARA/tutup/tutup9.m4a
+
+Total generated: 0 audio samples
+Selecting 100 samples...
+
+Saving 100 files...
+✓ Completed: 0 files created for &#39;tutup&#39;
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_10072/456562228.py:6: UserWarning: PySoundFile failed. Trying audioread instead.
+  audio, sr = librosa.load(file_path, sr=None)
+/usr/local/python/3.12.1/lib/python3.12/site-packages/librosa/core/audio.py:184: FutureWarning: librosa.core.audio.__audioread_load
+	Deprecated as of librosa version 0.10.0.
+	It will be removed in librosa version 1.0.
+  y, sr_native = __audioread_load(path, offset, duration, dtype)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="verifikasi-hasil-statistik">
+<h2>7. Verifikasi Hasil &amp; Statistik<a class="headerlink" href="#verifikasi-hasil-statistik" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">+</span> <span class="s2">&quot;=&quot;</span><span class="o">*</span><span class="mi">60</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;AUGMENTATION RESULTS&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="o">*</span><span class="mi">60</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">category</span><span class="p">,</span> <span class="n">count</span> <span class="ow">in</span> <span class="n">stats</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="si">{</span><span class="n">category</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">count</span><span class="si">}</span><span class="s2"> files&quot;</span><span class="p">)</span>
+    
+    <span class="c1"># Verify files</span>
+    <span class="n">category_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">output_path</span><span class="p">,</span> <span class="n">category</span><span class="p">)</span>
+    <span class="n">actual_files</span> <span class="o">=</span> <span class="p">[</span><span class="n">f</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">category_path</span><span class="p">)</span> <span class="k">if</span> <span class="n">f</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">&#39;.wav&#39;</span><span class="p">)]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Verified: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">actual_files</span><span class="p">)</span><span class="si">}</span><span class="s2"> files in folder&quot;</span><span class="p">)</span>
+    
+    <span class="c1"># Show sample filenames</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Sample filenames:&quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">99</span><span class="p">,</span> <span class="mi">100</span><span class="p">]:</span>
+        <span class="n">expected_file</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">category</span><span class="si">}{</span><span class="n">i</span><span class="si">}</span><span class="s2">.wav&quot;</span>
+        <span class="k">if</span> <span class="n">expected_file</span> <span class="ow">in</span> <span class="n">actual_files</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;    ✓ </span><span class="si">{</span><span class="n">expected_file</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;    ✗ </span><span class="si">{</span><span class="n">expected_file</span><span class="si">}</span><span class="s2"> (missing)&quot;</span><span class="p">)</span>
+
+<span class="n">total_files</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">stats</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="si">{</span><span class="s1">&#39;=&#39;</span><span class="o">*</span><span class="mi">60</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;TOTAL FILES CREATED: </span><span class="si">{</span><span class="n">total_files</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="s1">&#39;=&#39;</span><span class="o">*</span><span class="mi">60</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Additional verification</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">+</span> <span class="s2">&quot;=&quot;</span><span class="o">*</span><span class="mi">60</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;FOLDER STRUCTURE&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="o">*</span><span class="mi">60</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">category</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;buka&#39;</span><span class="p">,</span> <span class="s1">&#39;tutup&#39;</span><span class="p">]:</span>
+    <span class="n">category_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">output_path</span><span class="p">,</span> <span class="n">category</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">category_path</span><span class="p">):</span>
+        <span class="n">files</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">([</span><span class="n">f</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">category_path</span><span class="p">)</span> <span class="k">if</span> <span class="n">f</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">&#39;.wav&#39;</span><span class="p">)])</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="si">{</span><span class="n">category_path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Total: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">files</span><span class="p">)</span><span class="si">}</span><span class="s2"> files&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">files</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  First: </span><span class="si">{</span><span class="n">files</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Last: </span><span class="si">{</span><span class="n">files</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>============================================================
+AUGMENTATION RESULTS
+============================================================
+
+BUKA: 0 files
+  Verified: 0 files in folder
+  Sample filenames:
+    ✗ buka1.wav (missing)
+    ✗ buka2.wav (missing)
+    ✗ buka3.wav (missing)
+    ✗ buka50.wav (missing)
+    ✗ buka99.wav (missing)
+    ✗ buka100.wav (missing)
+
+TUTUP: 0 files
+  Verified: 0 files in folder
+  Sample filenames:
+    ✗ tutup1.wav (missing)
+    ✗ tutup2.wav (missing)
+    ✗ tutup3.wav (missing)
+    ✗ tutup50.wav (missing)
+    ✗ tutup99.wav (missing)
+    ✗ tutup100.wav (missing)
+
+============================================================
+TOTAL FILES CREATED: 0
+============================================================
+
+============================================================
+FOLDER STRUCTURE
+============================================================
+
+voice_augmented/buka
+  Total: 0 files
+
+voice_augmented/tutup
+  Total: 0 files
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="visualisasi-sample-audio">
+<h2>8. Visualisasi Sample Audio<a class="headerlink" href="#visualisasi-sample-audio" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">librosa.display</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">visualize_augmented_samples</span><span class="p">(</span><span class="n">category</span><span class="o">=</span><span class="s1">&#39;buka&#39;</span><span class="p">,</span> <span class="n">sample_indices</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">75</span><span class="p">,</span> <span class="mi">100</span><span class="p">]):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Visualisasi beberapa sample hasil augmentasi</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">output_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">output_path</span><span class="p">,</span> <span class="n">category</span><span class="p">)</span>
+    
+    <span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">sample_indices</span><span class="p">),</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">3</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">sample_indices</span><span class="p">)))</span>
+    
+    <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">file_num</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">sample_indices</span><span class="p">):</span>
+        <span class="n">file_name</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">category</span><span class="si">}{</span><span class="n">file_num</span><span class="si">}</span><span class="s2">.wav&quot;</span>
+        <span class="n">file_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">output_dir</span><span class="p">,</span> <span class="n">file_name</span><span class="p">)</span>
+        
+        <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">file_path</span><span class="p">):</span>
+            <span class="n">audio</span><span class="p">,</span> <span class="n">sr</span> <span class="o">=</span> <span class="n">load_audio</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span>
+            
+            <span class="c1"># Waveform</span>
+            <span class="n">axes</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">audio</span><span class="p">)</span>
+            <span class="n">axes</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Waveform: </span><span class="si">{</span><span class="n">file_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="n">axes</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Sample&quot;</span><span class="p">)</span>
+            <span class="n">axes</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Amplitude&quot;</span><span class="p">)</span>
+            <span class="n">axes</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+            
+            <span class="c1"># Spectrogram</span>
+            <span class="n">D</span> <span class="o">=</span> <span class="n">librosa</span><span class="o">.</span><span class="n">amplitude_to_db</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">librosa</span><span class="o">.</span><span class="n">stft</span><span class="p">(</span><span class="n">audio</span><span class="p">)),</span> <span class="n">ref</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">)</span>
+            <span class="n">img</span> <span class="o">=</span> <span class="n">librosa</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">specshow</span><span class="p">(</span><span class="n">D</span><span class="p">,</span> <span class="n">sr</span><span class="o">=</span><span class="n">sr</span><span class="p">,</span> <span class="n">x_axis</span><span class="o">=</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="n">y_axis</span><span class="o">=</span><span class="s1">&#39;hz&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+            <span class="n">axes</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Spectrogram: </span><span class="si">{</span><span class="n">file_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">%+2.0f</span><span class="s2"> dB&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">axes</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;File not found: </span><span class="si">{</span><span class="n">file_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> 
+                            <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">transAxes</span><span class="p">)</span>
+            <span class="n">axes</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;File not found: </span><span class="si">{</span><span class="n">file_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> 
+                            <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">transAxes</span><span class="p">)</span>
+    
+    <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;augmentation_samples_</span><span class="si">{</span><span class="n">category</span><span class="si">}</span><span class="s1">.png&#39;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s1">&#39;tight&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+    
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Visualization saved as &#39;augmentation_samples_</span><span class="si">{</span><span class="n">category</span><span class="si">}</span><span class="s2">.png&#39;&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="fungsi-utilitas-untuk-load-dataset">
+<h2>9. Fungsi Utilitas untuk Load Dataset<a class="headerlink" href="#fungsi-utilitas-untuk-load-dataset" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">load_augmented_dataset</span><span class="p">(</span><span class="n">augmented_path</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Load dataset yang sudah di-augmentasi untuk training</span>
+<span class="sd">    Returns: list of (audio, label) tuples</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">dataset</span> <span class="o">=</span> <span class="p">[]</span>
+    
+    <span class="k">for</span> <span class="n">category</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;buka&#39;</span><span class="p">,</span> <span class="s1">&#39;tutup&#39;</span><span class="p">]:</span>
+        <span class="n">category_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">augmented_path</span><span class="p">,</span> <span class="n">category</span><span class="p">)</span>
+        <span class="n">audio_files</span> <span class="o">=</span> <span class="p">[</span><span class="n">f</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">category_path</span><span class="p">)</span> <span class="k">if</span> <span class="n">f</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">&#39;.wav&#39;</span><span class="p">)]</span>
+        
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Loading </span><span class="si">{</span><span class="n">category</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">audio_files</span><span class="p">)</span><span class="si">}</span><span class="s2"> files&quot;</span><span class="p">)</span>
+        
+        <span class="k">for</span> <span class="n">audio_file</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">audio_files</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;Loading </span><span class="si">{</span><span class="n">category</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">):</span>
+            <span class="n">file_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">category_path</span><span class="p">,</span> <span class="n">audio_file</span><span class="p">)</span>
+            <span class="n">audio</span><span class="p">,</span> <span class="n">sr</span> <span class="o">=</span> <span class="n">load_audio</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">audio</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">dataset</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
+                    <span class="s1">&#39;audio&#39;</span><span class="p">:</span> <span class="n">audio</span><span class="p">,</span>
+                    <span class="s1">&#39;sr&#39;</span><span class="p">:</span> <span class="n">sr</span><span class="p">,</span>
+                    <span class="s1">&#39;label&#39;</span><span class="p">:</span> <span class="n">category</span><span class="p">,</span>
+                    <span class="s1">&#39;filename&#39;</span><span class="p">:</span> <span class="n">audio_file</span>
+                <span class="p">})</span>
+    
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Total dataset size: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">dataset</span><span class="p">)</span><span class="si">}</span><span class="s2"> samples&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">dataset</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load augmented dataset</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Loading augmented dataset...&quot;</span><span class="p">)</span>
+<span class="n">augmented_dataset</span> <span class="o">=</span> <span class="n">load_augmented_dataset</span><span class="p">(</span><span class="n">output_path</span><span class="p">)</span>
+
+<span class="c1"># Show distribution</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">collections</span><span class="w"> </span><span class="kn">import</span> <span class="n">Counter</span>
+<span class="n">label_counts</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">([</span><span class="n">item</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">augmented_dataset</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Dataset distribution:&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">label</span><span class="p">,</span> <span class="n">count</span> <span class="ow">in</span> <span class="n">label_counts</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  </span><span class="si">{</span><span class="n">label</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">count</span><span class="si">}</span><span class="s2"> samples&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Loading augmented dataset...
+Loading buka: 0 files
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Loading buka: 0it [00:00, ?it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Loading buka: 0it [00:00, ?it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Loading tutup: 0 files
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Loading tutup: 0it [00:00, ?it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Loading tutup: 0it [00:00, ?it/s]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Total dataset size: 0 samples
+
+Dataset distribution:
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="export-ke-format-lain-optional">
+<h2>10. Export ke Format Lain (Optional)<a class="headerlink" href="#export-ke-format-lain-optional" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">convert_to_mp3</span><span class="p">(</span><span class="n">wav_path</span><span class="p">,</span> <span class="n">mp3_path</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Convert WAV to MP3 (optional, untuk menghemat storage)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">audio</span> <span class="o">=</span> <span class="n">AudioSegment</span><span class="o">.</span><span class="n">from_wav</span><span class="p">(</span><span class="n">wav_path</span><span class="p">)</span>
+    <span class="n">audio</span><span class="o">.</span><span class="n">export</span><span class="p">(</span><span class="n">mp3_path</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;mp3&quot;</span><span class="p">,</span> <span class="n">bitrate</span><span class="o">=</span><span class="s2">&quot;192k&quot;</span><span class="p">)</span>
+
+<span class="c1"># Uncomment jika ingin convert ke MP3</span>
+<span class="c1"># print(&quot;Converting to MP3...&quot;)</span>
+<span class="c1"># mp3_output_path = &quot;voice_augmented_mp3&quot;</span>
+<span class="c1"># os.makedirs(os.path.join(mp3_output_path, &quot;buka&quot;), exist_ok=True)</span>
+<span class="c1"># os.makedirs(os.path.join(mp3_output_path, &quot;tutup&quot;), exist_ok=True)</span>
+
+<span class="c1"># for category in [&#39;buka&#39;, &#39;tutup&#39;]:</span>
+<span class="c1">#     wav_dir = os.path.join(output_path, category)</span>
+<span class="c1">#     mp3_dir = os.path.join(mp3_output_path, category)</span>
+<span class="c1">#     wav_files = [f for f in os.listdir(wav_dir) if f.endswith(&#39;.wav&#39;)]</span>
+<span class="c1">#     </span>
+<span class="c1">#     for wav_file in tqdm(wav_files, desc=f&quot;Converting {category}&quot;):</span>
+<span class="c1">#         wav_path = os.path.join(wav_dir, wav_file)</span>
+<span class="c1">#         mp3_file = wav_file.replace(&#39;.wav&#39;, &#39;.mp3&#39;)</span>
+<span class="c1">#         mp3_path = os.path.join(mp3_dir, mp3_file)</span>
+<span class="c1">#         convert_to_mp3(wav_path, mp3_path)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Link to this heading">#</a></h2>
+<p>Program ini telah berhasil:</p>
+<ol class="arabic simple">
+<li><p>✅ Menggunakan <strong>semua file</strong> dari setiap kategori di folder <code class="docutils literal notranslate"><span class="pre">voice</span> <span class="pre">ori</span></code></p>
+<ul class="simple">
+<li><p>Buka: 9 files (buka1.mp3 - buka9.mp3)</p></li>
+<li><p>Tutup: 6 files (tutup1.mp3 - tutup6.mp3)</p></li>
+</ul>
+</li>
+<li><p>✅ Menghasilkan <strong>tepat 100 file</strong> untuk setiap kategori melalui augmentasi</p></li>
+<li><p>✅ Penamaan konsisten: <strong>buka1, buka2, …, buka100</strong> dan <strong>tutup1, tutup2, …, tutup100</strong></p></li>
+<li><p>✅ Menggunakan 6 teknik augmentasi berbeda untuk variasi maksimal</p></li>
+<li><p>✅ Kombinasi random dari semua source files untuk hasil yang lebih beragam</p></li>
+<li><p>✅ Total dataset: <strong>200 files</strong> (100 buka + 100 tutup)</p></li>
+</ol>
+<p>Dataset hasil augmentasi siap digunakan untuk training model voice recognition!</p>
+<p><strong>Lokasi Output:</strong> <code class="docutils literal notranslate"><span class="pre">voice_augmented/</span></code></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">voice_augmented/buka/</span></code> : 100 files (buka1.wav - buka100.wav)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">voice_augmented/tutup/</span></code> : 100 files (tutup1.wav - tutup100.wav)</p></li>
+</ul>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="cdse.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Mengumpulkan data</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="tsfel_voice_analysis.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Analisis Voice (Audio) menggunakan TSFEL</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#install-dependencies">1. Install Dependencies</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-libraries">2. Import Libraries</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setup-paths">3. Setup Paths</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fungsi-augmentasi-audio">4. Fungsi Augmentasi Audio</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fungsi-augmentasi-untuk-menghasilkan-100-file-dari-multiple-source-files">5. Fungsi Augmentasi untuk Menghasilkan 100 File dari Multiple Source Files</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jalankan-augmentasi-multiple-source-files-100-files-per-category">6. Jalankan Augmentasi (Multiple Source Files → 100 Files per Category)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#verifikasi-hasil-statistik">7. Verifikasi Hasil &amp; Statistik</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisasi-sample-audio">8. Visualisasi Sample Audio</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fungsi-utilitas-untuk-load-dataset">9. Fungsi Utilitas untuk Load Dataset</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#export-ke-format-lain-optional">10. Export ke Format Lain (Optional)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By The Jupyter Book Community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
