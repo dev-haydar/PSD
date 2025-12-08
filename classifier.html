@@ -192,6 +192,9 @@
 
 
 
+<li class="toctree-l1"><a class="reference internal" href="cloning_voice.html">Voice Cloning &amp; Augmentation untuk Training Dataset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tsfel_voice_analysis.html">Analisis Voice (Audio) menggunakan TSFEL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Prediksi_NO2.html">Prediksi NO2</a></li>
 </ul>
 
     </div>
@@ -435,21 +438,15 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: pymysql in /usr/local/python/3.12.1/lib/python3.12/site-packages (1.1.2)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Note: you may need to restart the kernel to use updated packages.
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: imbalanced-learn in /usr/local/python/3.12.1/lib/python3.12/site-packages (0.14.0)
-Requirement already satisfied: numpy&lt;3,&gt;=1.25.2 in /usr/local/python/3.12.1/lib/python3.12/site-packages (from imbalanced-learn) (1.26.4)
-Requirement already satisfied: scipy&lt;2,&gt;=1.11.4 in /usr/local/python/3.12.1/lib/python3.12/site-packages (from imbalanced-learn) (1.11.4)
-Requirement already satisfied: scikit-learn&lt;2,&gt;=1.4.2 in /usr/local/python/3.12.1/lib/python3.12/site-packages (from imbalanced-learn) (1.4.2)
-Requirement already satisfied: joblib&lt;2,&gt;=1.2.0 in /usr/local/python/3.12.1/lib/python3.12/site-packages (from imbalanced-learn) (1.3.2)
-Requirement already satisfied: threadpoolctl&lt;4,&gt;=2.0.0 in /home/codespace/.local/lib/python3.12/site-packages (from imbalanced-learn) (3.6.0)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Note: you may need to restart the kernel to use updated packages.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: pymysql in /workspaces/PSD/.venv/lib/python3.11/site-packages (1.1.2)
+Note: you may need to restart the kernel to use updated packages.
+Requirement already satisfied: imbalanced-learn in /workspaces/PSD/.venv/lib/python3.11/site-packages (0.14.0)
+Requirement already satisfied: numpy&lt;3,&gt;=1.25.2 in /workspaces/PSD/.venv/lib/python3.11/site-packages (from imbalanced-learn) (1.26.4)
+Requirement already satisfied: scipy&lt;2,&gt;=1.11.4 in /workspaces/PSD/.venv/lib/python3.11/site-packages (from imbalanced-learn) (1.11.4)
+Requirement already satisfied: scikit-learn&lt;2,&gt;=1.4.2 in /workspaces/PSD/.venv/lib/python3.11/site-packages (from imbalanced-learn) (1.4.2)
+Requirement already satisfied: joblib&lt;2,&gt;=1.2.0 in /workspaces/PSD/.venv/lib/python3.11/site-packages (from imbalanced-learn) (1.3.2)
+Requirement already satisfied: threadpoolctl&lt;4,&gt;=2.0.0 in /workspaces/PSD/.venv/lib/python3.11/site-packages (from imbalanced-learn) (3.6.0)
+Note: you may need to restart the kernel to use updated packages.
 </pre></div>
 </div>
 </div>
@@ -696,11 +693,11 @@ Confusion Matrix:
  [ 0  0  0  0  0  0  0 16]]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/local/python/3.12.1/lib/python3.12/site-packages/sklearn/metrics/_classification.py:1509: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/workspaces/PSD/.venv/lib/python3.11/site-packages/sklearn/metrics/_classification.py:1509: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
   _warn_prf(average, modifier, f&quot;{metric.capitalize()} is&quot;, len(result))
-/usr/local/python/3.12.1/lib/python3.12/site-packages/sklearn/metrics/_classification.py:1509: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+/workspaces/PSD/.venv/lib/python3.11/site-packages/sklearn/metrics/_classification.py:1509: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
   _warn_prf(average, modifier, f&quot;{metric.capitalize()} is&quot;, len(result))
-/usr/local/python/3.12.1/lib/python3.12/site-packages/sklearn/metrics/_classification.py:1509: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+/workspaces/PSD/.venv/lib/python3.11/site-packages/sklearn/metrics/_classification.py:1509: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
   _warn_prf(average, modifier, f&quot;{metric.capitalize()} is&quot;, len(result))
 </pre></div>
 </div>
@@ -768,11 +765,11 @@ Confusion Matrix:
  [ 2  1  0  0  1  0  0 12]]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/local/python/3.12.1/lib/python3.12/site-packages/sklearn/metrics/_classification.py:1509: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/workspaces/PSD/.venv/lib/python3.11/site-packages/sklearn/metrics/_classification.py:1509: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
   _warn_prf(average, modifier, f&quot;{metric.capitalize()} is&quot;, len(result))
-/usr/local/python/3.12.1/lib/python3.12/site-packages/sklearn/metrics/_classification.py:1509: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+/workspaces/PSD/.venv/lib/python3.11/site-packages/sklearn/metrics/_classification.py:1509: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
   _warn_prf(average, modifier, f&quot;{metric.capitalize()} is&quot;, len(result))
-/usr/local/python/3.12.1/lib/python3.12/site-packages/sklearn/metrics/_classification.py:1509: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+/workspaces/PSD/.venv/lib/python3.11/site-packages/sklearn/metrics/_classification.py:1509: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
   _warn_prf(average, modifier, f&quot;{metric.capitalize()} is&quot;, len(result))
 </pre></div>
 </div>
@@ -837,11 +834,11 @@ Confusion Matrix:
  [ 2  2  0  0  1  0  0 11]]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/local/python/3.12.1/lib/python3.12/site-packages/sklearn/metrics/_classification.py:1509: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/workspaces/PSD/.venv/lib/python3.11/site-packages/sklearn/metrics/_classification.py:1509: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
   _warn_prf(average, modifier, f&quot;{metric.capitalize()} is&quot;, len(result))
-/usr/local/python/3.12.1/lib/python3.12/site-packages/sklearn/metrics/_classification.py:1509: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+/workspaces/PSD/.venv/lib/python3.11/site-packages/sklearn/metrics/_classification.py:1509: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
   _warn_prf(average, modifier, f&quot;{metric.capitalize()} is&quot;, len(result))
-/usr/local/python/3.12.1/lib/python3.12/site-packages/sklearn/metrics/_classification.py:1509: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+/workspaces/PSD/.venv/lib/python3.11/site-packages/sklearn/metrics/_classification.py:1509: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
   _warn_prf(average, modifier, f&quot;{metric.capitalize()} is&quot;, len(result))
 </pre></div>
 </div>
@@ -901,20 +898,20 @@ Iterasi 4: menggunakan k_neighbors=19
 Hasil iterasi 4: [(&#39;cp&#39;, 143), (&#39;im&#39;, 77), (&#39;imL&#39;, 142), (&#39;imS&#39;, 142), (&#39;imU&#39;, 35), (&#39;om&#39;, 143), (&#39;omL&#39;, 143), (&#39;pp&#39;, 52)]
 
 Iterasi 5: menggunakan k_neighbors=34
-Hasil iterasi 5: [(&#39;cp&#39;, 143), (&#39;im&#39;, 77), (&#39;imL&#39;, 142), (&#39;imS&#39;, 142), (&#39;imU&#39;, 143), (&#39;om&#39;, 143), (&#39;omL&#39;, 143), (&#39;pp&#39;, 52)]
+Hasil iterasi 5: [(&#39;cp&#39;, 143), (&#39;im&#39;, 77), (&#39;imL&#39;, 142), (&#39;imS&#39;, 142), (&#39;imU&#39;, 145), (&#39;om&#39;, 143), (&#39;omL&#39;, 143), (&#39;pp&#39;, 52)]
 
 Iterasi 6: menggunakan k_neighbors=51
-Hasil iterasi 6: [(&#39;cp&#39;, 143), (&#39;im&#39;, 77), (&#39;imL&#39;, 142), (&#39;imS&#39;, 142), (&#39;imU&#39;, 143), (&#39;om&#39;, 143), (&#39;omL&#39;, 143), (&#39;pp&#39;, 142)]
+Hasil iterasi 6: [(&#39;cp&#39;, 143), (&#39;im&#39;, 77), (&#39;imL&#39;, 142), (&#39;imS&#39;, 142), (&#39;imU&#39;, 145), (&#39;om&#39;, 143), (&#39;omL&#39;, 143), (&#39;pp&#39;, 144)]
 
 Iterasi 7: menggunakan k_neighbors=76
-Hasil iterasi 7: [(&#39;cp&#39;, 143), (&#39;im&#39;, 149), (&#39;imL&#39;, 142), (&#39;imS&#39;, 142), (&#39;imU&#39;, 143), (&#39;om&#39;, 143), (&#39;omL&#39;, 143), (&#39;pp&#39;, 142)]
+Hasil iterasi 7: [(&#39;cp&#39;, 143), (&#39;im&#39;, 153), (&#39;imL&#39;, 142), (&#39;imS&#39;, 142), (&#39;imU&#39;, 145), (&#39;om&#39;, 143), (&#39;omL&#39;, 143), (&#39;pp&#39;, 144)]
 
 Distribusi kelas setelah ADASYN:
-[(&#39;cp&#39;, 143), (&#39;im&#39;, 149), (&#39;imL&#39;, 142), (&#39;imS&#39;, 142), (&#39;imU&#39;, 143), (&#39;om&#39;, 143), (&#39;omL&#39;, 143), (&#39;pp&#39;, 142)]
+[(&#39;cp&#39;, 143), (&#39;im&#39;, 153), (&#39;imL&#39;, 142), (&#39;imS&#39;, 142), (&#39;imU&#39;, 145), (&#39;om&#39;, 143), (&#39;omL&#39;, 143), (&#39;pp&#39;, 144)]
 
 Total samples sebelum: 336
-Total samples setelah: 1147
-Data yang ditambahkan: 811
+Total samples setelah: 1155
+Data yang ditambahkan: 819
 </pre></div>
 </div>
 </div>
@@ -973,17 +970,17 @@ Data yang ditambahkan: 811
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/5a228d70a4fe4c99d4456549c3cf36cb4dd3d959eea55c86bd94d078f213b8d4.png" src="_images/5a228d70a4fe4c99d4456549c3cf36cb4dd3d959eea55c86bd94d078f213b8d4.png" />
+<img alt="_images/1ae23272454a1435ffebde39b5e66bd6463e4003e9328b9867bd18ab8916a9b7.png" src="_images/1ae23272454a1435ffebde39b5e66bd6463e4003e9328b9867bd18ab8916a9b7.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>=== SUMMARY ADASYN ===
 Peningkatan per kelas:
   cp: 0 samples (143 → 143)
-  im: +72 samples (77 → 149)
+  im: +76 samples (77 → 153)
   imL: +140 samples (2 → 142)
   imS: +140 samples (2 → 142)
-  imU: +108 samples (35 → 143)
+  imU: +110 samples (35 → 145)
   om: +123 samples (20 → 143)
   omL: +138 samples (5 → 143)
-  pp: +90 samples (52 → 142)
+  pp: +92 samples (52 → 144)
 </pre></div>
 </div>
 </div>
@@ -1015,34 +1012,34 @@ Peningkatan per kelas:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>🔹 Akurasi Naive Bayes (ADASYN): 0.8173913043478261
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>🔹 Akurasi Naive Bayes (ADASYN): 0.8011527377521613
 
 Classification Report:
                precision    recall  f1-score   support
 
-          cp       0.80      1.00      0.89        43
-          im       0.88      0.51      0.65        45
-         imL       1.00      1.00      1.00        42
+          cp       0.84      1.00      0.91        43
+          im       0.81      0.48      0.60        46
+         imL       1.00      1.00      1.00        43
          imS       0.98      1.00      0.99        43
-         imU       0.80      0.77      0.79        43
-          om       1.00      0.35      0.52        43
+         imU       0.68      0.65      0.67        43
+          om       1.00      0.40      0.57        43
          omL       1.00      1.00      1.00        43
-          pp       0.50      0.93      0.65        43
+          pp       0.48      0.91      0.63        43
 
-    accuracy                           0.82       345
-   macro avg       0.87      0.82      0.81       345
-weighted avg       0.87      0.82      0.81       345
+    accuracy                           0.80       347
+   macro avg       0.85      0.80      0.80       347
+weighted avg       0.85      0.80      0.79       347
 
 
 Confusion Matrix:
  [[43  0  0  0  0  0  0  0]
- [ 6 23  0  1  8  0  0  7]
- [ 0  0 42  0  0  0  0  0]
+ [ 4 22  0  0 13  0  0  7]
+ [ 0  0 43  0  0  0  0  0]
  [ 0  0  0 43  0  0  0  0]
- [ 2  3  0  0 33  0  0  5]
- [ 0  0  0  0  0 15  0 28]
+ [ 0  5  0  1 28  0  0  9]
+ [ 0  0  0  0  0 17  0 26]
  [ 0  0  0  0  0  0 43  0]
- [ 3  0  0  0  0  0  0 40]]
+ [ 4  0  0  0  0  0  0 39]]
 </pre></div>
 </div>
 </div>
@@ -1075,34 +1072,34 @@ Confusion Matrix:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>🔹 Akurasi Random Forest (ADASYN): 0.9260869565217391
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>🔹 Akurasi Random Forest (ADASYN): 0.948051948051948
 
 Classification Report:
                precision    recall  f1-score   support
 
           cp       0.91      1.00      0.95        29
-          im       0.81      0.70      0.75        30
+          im       1.00      0.77      0.87        31
          imL       1.00      1.00      1.00        28
-         imS       1.00      1.00      1.00        28
-         imU       0.74      0.86      0.79        29
-          om       1.00      1.00      1.00        29
+         imS       0.97      1.00      0.98        28
+         imU       0.80      0.97      0.88        29
+          om       1.00      0.96      0.98        28
          omL       1.00      1.00      1.00        29
-          pp       1.00      0.86      0.92        28
+          pp       0.96      0.90      0.93        29
 
-    accuracy                           0.93       230
-   macro avg       0.93      0.93      0.93       230
-weighted avg       0.93      0.93      0.93       230
+    accuracy                           0.95       231
+   macro avg       0.95      0.95      0.95       231
+weighted avg       0.95      0.95      0.95       231
 
 
 Confusion Matrix:
  [[29  0  0  0  0  0  0  0]
- [ 0 21  0  0  9  0  0  0]
+ [ 0 24  0  0  7  0  0  0]
  [ 0  0 28  0  0  0  0  0]
  [ 0  0  0 28  0  0  0  0]
- [ 0  4  0  0 25  0  0  0]
- [ 0  0  0  0  0 29  0  0]
+ [ 0  0  0  1 28  0  0  0]
+ [ 0  0  0  0  0 27  0  1]
  [ 0  0  0  0  0  0 29  0]
- [ 3  1  0  0  0  0  0 24]]
+ [ 3  0  0  0  0  0  0 26]]
 </pre></div>
 </div>
 </div>
@@ -1128,34 +1125,34 @@ BaggingClassifier menggunakan decision tree classifier sebagai base estimator</p
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>🔹 Akurasi Bagging (Decision Tree, ADASYN): 0.9217391304347826
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>🔹 Akurasi Bagging (Decision Tree, ADASYN): 0.935064935064935
 
 Classification Report:
                precision    recall  f1-score   support
 
-          cp       0.88      1.00      0.94        29
-          im       0.82      0.77      0.79        30
+          cp       0.94      1.00      0.97        29
+          im       0.92      0.74      0.82        31
          imL       1.00      1.00      1.00        28
          imS       0.97      1.00      0.98        28
-         imU       0.77      0.83      0.80        29
-          om       0.97      1.00      0.98        29
+         imU       0.76      0.90      0.83        29
+          om       1.00      0.93      0.96        28
          omL       1.00      1.00      1.00        29
-          pp       1.00      0.79      0.88        28
+          pp       0.93      0.93      0.93        29
 
-    accuracy                           0.92       230
-   macro avg       0.93      0.92      0.92       230
-weighted avg       0.92      0.92      0.92       230
+    accuracy                           0.94       231
+   macro avg       0.94      0.94      0.94       231
+weighted avg       0.94      0.94      0.93       231
 
 
 Confusion Matrix:
  [[29  0  0  0  0  0  0  0]
- [ 0 23  0  0  7  0  0  0]
+ [ 0 23  0  0  8  0  0  0]
  [ 0  0 28  0  0  0  0  0]
  [ 0  0  0 28  0  0  0  0]
- [ 0  4  0  1 24  0  0  0]
- [ 0  0  0  0  0 29  0  0]
+ [ 0  2  0  1 26  0  0  0]
+ [ 0  0  0  0  0 26  0  2]
  [ 0  0  0  0  0  0 29  0]
- [ 4  1  0  0  0  1  0 22]]
+ [ 2  0  0  0  0  0  0 27]]
 </pre></div>
 </div>
 </div>
@@ -1380,16 +1377,15 @@ Confusion Matrix:
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>🔹 Akurasi Random Forest (SMOTE): 0.9519650655021834
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Classification Report:
+
+Classification Report:
                precision    recall  f1-score   support
 
           cp       0.88      1.00      0.93        28
-          im       0.92      0.86      0.89        28
+          im       0.89      0.86      0.87        28
          imL       1.00      1.00      1.00        29
          imS       1.00      1.00      1.00        29
-         imU       0.86      0.86      0.86        29
+         imU       0.89      0.86      0.88        29
           om       1.00      0.96      0.98        28
          omL       1.00      1.00      1.00        29
           pp       0.96      0.93      0.95        29
@@ -1401,10 +1397,10 @@ weighted avg       0.95      0.95      0.95       229
 
 Confusion Matrix:
  [[28  0  0  0  0  0  0  0]
- [ 0 24  0  0  4  0  0  0]
+ [ 1 24  0  0  3  0  0  0]
  [ 0  0 29  0  0  0  0  0]
  [ 0  0  0 29  0  0  0  0]
- [ 2  2  0  0 25  0  0  0]
+ [ 1  3  0  0 25  0  0  0]
  [ 0  0  0  0  0 27  0  1]
  [ 0  0  0  0  0  0 29  0]
  [ 2  0  0  0  0  0  0 27]]
@@ -1433,31 +1429,31 @@ BaggingClassifier menggunakan decision tree classifier sebagai base estimator</p
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>🔹 Akurasi Bagging (Decision Tree, SMOTE): 0.9519650655021834
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>🔹 Akurasi Bagging (Decision Tree, SMOTE): 0.9432314410480349
 
 Classification Report:
                precision    recall  f1-score   support
 
-          cp       0.90      1.00      0.95        28
-          im       0.96      0.86      0.91        28
+          cp       0.85      1.00      0.92        28
+          im       0.92      0.82      0.87        28
          imL       1.00      1.00      1.00        29
-         imS       0.97      1.00      0.98        29
-         imU       0.90      0.90      0.90        29
+         imS       1.00      1.00      1.00        29
+         imU       0.86      0.86      0.86        29
           om       0.96      0.96      0.96        28
          omL       1.00      1.00      1.00        29
-          pp       0.93      0.90      0.91        29
+          pp       0.96      0.90      0.93        29
 
-    accuracy                           0.95       229
-   macro avg       0.95      0.95      0.95       229
-weighted avg       0.95      0.95      0.95       229
+    accuracy                           0.94       229
+   macro avg       0.94      0.94      0.94       229
+weighted avg       0.95      0.94      0.94       229
 
 
 Confusion Matrix:
  [[28  0  0  0  0  0  0  0]
- [ 0 24  0  1  3  0  0  0]
+ [ 1 23  0  0  4  0  0  0]
  [ 0  0 29  0  0  0  0  0]
  [ 0  0  0 29  0  0  0  0]
- [ 1  1  0  0 26  0  0  1]
+ [ 2  2  0  0 25  0  0  0]
  [ 0  0  0  0  0 27  0  1]
  [ 0  0  0  0  0  0 29  0]
  [ 2  0  0  0  0  1  0 26]]

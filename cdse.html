@@ -194,6 +194,7 @@
 
 <li class="toctree-l1"><a class="reference internal" href="cloning_voice.html">Voice Cloning &amp; Augmentation untuk Training Dataset</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tsfel_voice_analysis.html">Analisis Voice (Audio) menggunakan TSFEL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Prediksi_NO2.html">Prediksi NO2</a></li>
 </ul>
 
     </div>
@@ -422,35 +423,45 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: openeo in /usr/local/python/3.12.1/lib/python3.12/site-packages (0.45.0)
-Requirement already satisfied: requests&gt;=2.26.0 in /home/codespace/.local/lib/python3.12/site-packages (from openeo) (2.32.4)
-Requirement already satisfied: urllib3&gt;=1.9.0 in /home/codespace/.local/lib/python3.12/site-packages (from openeo) (2.5.0)
-Requirement already satisfied: shapely&gt;=1.6.4 in /usr/local/python/3.12.1/lib/python3.12/site-packages (from openeo) (2.1.2)
-Requirement already satisfied: numpy&gt;=1.17.0 in /usr/local/python/3.12.1/lib/python3.12/site-packages (from openeo) (1.26.4)
-Requirement already satisfied: xarray&lt;2025.01.2,&gt;=0.12.3 in /usr/local/python/3.12.1/lib/python3.12/site-packages (from openeo) (2025.1.1)
-Requirement already satisfied: pandas&gt;0.20.0 in /usr/local/python/3.12.1/lib/python3.12/site-packages (from openeo) (2.1.4)
-Requirement already satisfied: pystac&gt;=1.5.0 in /usr/local/python/3.12.1/lib/python3.12/site-packages (from openeo) (1.14.1)
-Requirement already satisfied: deprecated&gt;=1.2.12 in /usr/local/python/3.12.1/lib/python3.12/site-packages (from openeo) (1.2.18)
-Requirement already satisfied: packaging&gt;=23.2 in /home/codespace/.local/lib/python3.12/site-packages (from xarray&lt;2025.01.2,&gt;=0.12.3-&gt;openeo) (25.0)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: wrapt&lt;2,&gt;=1.10 in /usr/local/python/3.12.1/lib/python3.12/site-packages (from deprecated&gt;=1.2.12-&gt;openeo) (1.17.3)
-Requirement already satisfied: python-dateutil&gt;=2.8.2 in /home/codespace/.local/lib/python3.12/site-packages (from pandas&gt;0.20.0-&gt;openeo) (2.9.0.post0)
-Requirement already satisfied: pytz&gt;=2020.1 in /home/codespace/.local/lib/python3.12/site-packages (from pandas&gt;0.20.0-&gt;openeo) (2025.2)
-Requirement already satisfied: tzdata&gt;=2022.1 in /home/codespace/.local/lib/python3.12/site-packages (from pandas&gt;0.20.0-&gt;openeo) (2025.2)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: six&gt;=1.5 in /home/codespace/.local/lib/python3.12/site-packages (from python-dateutil&gt;=2.8.2-&gt;pandas&gt;0.20.0-&gt;openeo) (1.17.0)
-Requirement already satisfied: charset_normalizer&lt;4,&gt;=2 in /home/codespace/.local/lib/python3.12/site-packages (from requests&gt;=2.26.0-&gt;openeo) (3.4.2)
-Requirement already satisfied: idna&lt;4,&gt;=2.5 in /home/codespace/.local/lib/python3.12/site-packages (from requests&gt;=2.26.0-&gt;openeo) (3.10)
-Requirement already satisfied: certifi&gt;=2017.4.17 in /home/codespace/.local/lib/python3.12/site-packages (from requests&gt;=2.26.0-&gt;openeo) (2025.7.9)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold">[</span><span class=" -Color -Color-Blue">notice</span><span class=" -Color -Color-Bold">]</span> A new release of pip is available: <span class=" -Color -Color-Red">25.2</span> -&gt; <span class=" -Color -Color-Green">25.3</span>
-<span class=" -Color -Color-Bold">[</span><span class=" -Color -Color-Blue">notice</span><span class=" -Color -Color-Bold">]</span> To update, run: <span class=" -Color -Color-Green">python3 -m pip install --upgrade pip</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Note: you may need to restart the kernel to use updated packages.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting openeo
+  Downloading openeo-0.45.0-py3-none-any.whl.metadata (8.2 kB)
+Requirement already satisfied: requests&gt;=2.26.0 in /workspaces/PSD/.venv/lib/python3.11/site-packages (from openeo) (2.32.5)
+Requirement already satisfied: urllib3&gt;=1.9.0 in /workspaces/PSD/.venv/lib/python3.11/site-packages (from openeo) (2.5.0)
+Collecting shapely&gt;=1.6.4 (from openeo)
+  Downloading shapely-2.1.2-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (6.8 kB)
+Requirement already satisfied: numpy&gt;=1.17.0 in /workspaces/PSD/.venv/lib/python3.11/site-packages (from openeo) (1.26.4)
+Collecting xarray&lt;2025.01.2,&gt;=0.12.3 (from openeo)
+  Downloading xarray-2025.1.1-py3-none-any.whl.metadata (11 kB)
+Requirement already satisfied: pandas&gt;0.20.0 in /workspaces/PSD/.venv/lib/python3.11/site-packages (from openeo) (2.1.4)
+Collecting pystac&gt;=1.5.0 (from openeo)
+  Downloading pystac-1.14.1-py3-none-any.whl.metadata (4.7 kB)
+Collecting deprecated&gt;=1.2.12 (from openeo)
+  Downloading Deprecated-1.2.18-py2.py3-none-any.whl.metadata (5.7 kB)
+Requirement already satisfied: packaging&gt;=23.2 in /workspaces/PSD/.venv/lib/python3.11/site-packages (from xarray&lt;2025.01.2,&gt;=0.12.3-&gt;openeo) (25.0)
+Collecting wrapt&lt;2,&gt;=1.10 (from deprecated&gt;=1.2.12-&gt;openeo)
+  Downloading wrapt-1.17.3-cp311-cp311-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl.metadata (6.4 kB)
+Requirement already satisfied: python-dateutil&gt;=2.8.2 in /workspaces/PSD/.venv/lib/python3.11/site-packages (from pandas&gt;0.20.0-&gt;openeo) (2.9.0.post0)
+Requirement already satisfied: pytz&gt;=2020.1 in /workspaces/PSD/.venv/lib/python3.11/site-packages (from pandas&gt;0.20.0-&gt;openeo) (2025.2)
+Requirement already satisfied: tzdata&gt;=2022.1 in /workspaces/PSD/.venv/lib/python3.11/site-packages (from pandas&gt;0.20.0-&gt;openeo) (2025.2)
+Requirement already satisfied: six&gt;=1.5 in /workspaces/PSD/.venv/lib/python3.11/site-packages (from python-dateutil&gt;=2.8.2-&gt;pandas&gt;0.20.0-&gt;openeo) (1.17.0)
+Requirement already satisfied: charset_normalizer&lt;4,&gt;=2 in /workspaces/PSD/.venv/lib/python3.11/site-packages (from requests&gt;=2.26.0-&gt;openeo) (3.4.3)
+Requirement already satisfied: idna&lt;4,&gt;=2.5 in /workspaces/PSD/.venv/lib/python3.11/site-packages (from requests&gt;=2.26.0-&gt;openeo) (3.10)
+Requirement already satisfied: certifi&gt;=2017.4.17 in /workspaces/PSD/.venv/lib/python3.11/site-packages (from requests&gt;=2.26.0-&gt;openeo) (2025.8.3)
+Downloading openeo-0.45.0-py3-none-any.whl (335 kB)
+Downloading xarray-2025.1.1-py3-none-any.whl (1.2 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">1.2/1.2 MB</span> <span class=" -Color -Color-Red">31.0 MB/s</span>  <span class=" -Color -Color-Yellow">0:00:00</span>
+?25hDownloading Deprecated-1.2.18-py2.py3-none-any.whl (10.0 kB)
+Downloading wrapt-1.17.3-cp311-cp311-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl (82 kB)
+Downloading pystac-1.14.1-py3-none-any.whl (207 kB)
+Downloading shapely-2.1.2-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (3.1 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">3.1/3.1 MB</span> <span class=" -Color -Color-Red">54.7 MB/s</span>  <span class=" -Color -Color-Yellow">0:00:00</span>
+?25hInstalling collected packages: wrapt, shapely, pystac, deprecated, xarray, openeo
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">6/6</span> [openeo]2m5/6 [openeo]]
+Successfully installed deprecated-1.2.18 openeo-0.45.0 pystac-1.14.1 shapely-2.1.2 wrapt-1.17.3 xarray-2025.1.1
+
+<span class=" -Color -Color-Bold">[</span><span class=" -Color -Color-Blue">notice</span><span class=" -Color -Color-Bold">]</span> A new release of pip is available: <span class=" -Color -Color-Red">25.2</span> -&gt; <span class=" -Color -Color-Green">25.3</span>
+<span class=" -Color -Color-Bold">[</span><span class=" -Color -Color-Blue">notice</span><span class=" -Color -Color-Bold">]</span> To update, run: <span class=" -Color -Color-Green">pip install --upgrade pip</span>
+Note: you may need to restart the kernel to use updated packages.
 </pre></div>
 </div>
 </div>
@@ -507,56 +518,22 @@ Requirement already satisfied: certifi&gt;=2017.4.17 in /home/codespace/.local/l
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Authenticated using refresh token.
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0:00:00 Job &#39;j-2511091739204531b1117c46c6fd2624&#39;: send &#39;start&#39;
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0:00:14 Job &#39;j-2511091739204531b1117c46c6fd2624&#39;: created (progress 0%)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0:00:19 Job &#39;j-2511091739204531b1117c46c6fd2624&#39;: created (progress 0%)
-</pre></div>
-</div>
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">line</span> <span class="mi">43</span>
-<span class="g g-Whitespace">     </span><span class="mi">37</span> <span class="n">s5p_no2_aoi</span> <span class="o">=</span> <span class="n">s5p_no2_daily</span><span class="o">.</span><span class="n">aggregate_spatial</span><span class="p">(</span>
-<span class="g g-Whitespace">     </span><span class="mi">38</span>     <span class="n">geometries</span><span class="o">=</span><span class="n">aoi</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">39</span>     <span class="n">reducer</span><span class="o">=</span><span class="s2">&quot;mean&quot;</span>
-<span class="g g-Whitespace">     </span><span class="mi">40</span> <span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">42</span> <span class="c1"># NAMA FILE DAN JUDUL BARU</span>
-<span class="ne">---&gt; </span><span class="mi">43</span> <span class="n">job</span> <span class="o">=</span> <span class="n">s5p_no2</span><span class="o">.</span><span class="n">execute_batch</span><span class="p">(</span>
-<span class="g g-Whitespace">     </span><span class="mi">44</span>     <span class="n">title</span><span class="o">=</span><span class="s2">&quot;NO2 in Surabaya Sidoarjo&quot;</span><span class="p">,</span> 
-<span class="g g-Whitespace">     </span><span class="mi">45</span>     <span class="n">outputfile</span><span class="o">=</span><span class="s2">&quot;NO2_surabaya_sidoarjo.nc&quot;</span> <span class="c1"># Nama file NetCDF diubah</span>
-<span class="g g-Whitespace">     </span><span class="mi">46</span> <span class="p">)</span>
-
-<span class="nn">File /usr/local/python/3.12.1/lib/python3.12/site-packages/openeo/rest/datacube.py:2703,</span> in <span class="ni">DataCube.execute_batch</span><span class="nt">(self, outputfile, out_format, title, description, plan, budget, print, max_poll_interval, connection_retry_interval, additional, job_options, validate, auto_add_save_result, show_error_logs, log_level, **format_options)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2690</span>     <span class="n">create_kwargs</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;auto_add_save_result&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">}</span>
-<span class="g g-Whitespace">   </span><span class="mi">2692</span> <span class="n">job</span> <span class="o">=</span> <span class="n">res</span><span class="o">.</span><span class="n">create_job</span><span class="p">(</span>
-<span class="g g-Whitespace">   </span><span class="mi">2693</span>     <span class="n">title</span><span class="o">=</span><span class="n">title</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">2694</span>     <span class="n">description</span><span class="o">=</span><span class="n">description</span><span class="p">,</span>
-   <span class="p">(</span><span class="o">...</span><span class="p">)</span>   <span class="mi">2701</span>     <span class="o">**</span><span class="n">create_kwargs</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">2702</span> <span class="p">)</span>
-<span class="ne">-&gt; </span><span class="mi">2703</span> <span class="n">job</span><span class="o">.</span><span class="n">start_and_wait</span><span class="p">(</span>
-<span class="g g-Whitespace">   </span><span class="mi">2704</span>     <span class="nb">print</span><span class="o">=</span><span class="nb">print</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">2705</span>     <span class="n">max_poll_interval</span><span class="o">=</span><span class="n">max_poll_interval</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">2706</span>     <span class="n">connection_retry_interval</span><span class="o">=</span><span class="n">connection_retry_interval</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">2707</span>     <span class="n">show_error_logs</span><span class="o">=</span><span class="n">show_error_logs</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">2708</span> <span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2709</span> <span class="k">if</span> <span class="n">outputfile</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">2710</span>     <span class="n">job</span><span class="o">.</span><span class="n">download_result</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">outputfile</span><span class="p">)</span>
-
-<span class="nn">File /usr/local/python/3.12.1/lib/python3.12/site-packages/openeo/rest/job.py:371,</span> in <span class="ni">BatchJob.start_and_wait</span><span class="nt">(self, print, max_poll_interval, connection_retry_interval, soft_error_max, show_error_logs, require_success)</span>
-<span class="g g-Whitespace">    </span><span class="mi">368</span>         <span class="k">break</span>
-<span class="g g-Whitespace">    </span><span class="mi">370</span>     <span class="c1"># Sleep for next poll (and adaptively make polling less frequent)</span>
-<span class="ne">--&gt; </span><span class="mi">371</span>     <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">poll_interval</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">372</span>     <span class="n">poll_interval</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="mf">1.25</span> <span class="o">*</span> <span class="n">poll_interval</span><span class="p">,</span> <span class="n">max_poll_interval</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">374</span> <span class="k">if</span> <span class="n">require_success</span> <span class="ow">and</span> <span class="n">status</span> <span class="o">!=</span> <span class="s2">&quot;finished&quot;</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">375</span>     <span class="c1"># TODO: render logs jupyter-aware in a notebook context?</span>
-
-<span class="ne">KeyboardInterrupt</span>: 
+<div class="output text_html">Visit <a href="https://identity.dataspace.copernicus.eu/auth/realms/CDSE/device?user_code=TUJO-XWKS" title="Authenticate at https://identity.dataspace.copernicus.eu/auth/realms/CDSE/device?user_code=TUJO-XWKS" target="_blank" rel="noopener noreferrer">https://identity.dataspace.copernicus.eu/auth/realms/CDSE/device?user_code=TUJO-XWKS</a> <a href="#" onclick="navigator.clipboard.writeText('https://identity.dataspace.copernicus.eu/auth/realms/CDSE/device?user_code=TUJO-XWKS');return false;" title="Copy authentication URL to clipboard">&#128203;</a> to authenticate.</div><div class="output text_html">✅ Authorized successfully</div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Authenticated using device code flow.
+0:00:00 Job &#39;j-2510261752524ba7855c505d221c5017&#39;: send &#39;start&#39;
+0:00:13 Job &#39;j-2510261752524ba7855c505d221c5017&#39;: created (progress 0%)
+0:00:18 Job &#39;j-2510261752524ba7855c505d221c5017&#39;: queued (progress 0%)
+0:00:25 Job &#39;j-2510261752524ba7855c505d221c5017&#39;: queued (progress 0%)
+0:00:33 Job &#39;j-2510261752524ba7855c505d221c5017&#39;: queued (progress 0%)
+0:00:43 Job &#39;j-2510261752524ba7855c505d221c5017&#39;: queued (progress 0%)
+0:00:56 Job &#39;j-2510261752524ba7855c505d221c5017&#39;: queued (progress 0%)
+0:01:12 Job &#39;j-2510261752524ba7855c505d221c5017&#39;: queued (progress 0%)
+0:01:31 Job &#39;j-2510261752524ba7855c505d221c5017&#39;: running (progress N/A)
+0:01:55 Job &#39;j-2510261752524ba7855c505d221c5017&#39;: running (progress N/A)
+0:02:26 Job &#39;j-2510261752524ba7855c505d221c5017&#39;: running (progress N/A)
+0:03:05 Job &#39;j-2510261752524ba7855c505d221c5017&#39;: running (progress N/A)
+0:03:54 Job &#39;j-2510261752524ba7855c505d221c5017&#39;: running (progress N/A)
+0:04:54 Job &#39;j-2510261752524ba7855c505d221c5017&#39;: running (progress N/A)
+0:05:57 Job &#39;j-2510261752524ba7855c505d221c5017&#39;: finished (progress 100%)
 </pre></div>
 </div>
 </div>

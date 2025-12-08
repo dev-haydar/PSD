@@ -194,6 +194,7 @@
 
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Voice Cloning &amp; Augmentation untuk Training Dataset</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tsfel_voice_analysis.html">Analisis Voice (Audio) menggunakan TSFEL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Prediksi_NO2.html">Prediksi NO2</a></li>
 </ul>
 
     </div>
@@ -439,128 +440,80 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting librosa
-  Using cached librosa-0.11.0-py3-none-any.whl.metadata (8.7 kB)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting soundfile
-  Using cached soundfile-0.13.1-py2.py3-none-manylinux_2_28_x86_64.whl.metadata (16 kB)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting audiomentations
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Using cached audiomentations-0.43.1-py3-none-any.whl.metadata (11 kB)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting pydub
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Using cached pydub-0.25.1-py2.py3-none-any.whl.metadata (1.4 kB)
-Requirement already satisfied: numpy in /usr/local/python/3.12.1/lib/python3.12/site-packages (1.26.4)
-Requirement already satisfied: scipy in /usr/local/python/3.12.1/lib/python3.12/site-packages (1.11.4)
+  Downloading librosa-0.11.0-py3-none-any.whl.metadata (8.7 kB)
+Collecting soundfile
+  Downloading soundfile-0.13.1-py2.py3-none-manylinux_2_28_x86_64.whl.metadata (16 kB)
+Collecting audiomentations
+  Downloading audiomentations-0.43.1-py3-none-any.whl.metadata (11 kB)
+Collecting pydub
+  Downloading pydub-0.25.1-py2.py3-none-any.whl.metadata (1.4 kB)
+Requirement already satisfied: numpy in /workspaces/PSD/.venv/lib/python3.11/site-packages (1.26.4)
+Requirement already satisfied: scipy in /workspaces/PSD/.venv/lib/python3.11/site-packages (1.11.4)
 Collecting audioread&gt;=2.1.9 (from librosa)
-  Using cached audioread-3.1.0-py3-none-any.whl.metadata (9.0 kB)
-Requirement already satisfied: numba&gt;=0.51.0 in /usr/local/python/3.12.1/lib/python3.12/site-packages (from librosa) (0.61.2)
-Requirement already satisfied: scikit-learn&gt;=1.1.0 in /usr/local/python/3.12.1/lib/python3.12/site-packages (from librosa) (1.4.2)
-Requirement already satisfied: joblib&gt;=1.0 in /usr/local/python/3.12.1/lib/python3.12/site-packages (from librosa) (1.3.2)
-Requirement already satisfied: decorator&gt;=4.3.0 in /home/codespace/.local/lib/python3.12/site-packages (from librosa) (5.2.1)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting pooch&gt;=1.1 (from librosa)
-  Using cached pooch-1.8.2-py3-none-any.whl.metadata (10 kB)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting soxr&gt;=0.3.2 (from librosa)
-  Downloading soxr-1.0.0-cp312-abi3-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (5.6 kB)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: typing_extensions&gt;=4.1.1 in /home/codespace/.local/lib/python3.12/site-packages (from librosa) (4.14.1)
-Collecting lazy_loader&gt;=0.1 (from librosa)
-  Using cached lazy_loader-0.4-py3-none-any.whl.metadata (7.6 kB)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting msgpack&gt;=1.0 (from librosa)
-  Downloading msgpack-1.1.2-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (8.1 kB)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: cffi&gt;=1.0 in /home/codespace/.local/lib/python3.12/site-packages (from soundfile) (1.17.1)
-Collecting numpy-minmax&lt;1,&gt;=0.3.0 (from audiomentations)
-  Downloading numpy_minmax-0.5.0-cp312-cp312-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.0 kB)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting numpy-rms&lt;1,&gt;=0.4.2 (from audiomentations)
-  Downloading numpy_rms-0.6.0-cp312-cp312-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (3.5 kB)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting python-stretch&lt;1,&gt;=0.3.1 (from audiomentations)
-  Downloading python_stretch-0.3.1-cp312-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (3.7 kB)
+  Downloading audioread-3.1.0-py3-none-any.whl.metadata (9.0 kB)
+Requirement already satisfied: numba&gt;=0.51.0 in /workspaces/PSD/.venv/lib/python3.11/site-packages (from librosa) (0.61.2)
+Requirement already satisfied: scikit-learn&gt;=1.1.0 in /workspaces/PSD/.venv/lib/python3.11/site-packages (from librosa) (1.4.2)
+Requirement already satisfied: joblib&gt;=1.0 in /workspaces/PSD/.venv/lib/python3.11/site-packages (from librosa) (1.3.2)
+Requirement already satisfied: decorator&gt;=4.3.0 in /workspaces/PSD/.venv/lib/python3.11/site-packages (from librosa) (5.2.1)
+Collecting pooch&gt;=1.1 (from librosa)
+  Downloading pooch-1.8.2-py3-none-any.whl.metadata (10 kB)
 Collecting soxr&gt;=0.3.2 (from librosa)
-  Downloading soxr-0.5.0.post1-cp312-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (5.6 kB)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO: pip is looking at multiple versions of numpy-minmax to determine which version is compatible with other requirements. This could take a while.
+  Downloading soxr-1.0.0-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (5.6 kB)
+Requirement already satisfied: typing_extensions&gt;=4.1.1 in /workspaces/PSD/.venv/lib/python3.11/site-packages (from librosa) (4.15.0)
+Collecting lazy_loader&gt;=0.1 (from librosa)
+  Downloading lazy_loader-0.4-py3-none-any.whl.metadata (7.6 kB)
+Collecting msgpack&gt;=1.0 (from librosa)
+  Downloading msgpack-1.1.2-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (8.1 kB)
+Collecting cffi&gt;=1.0 (from soundfile)
+  Downloading cffi-2.0.0-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (2.6 kB)
 Collecting numpy-minmax&lt;1,&gt;=0.3.0 (from audiomentations)
-  Downloading numpy_minmax-0.4.0-cp312-cp312-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.2 kB)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading numpy_minmax-0.3.1-cp312-cp312-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.0 kB)
+  Downloading numpy_minmax-0.5.0-cp311-cp311-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.0 kB)
+Collecting numpy-rms&lt;1,&gt;=0.4.2 (from audiomentations)
+  Downloading numpy_rms-0.6.0-cp311-cp311-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (3.5 kB)
+Collecting python-stretch&lt;1,&gt;=0.3.1 (from audiomentations)
+  Downloading python_stretch-0.3.1-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (3.7 kB)
+Collecting soxr&gt;=0.3.2 (from librosa)
+  Downloading soxr-0.5.0.post1-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (5.6 kB)
+INFO: pip is looking at multiple versions of numpy-minmax to determine which version is compatible with other requirements. This could take a while.
+Collecting numpy-minmax&lt;1,&gt;=0.3.0 (from audiomentations)
+  Downloading numpy_minmax-0.4.0-cp311-cp311-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.2 kB)
+  Downloading numpy_minmax-0.3.1-cp311-cp311-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.0 kB)
 INFO: pip is looking at multiple versions of numpy-rms to determine which version is compatible with other requirements. This could take a while.
 Collecting numpy-rms&lt;1,&gt;=0.4.2 (from audiomentations)
-  Downloading numpy_rms-0.5.0-cp312-cp312-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (3.5 kB)
-  Downloading numpy_rms-0.4.2-cp312-cp312-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (3.5 kB)
-Requirement already satisfied: pycparser in /home/codespace/.local/lib/python3.12/site-packages (from cffi&gt;=1.0-&gt;soundfile) (2.22)
-Requirement already satisfied: packaging in /home/codespace/.local/lib/python3.12/site-packages (from lazy_loader&gt;=0.1-&gt;librosa) (25.0)
-Requirement already satisfied: llvmlite&lt;0.45,&gt;=0.44.0dev0 in /usr/local/python/3.12.1/lib/python3.12/site-packages (from numba&gt;=0.51.0-&gt;librosa) (0.44.0)
-Requirement already satisfied: platformdirs&gt;=2.5.0 in /home/codespace/.local/lib/python3.12/site-packages (from pooch&gt;=1.1-&gt;librosa) (4.3.8)
-Requirement already satisfied: requests&gt;=2.19.0 in /home/codespace/.local/lib/python3.12/site-packages (from pooch&gt;=1.1-&gt;librosa) (2.32.4)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: charset_normalizer&lt;4,&gt;=2 in /home/codespace/.local/lib/python3.12/site-packages (from requests&gt;=2.19.0-&gt;pooch&gt;=1.1-&gt;librosa) (3.4.2)
-Requirement already satisfied: idna&lt;4,&gt;=2.5 in /home/codespace/.local/lib/python3.12/site-packages (from requests&gt;=2.19.0-&gt;pooch&gt;=1.1-&gt;librosa) (3.10)
-Requirement already satisfied: urllib3&lt;3,&gt;=1.21.1 in /home/codespace/.local/lib/python3.12/site-packages (from requests&gt;=2.19.0-&gt;pooch&gt;=1.1-&gt;librosa) (2.5.0)
-Requirement already satisfied: certifi&gt;=2017.4.17 in /home/codespace/.local/lib/python3.12/site-packages (from requests&gt;=2.19.0-&gt;pooch&gt;=1.1-&gt;librosa) (2025.7.9)
-Requirement already satisfied: threadpoolctl&gt;=2.0.0 in /home/codespace/.local/lib/python3.12/site-packages (from scikit-learn&gt;=1.1.0-&gt;librosa) (3.6.0)
-Using cached librosa-0.11.0-py3-none-any.whl (260 kB)
-Using cached soundfile-0.13.1-py2.py3-none-manylinux_2_28_x86_64.whl (1.3 MB)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Using cached audiomentations-0.43.1-py3-none-any.whl (86 kB)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading numpy_minmax-0.3.1-cp312-cp312-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl (30 kB)
-Downloading numpy_rms-0.4.2-cp312-cp312-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl (18 kB)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading python_stretch-0.3.1-cp312-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (109 kB)
-Downloading soxr-0.5.0.post1-cp312-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (248 kB)
-Using cached pydub-0.25.1-py2.py3-none-any.whl (32 kB)
-Using cached audioread-3.1.0-py3-none-any.whl (23 kB)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Using cached lazy_loader-0.4-py3-none-any.whl (12 kB)
-Downloading msgpack-1.1.2-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (427 kB)
-Using cached pooch-1.8.2-py3-none-any.whl (64 kB)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Installing collected packages: pydub, soxr, python-stretch, msgpack, lazy_loader, audioread, soundfile, pooch, numpy-rms, numpy-minmax, librosa, audiomentations
-?25l
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 7/12</span> [pooch]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━</span> <span class=" -Color -Color-Green">10/12</span> [librosa]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">12/12</span> [audiomentations]
-?25h
-
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Successfully installed audiomentations-0.43.1 audioread-3.1.0 lazy_loader-0.4 librosa-0.11.0 msgpack-1.1.2 numpy-minmax-0.3.1 numpy-rms-0.4.2 pooch-1.8.2 pydub-0.25.1 python-stretch-0.3.1 soundfile-0.13.1 soxr-0.5.0.post1
+  Downloading numpy_rms-0.5.0-cp311-cp311-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (3.5 kB)
+  Downloading numpy_rms-0.4.2-cp311-cp311-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (3.5 kB)
+Collecting pycparser (from cffi&gt;=1.0-&gt;soundfile)
+  Downloading pycparser-2.23-py3-none-any.whl.metadata (993 bytes)
+Requirement already satisfied: packaging in /workspaces/PSD/.venv/lib/python3.11/site-packages (from lazy_loader&gt;=0.1-&gt;librosa) (25.0)
+Requirement already satisfied: llvmlite&lt;0.45,&gt;=0.44.0dev0 in /workspaces/PSD/.venv/lib/python3.11/site-packages (from numba&gt;=0.51.0-&gt;librosa) (0.44.0)
+Requirement already satisfied: platformdirs&gt;=2.5.0 in /workspaces/PSD/.venv/lib/python3.11/site-packages (from pooch&gt;=1.1-&gt;librosa) (4.4.0)
+Requirement already satisfied: requests&gt;=2.19.0 in /workspaces/PSD/.venv/lib/python3.11/site-packages (from pooch&gt;=1.1-&gt;librosa) (2.32.5)
+Requirement already satisfied: charset_normalizer&lt;4,&gt;=2 in /workspaces/PSD/.venv/lib/python3.11/site-packages (from requests&gt;=2.19.0-&gt;pooch&gt;=1.1-&gt;librosa) (3.4.3)
+Requirement already satisfied: idna&lt;4,&gt;=2.5 in /workspaces/PSD/.venv/lib/python3.11/site-packages (from requests&gt;=2.19.0-&gt;pooch&gt;=1.1-&gt;librosa) (3.10)
+Requirement already satisfied: urllib3&lt;3,&gt;=1.21.1 in /workspaces/PSD/.venv/lib/python3.11/site-packages (from requests&gt;=2.19.0-&gt;pooch&gt;=1.1-&gt;librosa) (2.5.0)
+Requirement already satisfied: certifi&gt;=2017.4.17 in /workspaces/PSD/.venv/lib/python3.11/site-packages (from requests&gt;=2.19.0-&gt;pooch&gt;=1.1-&gt;librosa) (2025.8.3)
+Requirement already satisfied: threadpoolctl&gt;=2.0.0 in /workspaces/PSD/.venv/lib/python3.11/site-packages (from scikit-learn&gt;=1.1.0-&gt;librosa) (3.6.0)
+Downloading librosa-0.11.0-py3-none-any.whl (260 kB)
+Downloading soundfile-0.13.1-py2.py3-none-manylinux_2_28_x86_64.whl (1.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">1.3/1.3 MB</span> <span class=" -Color -Color-Red">12.3 MB/s</span>  <span class=" -Color -Color-Yellow">0:00:00</span>
+?25hDownloading audiomentations-0.43.1-py3-none-any.whl (86 kB)
+Downloading numpy_minmax-0.3.1-cp311-cp311-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl (30 kB)
+Downloading numpy_rms-0.4.2-cp311-cp311-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl (17 kB)
+Downloading python_stretch-0.3.1-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (113 kB)
+Downloading soxr-0.5.0.post1-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (252 kB)
+Downloading pydub-0.25.1-py2.py3-none-any.whl (32 kB)
+Downloading audioread-3.1.0-py3-none-any.whl (23 kB)
+Downloading cffi-2.0.0-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (215 kB)
+Downloading lazy_loader-0.4-py3-none-any.whl (12 kB)
+Downloading msgpack-1.1.2-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (426 kB)
+Downloading pooch-1.8.2-py3-none-any.whl (64 kB)
+Downloading pycparser-2.23-py3-none-any.whl (118 kB)
+Installing collected packages: pydub, soxr, python-stretch, pycparser, msgpack, lazy_loader, audioread, pooch, cffi, soundfile, numpy-rms, numpy-minmax, librosa, audiomentations
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">14/14</span> [audiomentations] [audiomentations]
+Successfully installed audiomentations-0.43.1 audioread-3.1.0 cffi-2.0.0 lazy_loader-0.4 librosa-0.11.0 msgpack-1.1.2 numpy-minmax-0.3.1 numpy-rms-0.4.2 pooch-1.8.2 pycparser-2.23 pydub-0.25.1 python-stretch-0.3.1 soundfile-0.13.1 soxr-0.5.0.post1
 
 <span class=" -Color -Color-Bold">[</span><span class=" -Color -Color-Blue">notice</span><span class=" -Color -Color-Bold">]</span> A new release of pip is available: <span class=" -Color -Color-Red">25.2</span> -&gt; <span class=" -Color -Color-Green">25.3</span>
-<span class=" -Color -Color-Bold">[</span><span class=" -Color -Color-Blue">notice</span><span class=" -Color -Color-Bold">]</span> To update, run: <span class=" -Color -Color-Green">python -m pip install --upgrade pip</span>
+<span class=" -Color -Color-Bold">[</span><span class=" -Color -Color-Blue">notice</span><span class=" -Color -Color-Bold">]</span> To update, run: <span class=" -Color -Color-Green">pip install --upgrade pip</span>
 </pre></div>
 </div>
 </div>
@@ -572,11 +525,10 @@ Using cached pooch-1.8.2-py3-none-any.whl (64 kB)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: tqdm in /usr/local/python/3.12.1/lib/python3.12/site-packages (4.67.1)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold">[</span><span class=" -Color -Color-Blue">notice</span><span class=" -Color -Color-Bold">]</span> A new release of pip is available: <span class=" -Color -Color-Red">25.2</span> -&gt; <span class=" -Color -Color-Green">25.3</span>
-<span class=" -Color -Color-Bold">[</span><span class=" -Color -Color-Blue">notice</span><span class=" -Color -Color-Bold">]</span> To update, run: <span class=" -Color -Color-Green">python -m pip install --upgrade pip</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: tqdm in /workspaces/PSD/.venv/lib/python3.11/site-packages (4.67.1)
+
+<span class=" -Color -Color-Bold">[</span><span class=" -Color -Color-Blue">notice</span><span class=" -Color -Color-Bold">]</span> A new release of pip is available: <span class=" -Color -Color-Red">25.2</span> -&gt; <span class=" -Color -Color-Green">25.3</span>
+<span class=" -Color -Color-Bold">[</span><span class=" -Color -Color-Blue">notice</span><span class=" -Color -Color-Bold">]</span> To update, run: <span class=" -Color -Color-Green">pip install --upgrade pip</span>
 </pre></div>
 </div>
 </div>
@@ -598,7 +550,7 @@ Using cached pooch-1.8.2-py3-none-any.whl (64 kB)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/local/python/3.12.1/lib/python3.12/site-packages/pydub/utils.py:170: RuntimeWarning: Couldn&#39;t find ffmpeg or avconv - defaulting to ffmpeg, but may not work
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/workspaces/PSD/.venv/lib/python3.11/site-packages/pydub/utils.py:170: RuntimeWarning: Couldn&#39;t find ffmpeg or avconv - defaulting to ffmpeg, but may not work
   warn(&quot;Couldn&#39;t find ffmpeg or avconv - defaulting to ffmpeg, but may not work&quot;, RuntimeWarning)
 </pre></div>
 </div>
@@ -1000,9 +952,7 @@ Target: 100 files
 ============================================================
 
 [1/10] Loading: buka1.m4a
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Error loading SUARA/buka/buka1.m4a: 
+Error loading SUARA/buka/buka1.m4a: 
   Error: Failed to load SUARA/buka/buka1.m4a
 
 [2/10] Loading: buka10.m4a
@@ -1100,9 +1050,9 @@ Saving 100 files...
 ✓ Completed: 0 files created for &#39;tutup&#39;
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_10072/456562228.py:6: UserWarning: PySoundFile failed. Trying audioread instead.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_8807/456562228.py:6: UserWarning: PySoundFile failed. Trying audioread instead.
   audio, sr = librosa.load(file_path, sr=None)
-/usr/local/python/3.12.1/lib/python3.12/site-packages/librosa/core/audio.py:184: FutureWarning: librosa.core.audio.__audioread_load
+/workspaces/PSD/.venv/lib/python3.11/site-packages/librosa/core/audio.py:184: FutureWarning: librosa.core.audio.__audioread_load
 	Deprecated as of librosa version 0.10.0.
 	It will be removed in librosa version 1.0.
   y, sr_native = __audioread_load(path, offset, duration, dtype)
@@ -1162,39 +1112,43 @@ Saving 100 files...
 AUGMENTATION RESULTS
 ============================================================
 
-BUKA: 0 files
-  Verified: 0 files in folder
+BUKA: 100 files
+  Verified: 100 files in folder
   Sample filenames:
-    ✗ buka1.wav (missing)
-    ✗ buka2.wav (missing)
-    ✗ buka3.wav (missing)
-    ✗ buka50.wav (missing)
-    ✗ buka99.wav (missing)
-    ✗ buka100.wav (missing)
+    ✓ buka1.wav
+    ✓ buka2.wav
+    ✓ buka3.wav
+    ✓ buka50.wav
+    ✓ buka99.wav
+    ✓ buka100.wav
 
-TUTUP: 0 files
-  Verified: 0 files in folder
+TUTUP: 100 files
+  Verified: 100 files in folder
   Sample filenames:
-    ✗ tutup1.wav (missing)
-    ✗ tutup2.wav (missing)
-    ✗ tutup3.wav (missing)
-    ✗ tutup50.wav (missing)
-    ✗ tutup99.wav (missing)
-    ✗ tutup100.wav (missing)
+    ✓ tutup1.wav
+    ✓ tutup2.wav
+    ✓ tutup3.wav
+    ✓ tutup50.wav
+    ✓ tutup99.wav
+    ✓ tutup100.wav
 
 ============================================================
-TOTAL FILES CREATED: 0
+TOTAL FILES CREATED: 200
 ============================================================
 
 ============================================================
 FOLDER STRUCTURE
 ============================================================
 
-voice_augmented/buka
-  Total: 0 files
+voice_augmented\buka
+  Total: 100 files
+  First: buka1.wav
+  Last: buka99.wav
 
-voice_augmented/tutup
-  Total: 0 files
+voice_augmented\tutup
+  Total: 100 files
+  First: tutup1.wav
+  Last: tutup99.wav
 </pre></div>
 </div>
 </div>
@@ -1301,30 +1255,23 @@ voice_augmented/tutup
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Loading augmented dataset...
-Loading buka: 0 files
+Loading buka: 100 files
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Loading buka: 0it [00:00, ?it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Loading buka: 100%|██████████| 100/100 [00:00&lt;00:00, 253.86it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Loading buka: 0it [00:00, ?it/s]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Loading tutup: 100 files
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Loading tutup: 100%|██████████| 100/100 [00:00&lt;00:00, 437.98it/s]
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Loading tutup: 0 files
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Loading tutup: 0it [00:00, ?it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Loading tutup: 0it [00:00, ?it/s]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Total dataset size: 0 samples
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Total dataset size: 200 samples
 
 Dataset distribution:
+  buka: 100 samples
+  tutup: 100 samples
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>

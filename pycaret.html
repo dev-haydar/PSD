@@ -192,6 +192,9 @@
 
 
 
+<li class="toctree-l1"><a class="reference internal" href="cloning_voice.html">Voice Cloning &amp; Augmentation untuk Training Dataset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tsfel_voice_analysis.html">Analisis Voice (Audio) menggunakan TSFEL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Prediksi_NO2.html">Prediksi NO2</a></li>
 </ul>
 
     </div>
@@ -444,39 +447,35 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: pyod in /usr/local/python/3.12.1/lib/python3.12/site-packages (2.0.5)
-Requirement already satisfied: joblib in /usr/local/python/3.12.1/lib/python3.12/site-packages (from pyod) (1.3.2)
-Requirement already satisfied: matplotlib in /usr/local/python/3.12.1/lib/python3.12/site-packages (from pyod) (3.7.5)
-Requirement already satisfied: numpy&gt;=1.19 in /usr/local/python/3.12.1/lib/python3.12/site-packages (from pyod) (1.26.4)
-Requirement already satisfied: numba&gt;=0.51 in /usr/local/python/3.12.1/lib/python3.12/site-packages (from pyod) (0.61.2)
-Requirement already satisfied: scipy&gt;=1.5.1 in /usr/local/python/3.12.1/lib/python3.12/site-packages (from pyod) (1.11.4)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[notice] A new release of pip is available: 24.3.1 -&gt; 25.2
+[notice] To update, run: C:\Users\Haydar\AppData\Local\Microsoft\WindowsApps\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\python.exe -m pip install --upgrade pip
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: scikit-learn&gt;=0.22.0 in /usr/local/python/3.12.1/lib/python3.12/site-packages (from pyod) (1.4.2)
-Requirement already satisfied: llvmlite&lt;0.45,&gt;=0.44.0dev0 in /usr/local/python/3.12.1/lib/python3.12/site-packages (from numba&gt;=0.51-&gt;pyod) (0.44.0)
-Requirement already satisfied: threadpoolctl&gt;=2.0.0 in /home/codespace/.local/lib/python3.12/site-packages (from scikit-learn&gt;=0.22.0-&gt;pyod) (3.6.0)
-Requirement already satisfied: contourpy&gt;=1.0.1 in /home/codespace/.local/lib/python3.12/site-packages (from matplotlib-&gt;pyod) (1.3.2)
-Requirement already satisfied: cycler&gt;=0.10 in /home/codespace/.local/lib/python3.12/site-packages (from matplotlib-&gt;pyod) (0.12.1)
-Requirement already satisfied: fonttools&gt;=4.22.0 in /home/codespace/.local/lib/python3.12/site-packages (from matplotlib-&gt;pyod) (4.58.5)
-Requirement already satisfied: kiwisolver&gt;=1.0.1 in /home/codespace/.local/lib/python3.12/site-packages (from matplotlib-&gt;pyod) (1.4.8)
-Requirement already satisfied: packaging&gt;=20.0 in /home/codespace/.local/lib/python3.12/site-packages (from matplotlib-&gt;pyod) (25.0)
-Requirement already satisfied: pillow&gt;=6.2.0 in /home/codespace/.local/lib/python3.12/site-packages (from matplotlib-&gt;pyod) (11.3.0)
-Requirement already satisfied: pyparsing&gt;=2.3.1 in /home/codespace/.local/lib/python3.12/site-packages (from matplotlib-&gt;pyod) (3.2.3)
-Requirement already satisfied: python-dateutil&gt;=2.7 in /home/codespace/.local/lib/python3.12/site-packages (from matplotlib-&gt;pyod) (2.9.0.post0)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: six&gt;=1.5 in /home/codespace/.local/lib/python3.12/site-packages (from python-dateutil&gt;=2.7-&gt;matplotlib-&gt;pyod) (1.17.0)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   Id  SepalLengthCm  SepalWidthCm  PetalLengthCm  PetalWidthCm      Species
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: pyod in c:\users\haydar\appdata\local\packages\pythonsoftwarefoundation.python.3.11_qbz5n2kfra8p0\localcache\local-packages\python311\site-packages (2.0.5)
+Requirement already satisfied: joblib in c:\users\haydar\appdata\local\packages\pythonsoftwarefoundation.python.3.11_qbz5n2kfra8p0\localcache\local-packages\python311\site-packages (from pyod) (1.3.2)
+Requirement already satisfied: matplotlib in c:\users\haydar\appdata\local\packages\pythonsoftwarefoundation.python.3.11_qbz5n2kfra8p0\localcache\local-packages\python311\site-packages (from pyod) (3.7.5)
+Requirement already satisfied: numpy&gt;=1.19 in c:\users\haydar\appdata\local\packages\pythonsoftwarefoundation.python.3.11_qbz5n2kfra8p0\localcache\local-packages\python311\site-packages (from pyod) (1.26.4)
+Requirement already satisfied: numba&gt;=0.51 in c:\users\haydar\appdata\local\packages\pythonsoftwarefoundation.python.3.11_qbz5n2kfra8p0\localcache\local-packages\python311\site-packages (from pyod) (0.61.0)
+Requirement already satisfied: scipy&gt;=1.5.1 in c:\users\haydar\appdata\local\packages\pythonsoftwarefoundation.python.3.11_qbz5n2kfra8p0\localcache\local-packages\python311\site-packages (from pyod) (1.11.4)
+Requirement already satisfied: scikit-learn&gt;=0.22.0 in c:\users\haydar\appdata\local\packages\pythonsoftwarefoundation.python.3.11_qbz5n2kfra8p0\localcache\local-packages\python311\site-packages (from pyod) (1.4.2)
+Requirement already satisfied: llvmlite&lt;0.45,&gt;=0.44.0dev0 in c:\users\haydar\appdata\local\packages\pythonsoftwarefoundation.python.3.11_qbz5n2kfra8p0\localcache\local-packages\python311\site-packages (from numba&gt;=0.51-&gt;pyod) (0.44.0)
+Requirement already satisfied: threadpoolctl&gt;=2.0.0 in c:\users\haydar\appdata\local\packages\pythonsoftwarefoundation.python.3.11_qbz5n2kfra8p0\localcache\local-packages\python311\site-packages (from scikit-learn&gt;=0.22.0-&gt;pyod) (3.5.0)
+Requirement already satisfied: contourpy&gt;=1.0.1 in c:\users\haydar\appdata\local\packages\pythonsoftwarefoundation.python.3.11_qbz5n2kfra8p0\localcache\local-packages\python311\site-packages (from matplotlib-&gt;pyod) (1.3.2)
+Requirement already satisfied: cycler&gt;=0.10 in c:\users\haydar\appdata\local\packages\pythonsoftwarefoundation.python.3.11_qbz5n2kfra8p0\localcache\local-packages\python311\site-packages (from matplotlib-&gt;pyod) (0.12.1)
+Requirement already satisfied: fonttools&gt;=4.22.0 in c:\users\haydar\appdata\local\packages\pythonsoftwarefoundation.python.3.11_qbz5n2kfra8p0\localcache\local-packages\python311\site-packages (from matplotlib-&gt;pyod) (4.57.0)
+Requirement already satisfied: kiwisolver&gt;=1.0.1 in c:\users\haydar\appdata\local\packages\pythonsoftwarefoundation.python.3.11_qbz5n2kfra8p0\localcache\local-packages\python311\site-packages (from matplotlib-&gt;pyod) (1.4.8)
+Requirement already satisfied: packaging&gt;=20.0 in c:\users\haydar\appdata\local\packages\pythonsoftwarefoundation.python.3.11_qbz5n2kfra8p0\localcache\local-packages\python311\site-packages (from matplotlib-&gt;pyod) (24.2)
+Requirement already satisfied: pillow&gt;=6.2.0 in c:\users\haydar\appdata\local\packages\pythonsoftwarefoundation.python.3.11_qbz5n2kfra8p0\localcache\local-packages\python311\site-packages (from matplotlib-&gt;pyod) (11.2.1)
+Requirement already satisfied: pyparsing&gt;=2.3.1 in c:\users\haydar\appdata\local\packages\pythonsoftwarefoundation.python.3.11_qbz5n2kfra8p0\localcache\local-packages\python311\site-packages (from matplotlib-&gt;pyod) (3.2.3)
+Requirement already satisfied: python-dateutil&gt;=2.7 in c:\users\haydar\appdata\local\packages\pythonsoftwarefoundation.python.3.11_qbz5n2kfra8p0\localcache\local-packages\python311\site-packages (from matplotlib-&gt;pyod) (2.9.0.post0)
+Requirement already satisfied: six&gt;=1.5 in c:\users\haydar\appdata\local\packages\pythonsoftwarefoundation.python.3.11_qbz5n2kfra8p0\localcache\local-packages\python311\site-packages (from python-dateutil&gt;=2.7-&gt;matplotlib-&gt;pyod) (1.17.0)
+   Id  SepalLengthCm  SepalWidthCm  PetalLengthCm  PetalWidthCm      Species
 0   1            5.1           3.5            1.4           0.2  Iris-setosa
 1   2            4.9           3.0            1.4           0.2  Iris-setosa
 2   3            4.7           3.2            1.3           0.2  Iris-setosa
 3   4            4.6           3.1            1.5           0.2  Iris-setosa
 4   5            5.0           3.6            1.4           0.2  Iris-setosa
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   Id  SepalLengthCm  SepalWidthCm  PetalLengthCm  PetalWidthCm      Species  \
+   Id  SepalLengthCm  SepalWidthCm  PetalLengthCm  PetalWidthCm      Species  \
 0   1            5.1           3.5            1.4           0.2  Iris-setosa   
 1   2            4.9           3.0            1.4           0.2  Iris-setosa   
 2   3            4.7           3.2            1.3           0.2  Iris-setosa   
@@ -486,12 +485,12 @@ Requirement already satisfied: python-dateutil&gt;=2.7 in /home/codespace/.local
    outlier       score  
 0        0 -295.138889  
 1        0 -339.506173  
-2        0  -70.492908  
+2        0 -123.582927  
 3        0 -153.472222  
 4        0  -67.661180  
 </pre></div>
 </div>
-<img alt="_images/f827229d3a3cd29c577acc81187322c92c246c1e0d11e783810ac88ec1f45ec5.png" src="_images/f827229d3a3cd29c577acc81187322c92c246c1e0d11e783810ac88ec1f45ec5.png" />
+<img alt="_images/7e3d219f776ee561988e49c88b88e4a39efd860e808c8ed124d90569f5de27c6.png" src="_images/7e3d219f776ee561988e49c88b88e4a39efd860e808c8ed124d90569f5de27c6.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -501,7 +500,7 @@ Requirement already satisfied: python-dateutil&gt;=2.7 in /home/codespace/.local
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Python 3.12.1
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Python 3.11.9
 </pre></div>
 </div>
 </div>
@@ -514,123 +513,289 @@ Requirement already satisfied: python-dateutil&gt;=2.7 in /home/codespace/.local
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: pycaret in /usr/local/python/3.12.1/lib/python3.12/site-packages (3.3.2)
-Requirement already satisfied: ipython&gt;=5.5.0 in /home/codespace/.local/lib/python3.12/site-packages (from pycaret) (9.4.0)
-Requirement already satisfied: ipywidgets&gt;=7.6.5 in /usr/local/python/3.12.1/lib/python3.12/site-packages (from pycaret) (8.1.7)
-Requirement already satisfied: tqdm&gt;=4.62.0 in /usr/local/python/3.12.1/lib/python3.12/site-packages (from pycaret) (4.67.1)
-Requirement already satisfied: numpy&lt;1.27,&gt;=1.21 in /usr/local/python/3.12.1/lib/python3.12/site-packages (from pycaret) (1.26.4)
-Requirement already satisfied: pandas&lt;2.2.0 in /usr/local/python/3.12.1/lib/python3.12/site-packages (from pycaret) (2.1.4)
-Requirement already satisfied: jinja2&gt;=3 in /home/codespace/.local/lib/python3.12/site-packages (from pycaret) (3.1.6)
-Requirement already satisfied: scipy&lt;=1.11.4,&gt;=1.6.1 in /usr/local/python/3.12.1/lib/python3.12/site-packages (from pycaret) (1.11.4)
-Requirement already satisfied: joblib&lt;1.4,&gt;=1.2.0 in /usr/local/python/3.12.1/lib/python3.12/site-packages (from pycaret) (1.3.2)
-Requirement already satisfied: scikit-learn&gt;1.4.0 in /usr/local/python/3.12.1/lib/python3.12/site-packages (from pycaret) (1.4.2)
-Requirement already satisfied: pyod&gt;=1.1.3 in /usr/local/python/3.12.1/lib/python3.12/site-packages (from pycaret) (2.0.5)
-Requirement already satisfied: imbalanced-learn&gt;=0.12.0 in /usr/local/python/3.12.1/lib/python3.12/site-packages (from pycaret) (0.14.0)
-Requirement already satisfied: category-encoders&gt;=2.4.0 in /usr/local/python/3.12.1/lib/python3.12/site-packages (from pycaret) (2.7.0)
-Requirement already satisfied: lightgbm&gt;=3.0.0 in /usr/local/python/3.12.1/lib/python3.12/site-packages (from pycaret) (4.6.0)
-Requirement already satisfied: numba&gt;=0.55.0 in /usr/local/python/3.12.1/lib/python3.12/site-packages (from pycaret) (0.61.2)
-Requirement already satisfied: requests&gt;=2.27.1 in /home/codespace/.local/lib/python3.12/site-packages (from pycaret) (2.32.4)
-Requirement already satisfied: psutil&gt;=5.9.0 in /home/codespace/.local/lib/python3.12/site-packages (from pycaret) (7.0.0)
-Requirement already satisfied: markupsafe&gt;=2.0.1 in /home/codespace/.local/lib/python3.12/site-packages (from pycaret) (3.0.2)
-Requirement already satisfied: importlib-metadata&gt;=4.12.0 in /usr/local/python/3.12.1/lib/python3.12/site-packages (from pycaret) (8.7.0)
-Requirement already satisfied: nbformat&gt;=4.2.0 in /home/codespace/.local/lib/python3.12/site-packages (from pycaret) (5.10.4)
-Requirement already satisfied: cloudpickle in /usr/local/python/3.12.1/lib/python3.12/site-packages (from pycaret) (3.1.1)
-Requirement already satisfied: deprecation&gt;=2.1.0 in /usr/local/python/3.12.1/lib/python3.12/site-packages (from pycaret) (2.1.0)
-Requirement already satisfied: xxhash in /usr/local/python/3.12.1/lib/python3.12/site-packages (from pycaret) (3.5.0)
-Requirement already satisfied: matplotlib&lt;3.8.0 in /usr/local/python/3.12.1/lib/python3.12/site-packages (from pycaret) (3.7.5)
-Requirement already satisfied: scikit-plot&gt;=0.3.7 in /usr/local/python/3.12.1/lib/python3.12/site-packages (from pycaret) (0.3.7)
-Requirement already satisfied: yellowbrick&gt;=1.4 in /usr/local/python/3.12.1/lib/python3.12/site-packages (from pycaret) (1.5)
-Requirement already satisfied: plotly&gt;=5.14.0 in /home/codespace/.local/lib/python3.12/site-packages (from pycaret) (6.2.0)
-Requirement already satisfied: kaleido&gt;=0.2.1 in /usr/local/python/3.12.1/lib/python3.12/site-packages (from pycaret) (1.1.0)
-Requirement already satisfied: schemdraw==0.15 in /usr/local/python/3.12.1/lib/python3.12/site-packages (from pycaret) (0.15)
-Requirement already satisfied: plotly-resampler&gt;=0.8.3.1 in /usr/local/python/3.12.1/lib/python3.12/site-packages (from pycaret) (0.11.0)
-Requirement already satisfied: statsmodels&gt;=0.12.1 in /usr/local/python/3.12.1/lib/python3.12/site-packages (from pycaret) (0.14.5)
-Requirement already satisfied: sktime==0.26.0 in /usr/local/python/3.12.1/lib/python3.12/site-packages (from pycaret) (0.26.0)
-Requirement already satisfied: tbats&gt;=1.1.3 in /usr/local/python/3.12.1/lib/python3.12/site-packages (from pycaret) (1.1.3)
-Requirement already satisfied: pmdarima&gt;=2.0.4 in /usr/local/python/3.12.1/lib/python3.12/site-packages (from pycaret) (2.0.4)
-Requirement already satisfied: wurlitzer in /usr/local/python/3.12.1/lib/python3.12/site-packages (from pycaret) (3.1.1)
-Requirement already satisfied: packaging in /home/codespace/.local/lib/python3.12/site-packages (from sktime==0.26.0-&gt;pycaret) (25.0)
-Requirement already satisfied: scikit-base&lt;0.8.0 in /usr/local/python/3.12.1/lib/python3.12/site-packages (from sktime==0.26.0-&gt;pycaret) (0.7.8)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: contourpy&gt;=1.0.1 in /home/codespace/.local/lib/python3.12/site-packages (from matplotlib&lt;3.8.0-&gt;pycaret) (1.3.2)
-Requirement already satisfied: cycler&gt;=0.10 in /home/codespace/.local/lib/python3.12/site-packages (from matplotlib&lt;3.8.0-&gt;pycaret) (0.12.1)
-Requirement already satisfied: fonttools&gt;=4.22.0 in /home/codespace/.local/lib/python3.12/site-packages (from matplotlib&lt;3.8.0-&gt;pycaret) (4.58.5)
-Requirement already satisfied: kiwisolver&gt;=1.0.1 in /home/codespace/.local/lib/python3.12/site-packages (from matplotlib&lt;3.8.0-&gt;pycaret) (1.4.8)
-Requirement already satisfied: pillow&gt;=6.2.0 in /home/codespace/.local/lib/python3.12/site-packages (from matplotlib&lt;3.8.0-&gt;pycaret) (11.3.0)
-Requirement already satisfied: pyparsing&gt;=2.3.1 in /home/codespace/.local/lib/python3.12/site-packages (from matplotlib&lt;3.8.0-&gt;pycaret) (3.2.3)
-Requirement already satisfied: python-dateutil&gt;=2.7 in /home/codespace/.local/lib/python3.12/site-packages (from matplotlib&lt;3.8.0-&gt;pycaret) (2.9.0.post0)
-Requirement already satisfied: pytz&gt;=2020.1 in /home/codespace/.local/lib/python3.12/site-packages (from pandas&lt;2.2.0-&gt;pycaret) (2025.2)
-Requirement already satisfied: tzdata&gt;=2022.1 in /home/codespace/.local/lib/python3.12/site-packages (from pandas&lt;2.2.0-&gt;pycaret) (2025.2)
-Requirement already satisfied: threadpoolctl&gt;=2.0.0 in /home/codespace/.local/lib/python3.12/site-packages (from scikit-learn&gt;1.4.0-&gt;pycaret) (3.6.0)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: patsy&gt;=0.5.1 in /usr/local/python/3.12.1/lib/python3.12/site-packages (from category-encoders&gt;=2.4.0-&gt;pycaret) (1.0.1)
-Requirement already satisfied: zipp&gt;=3.20 in /usr/local/python/3.12.1/lib/python3.12/site-packages (from importlib-metadata&gt;=4.12.0-&gt;pycaret) (3.23.0)
-Requirement already satisfied: decorator in /home/codespace/.local/lib/python3.12/site-packages (from ipython&gt;=5.5.0-&gt;pycaret) (5.2.1)
-Requirement already satisfied: ipython-pygments-lexers in /home/codespace/.local/lib/python3.12/site-packages (from ipython&gt;=5.5.0-&gt;pycaret) (1.1.1)
-Requirement already satisfied: jedi&gt;=0.16 in /home/codespace/.local/lib/python3.12/site-packages (from ipython&gt;=5.5.0-&gt;pycaret) (0.19.2)
-Requirement already satisfied: matplotlib-inline in /home/codespace/.local/lib/python3.12/site-packages (from ipython&gt;=5.5.0-&gt;pycaret) (0.1.7)
-Requirement already satisfied: pexpect&gt;4.3 in /home/codespace/.local/lib/python3.12/site-packages (from ipython&gt;=5.5.0-&gt;pycaret) (4.9.0)
-Requirement already satisfied: prompt_toolkit&lt;3.1.0,&gt;=3.0.41 in /home/codespace/.local/lib/python3.12/site-packages (from ipython&gt;=5.5.0-&gt;pycaret) (3.0.51)
-Requirement already satisfied: pygments&gt;=2.4.0 in /home/codespace/.local/lib/python3.12/site-packages (from ipython&gt;=5.5.0-&gt;pycaret) (2.19.2)
-Requirement already satisfied: stack_data in /home/codespace/.local/lib/python3.12/site-packages (from ipython&gt;=5.5.0-&gt;pycaret) (0.6.3)
-Requirement already satisfied: traitlets&gt;=5.13.0 in /home/codespace/.local/lib/python3.12/site-packages (from ipython&gt;=5.5.0-&gt;pycaret) (5.14.3)
-Requirement already satisfied: wcwidth in /home/codespace/.local/lib/python3.12/site-packages (from prompt_toolkit&lt;3.1.0,&gt;=3.0.41-&gt;ipython&gt;=5.5.0-&gt;pycaret) (0.2.13)
-Requirement already satisfied: comm&gt;=0.1.3 in /home/codespace/.local/lib/python3.12/site-packages (from ipywidgets&gt;=7.6.5-&gt;pycaret) (0.2.2)
-Requirement already satisfied: widgetsnbextension~=4.0.14 in /usr/local/python/3.12.1/lib/python3.12/site-packages (from ipywidgets&gt;=7.6.5-&gt;pycaret) (4.0.14)
-Requirement already satisfied: jupyterlab_widgets~=3.0.15 in /usr/local/python/3.12.1/lib/python3.12/site-packages (from ipywidgets&gt;=7.6.5-&gt;pycaret) (3.0.15)
-Requirement already satisfied: parso&lt;0.9.0,&gt;=0.8.4 in /home/codespace/.local/lib/python3.12/site-packages (from jedi&gt;=0.16-&gt;ipython&gt;=5.5.0-&gt;pycaret) (0.8.4)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: choreographer&gt;=1.0.10 in /usr/local/python/3.12.1/lib/python3.12/site-packages (from kaleido&gt;=0.2.1-&gt;pycaret) (1.0.10)
-Requirement already satisfied: logistro&gt;=1.0.8 in /usr/local/python/3.12.1/lib/python3.12/site-packages (from kaleido&gt;=0.2.1-&gt;pycaret) (1.1.0)
-Requirement already satisfied: orjson&gt;=3.10.15 in /usr/local/python/3.12.1/lib/python3.12/site-packages (from kaleido&gt;=0.2.1-&gt;pycaret) (3.11.3)
-Requirement already satisfied: pytest-timeout&gt;=2.4.0 in /usr/local/python/3.12.1/lib/python3.12/site-packages (from kaleido&gt;=0.2.1-&gt;pycaret) (2.4.0)
-Requirement already satisfied: simplejson&gt;=3.19.3 in /usr/local/python/3.12.1/lib/python3.12/site-packages (from choreographer&gt;=1.0.10-&gt;kaleido&gt;=0.2.1-&gt;pycaret) (3.20.1)
-Requirement already satisfied: fastjsonschema&gt;=2.15 in /home/codespace/.local/lib/python3.12/site-packages (from nbformat&gt;=4.2.0-&gt;pycaret) (2.21.1)
-Requirement already satisfied: jsonschema&gt;=2.6 in /home/codespace/.local/lib/python3.12/site-packages (from nbformat&gt;=4.2.0-&gt;pycaret) (4.24.0)
-Requirement already satisfied: jupyter-core!=5.0.*,&gt;=4.12 in /home/codespace/.local/lib/python3.12/site-packages (from nbformat&gt;=4.2.0-&gt;pycaret) (5.8.1)
-Requirement already satisfied: attrs&gt;=22.2.0 in /home/codespace/.local/lib/python3.12/site-packages (from jsonschema&gt;=2.6-&gt;nbformat&gt;=4.2.0-&gt;pycaret) (25.3.0)
-Requirement already satisfied: jsonschema-specifications&gt;=2023.03.6 in /home/codespace/.local/lib/python3.12/site-packages (from jsonschema&gt;=2.6-&gt;nbformat&gt;=4.2.0-&gt;pycaret) (2025.4.1)
-Requirement already satisfied: referencing&gt;=0.28.4 in /home/codespace/.local/lib/python3.12/site-packages (from jsonschema&gt;=2.6-&gt;nbformat&gt;=4.2.0-&gt;pycaret) (0.36.2)
-Requirement already satisfied: rpds-py&gt;=0.7.1 in /home/codespace/.local/lib/python3.12/site-packages (from jsonschema&gt;=2.6-&gt;nbformat&gt;=4.2.0-&gt;pycaret) (0.26.0)
-Requirement already satisfied: platformdirs&gt;=2.5 in /home/codespace/.local/lib/python3.12/site-packages (from jupyter-core!=5.0.*,&gt;=4.12-&gt;nbformat&gt;=4.2.0-&gt;pycaret) (4.3.8)
-Requirement already satisfied: llvmlite&lt;0.45,&gt;=0.44.0dev0 in /usr/local/python/3.12.1/lib/python3.12/site-packages (from numba&gt;=0.55.0-&gt;pycaret) (0.44.0)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: ptyprocess&gt;=0.5 in /home/codespace/.local/lib/python3.12/site-packages (from pexpect&gt;4.3-&gt;ipython&gt;=5.5.0-&gt;pycaret) (0.7.0)
-Requirement already satisfied: narwhals&gt;=1.15.1 in /home/codespace/.local/lib/python3.12/site-packages (from plotly&gt;=5.14.0-&gt;pycaret) (1.46.0)
-Requirement already satisfied: dash&gt;=2.11.0 in /usr/local/python/3.12.1/lib/python3.12/site-packages (from plotly-resampler&gt;=0.8.3.1-&gt;pycaret) (3.2.0)
-Requirement already satisfied: tsdownsample&gt;=0.1.3 in /usr/local/python/3.12.1/lib/python3.12/site-packages (from plotly-resampler&gt;=0.8.3.1-&gt;pycaret) (0.1.4.1)
-Requirement already satisfied: Flask&lt;3.2,&gt;=1.0.4 in /usr/local/python/3.12.1/lib/python3.12/site-packages (from dash&gt;=2.11.0-&gt;plotly-resampler&gt;=0.8.3.1-&gt;pycaret) (3.1.2)
-Requirement already satisfied: Werkzeug&lt;3.2 in /usr/local/python/3.12.1/lib/python3.12/site-packages (from dash&gt;=2.11.0-&gt;plotly-resampler&gt;=0.8.3.1-&gt;pycaret) (3.1.3)
-Requirement already satisfied: typing-extensions&gt;=4.1.1 in /home/codespace/.local/lib/python3.12/site-packages (from dash&gt;=2.11.0-&gt;plotly-resampler&gt;=0.8.3.1-&gt;pycaret) (4.14.1)
-Requirement already satisfied: retrying in /usr/local/python/3.12.1/lib/python3.12/site-packages (from dash&gt;=2.11.0-&gt;plotly-resampler&gt;=0.8.3.1-&gt;pycaret) (1.4.2)
-Requirement already satisfied: nest-asyncio in /home/codespace/.local/lib/python3.12/site-packages (from dash&gt;=2.11.0-&gt;plotly-resampler&gt;=0.8.3.1-&gt;pycaret) (1.6.0)
-Requirement already satisfied: setuptools in /home/codespace/.local/lib/python3.12/site-packages (from dash&gt;=2.11.0-&gt;plotly-resampler&gt;=0.8.3.1-&gt;pycaret) (80.9.0)
-Requirement already satisfied: blinker&gt;=1.9.0 in /usr/local/python/3.12.1/lib/python3.12/site-packages (from Flask&lt;3.2,&gt;=1.0.4-&gt;dash&gt;=2.11.0-&gt;plotly-resampler&gt;=0.8.3.1-&gt;pycaret) (1.9.0)
-Requirement already satisfied: click&gt;=8.1.3 in /usr/local/python/3.12.1/lib/python3.12/site-packages (from Flask&lt;3.2,&gt;=1.0.4-&gt;dash&gt;=2.11.0-&gt;plotly-resampler&gt;=0.8.3.1-&gt;pycaret) (8.2.1)
-Requirement already satisfied: itsdangerous&gt;=2.2.0 in /usr/local/python/3.12.1/lib/python3.12/site-packages (from Flask&lt;3.2,&gt;=1.0.4-&gt;dash&gt;=2.11.0-&gt;plotly-resampler&gt;=0.8.3.1-&gt;pycaret) (2.2.0)
-Requirement already satisfied: Cython!=0.29.18,!=0.29.31,&gt;=0.29 in /usr/local/python/3.12.1/lib/python3.12/site-packages (from pmdarima&gt;=2.0.4-&gt;pycaret) (3.1.3)
-Requirement already satisfied: urllib3 in /home/codespace/.local/lib/python3.12/site-packages (from pmdarima&gt;=2.0.4-&gt;pycaret) (2.5.0)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: pytest&gt;=7.0.0 in /usr/local/python/3.12.1/lib/python3.12/site-packages (from pytest-timeout&gt;=2.4.0-&gt;kaleido&gt;=0.2.1-&gt;pycaret) (8.4.2)
-Requirement already satisfied: iniconfig&gt;=1 in /usr/local/python/3.12.1/lib/python3.12/site-packages (from pytest&gt;=7.0.0-&gt;pytest-timeout&gt;=2.4.0-&gt;kaleido&gt;=0.2.1-&gt;pycaret) (2.1.0)
-Requirement already satisfied: pluggy&lt;2,&gt;=1.5 in /usr/local/python/3.12.1/lib/python3.12/site-packages (from pytest&gt;=7.0.0-&gt;pytest-timeout&gt;=2.4.0-&gt;kaleido&gt;=0.2.1-&gt;pycaret) (1.6.0)
-Requirement already satisfied: six&gt;=1.5 in /home/codespace/.local/lib/python3.12/site-packages (from python-dateutil&gt;=2.7-&gt;matplotlib&lt;3.8.0-&gt;pycaret) (1.17.0)
-Requirement already satisfied: charset_normalizer&lt;4,&gt;=2 in /home/codespace/.local/lib/python3.12/site-packages (from requests&gt;=2.27.1-&gt;pycaret) (3.4.2)
-Requirement already satisfied: idna&lt;4,&gt;=2.5 in /home/codespace/.local/lib/python3.12/site-packages (from requests&gt;=2.27.1-&gt;pycaret) (3.10)
-Requirement already satisfied: certifi&gt;=2017.4.17 in /home/codespace/.local/lib/python3.12/site-packages (from requests&gt;=2.27.1-&gt;pycaret) (2025.7.9)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: executing&gt;=1.2.0 in /home/codespace/.local/lib/python3.12/site-packages (from stack_data-&gt;ipython&gt;=5.5.0-&gt;pycaret) (2.2.0)
-Requirement already satisfied: asttokens&gt;=2.1.0 in /home/codespace/.local/lib/python3.12/site-packages (from stack_data-&gt;ipython&gt;=5.5.0-&gt;pycaret) (3.0.0)
-Requirement already satisfied: pure-eval in /home/codespace/.local/lib/python3.12/site-packages (from stack_data-&gt;ipython&gt;=5.5.0-&gt;pycaret) (0.2.3)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Note: you may need to restart the kernel to use updated packages.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting pycaret
+  Downloading pycaret-3.3.2-py3-none-any.whl.metadata (17 kB)
+Requirement already satisfied: ipython&gt;=5.5.0 in /workspaces/PSD/.venv/lib/python3.11/site-packages (from pycaret) (9.5.0)
+Collecting ipywidgets&gt;=7.6.5 (from pycaret)
+  Downloading ipywidgets-8.1.7-py3-none-any.whl.metadata (2.4 kB)
+Collecting tqdm&gt;=4.62.0 (from pycaret)
+  Downloading tqdm-4.67.1-py3-none-any.whl.metadata (57 kB)
+Collecting numpy&lt;1.27,&gt;=1.21 (from pycaret)
+  Downloading numpy-1.26.4-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (61 kB)
+Collecting pandas&lt;2.2.0 (from pycaret)
+  Downloading pandas-2.1.4-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (18 kB)
+Collecting jinja2&gt;=3 (from pycaret)
+  Downloading jinja2-3.1.6-py3-none-any.whl.metadata (2.9 kB)
+Collecting scipy&lt;=1.11.4,&gt;=1.6.1 (from pycaret)
+  Downloading scipy-1.11.4-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (60 kB)
+Collecting joblib&lt;1.4,&gt;=1.2.0 (from pycaret)
+  Downloading joblib-1.3.2-py3-none-any.whl.metadata (5.4 kB)
+Collecting scikit-learn&gt;1.4.0 (from pycaret)
+  Downloading scikit_learn-1.7.2-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (11 kB)
+Collecting pyod&gt;=1.1.3 (from pycaret)
+  Downloading pyod-2.0.5-py3-none-any.whl.metadata (46 kB)
+Collecting imbalanced-learn&gt;=0.12.0 (from pycaret)
+  Downloading imbalanced_learn-0.14.0-py3-none-any.whl.metadata (8.8 kB)
+Collecting category-encoders&gt;=2.4.0 (from pycaret)
+  Downloading category_encoders-2.8.1-py3-none-any.whl.metadata (7.9 kB)
+Collecting lightgbm&gt;=3.0.0 (from pycaret)
+  Downloading lightgbm-4.6.0-py3-none-manylinux_2_28_x86_64.whl.metadata (17 kB)
+Collecting numba&gt;=0.55.0 (from pycaret)
+  Downloading numba-0.61.2-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (2.8 kB)
+Collecting requests&gt;=2.27.1 (from pycaret)
+  Downloading requests-2.32.5-py3-none-any.whl.metadata (4.9 kB)
+Requirement already satisfied: psutil&gt;=5.9.0 in /workspaces/PSD/.venv/lib/python3.11/site-packages (from pycaret) (7.0.0)
+Collecting markupsafe&gt;=2.0.1 (from pycaret)
+  Downloading MarkupSafe-3.0.2-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.0 kB)
+Collecting importlib-metadata&gt;=4.12.0 (from pycaret)
+  Using cached importlib_metadata-8.7.0-py3-none-any.whl.metadata (4.8 kB)
+Collecting nbformat&gt;=4.2.0 (from pycaret)
+  Downloading nbformat-5.10.4-py3-none-any.whl.metadata (3.6 kB)
+Collecting cloudpickle (from pycaret)
+  Downloading cloudpickle-3.1.1-py3-none-any.whl.metadata (7.1 kB)
+Collecting deprecation&gt;=2.1.0 (from pycaret)
+  Downloading deprecation-2.1.0-py2.py3-none-any.whl.metadata (4.6 kB)
+Collecting xxhash (from pycaret)
+  Downloading xxhash-3.5.0-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (12 kB)
+Collecting matplotlib&lt;3.8.0 (from pycaret)
+  Downloading matplotlib-3.7.5-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (5.7 kB)
+Collecting scikit-plot&gt;=0.3.7 (from pycaret)
+  Downloading scikit_plot-0.3.7-py3-none-any.whl.metadata (7.1 kB)
+Collecting yellowbrick&gt;=1.4 (from pycaret)
+  Downloading yellowbrick-1.5-py3-none-any.whl.metadata (7.7 kB)
+Collecting plotly&gt;=5.14.0 (from pycaret)
+  Downloading plotly-6.3.0-py3-none-any.whl.metadata (8.5 kB)
+Collecting kaleido&gt;=0.2.1 (from pycaret)
+  Downloading kaleido-1.1.0-py3-none-any.whl.metadata (5.6 kB)
+Collecting schemdraw==0.15 (from pycaret)
+  Downloading schemdraw-0.15-py3-none-any.whl.metadata (2.2 kB)
+Collecting plotly-resampler&gt;=0.8.3.1 (from pycaret)
+  Downloading plotly_resampler-0.11.0-py3-none-any.whl.metadata (13 kB)
+Collecting statsmodels&gt;=0.12.1 (from pycaret)
+  Downloading statsmodels-0.14.5-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (9.5 kB)
+Collecting sktime==0.26.0 (from pycaret)
+  Downloading sktime-0.26.0-py3-none-any.whl.metadata (29 kB)
+Collecting tbats&gt;=1.1.3 (from pycaret)
+  Downloading tbats-1.1.3-py3-none-any.whl.metadata (3.8 kB)
+Collecting pmdarima&gt;=2.0.4 (from pycaret)
+  Downloading pmdarima-2.0.4-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.manylinux_2_28_x86_64.whl.metadata (7.8 kB)
+Collecting wurlitzer (from pycaret)
+  Downloading wurlitzer-3.1.1-py3-none-any.whl.metadata (2.5 kB)
+Requirement already satisfied: packaging in /workspaces/PSD/.venv/lib/python3.11/site-packages (from sktime==0.26.0-&gt;pycaret) (25.0)
+Collecting scikit-base&lt;0.8.0 (from sktime==0.26.0-&gt;pycaret)
+  Downloading scikit_base-0.7.8-py3-none-any.whl.metadata (8.8 kB)
+Collecting scikit-learn&gt;1.4.0 (from pycaret)
+  Downloading scikit_learn-1.4.2-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (11 kB)
+Collecting contourpy&gt;=1.0.1 (from matplotlib&lt;3.8.0-&gt;pycaret)
+  Downloading contourpy-1.3.3-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (5.5 kB)
+Collecting cycler&gt;=0.10 (from matplotlib&lt;3.8.0-&gt;pycaret)
+  Downloading cycler-0.12.1-py3-none-any.whl.metadata (3.8 kB)
+Collecting fonttools&gt;=4.22.0 (from matplotlib&lt;3.8.0-&gt;pycaret)
+  Downloading fonttools-4.59.2-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (109 kB)
+Collecting kiwisolver&gt;=1.0.1 (from matplotlib&lt;3.8.0-&gt;pycaret)
+  Downloading kiwisolver-1.4.9-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (6.3 kB)
+Collecting pillow&gt;=6.2.0 (from matplotlib&lt;3.8.0-&gt;pycaret)
+  Downloading pillow-11.3.0-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (9.0 kB)
+Collecting pyparsing&gt;=2.3.1 (from matplotlib&lt;3.8.0-&gt;pycaret)
+  Downloading pyparsing-3.2.4-py3-none-any.whl.metadata (5.0 kB)
+Requirement already satisfied: python-dateutil&gt;=2.7 in /workspaces/PSD/.venv/lib/python3.11/site-packages (from matplotlib&lt;3.8.0-&gt;pycaret) (2.9.0.post0)
+Collecting pytz&gt;=2020.1 (from pandas&lt;2.2.0-&gt;pycaret)
+  Downloading pytz-2025.2-py2.py3-none-any.whl.metadata (22 kB)
+Collecting tzdata&gt;=2022.1 (from pandas&lt;2.2.0-&gt;pycaret)
+  Downloading tzdata-2025.2-py2.py3-none-any.whl.metadata (1.4 kB)
+Collecting threadpoolctl&gt;=2.0.0 (from scikit-learn&gt;1.4.0-&gt;pycaret)
+  Downloading threadpoolctl-3.6.0-py3-none-any.whl.metadata (13 kB)
+Collecting patsy&gt;=0.5.1 (from category-encoders&gt;=2.4.0-&gt;pycaret)
+  Downloading patsy-1.0.1-py2.py3-none-any.whl.metadata (3.3 kB)
+INFO: pip is looking at multiple versions of category-encoders to determine which version is compatible with other requirements. This could take a while.
+Collecting category-encoders&gt;=2.4.0 (from pycaret)
+  Downloading category_encoders-2.8.0-py3-none-any.whl.metadata (7.9 kB)
+  Downloading category_encoders-2.7.0-py3-none-any.whl.metadata (7.9 kB)
+Collecting zipp&gt;=3.20 (from importlib-metadata&gt;=4.12.0-&gt;pycaret)
+  Using cached zipp-3.23.0-py3-none-any.whl.metadata (3.6 kB)
+Requirement already satisfied: decorator in /workspaces/PSD/.venv/lib/python3.11/site-packages (from ipython&gt;=5.5.0-&gt;pycaret) (5.2.1)
+Requirement already satisfied: ipython-pygments-lexers in /workspaces/PSD/.venv/lib/python3.11/site-packages (from ipython&gt;=5.5.0-&gt;pycaret) (1.1.1)
+Requirement already satisfied: jedi&gt;=0.16 in /workspaces/PSD/.venv/lib/python3.11/site-packages (from ipython&gt;=5.5.0-&gt;pycaret) (0.19.2)
+Requirement already satisfied: matplotlib-inline in /workspaces/PSD/.venv/lib/python3.11/site-packages (from ipython&gt;=5.5.0-&gt;pycaret) (0.1.7)
+Requirement already satisfied: pexpect&gt;4.3 in /workspaces/PSD/.venv/lib/python3.11/site-packages (from ipython&gt;=5.5.0-&gt;pycaret) (4.9.0)
+Requirement already satisfied: prompt_toolkit&lt;3.1.0,&gt;=3.0.41 in /workspaces/PSD/.venv/lib/python3.11/site-packages (from ipython&gt;=5.5.0-&gt;pycaret) (3.0.52)
+Requirement already satisfied: pygments&gt;=2.4.0 in /workspaces/PSD/.venv/lib/python3.11/site-packages (from ipython&gt;=5.5.0-&gt;pycaret) (2.19.2)
+Requirement already satisfied: stack_data in /workspaces/PSD/.venv/lib/python3.11/site-packages (from ipython&gt;=5.5.0-&gt;pycaret) (0.6.3)
+Requirement already satisfied: traitlets&gt;=5.13.0 in /workspaces/PSD/.venv/lib/python3.11/site-packages (from ipython&gt;=5.5.0-&gt;pycaret) (5.14.3)
+Requirement already satisfied: typing_extensions&gt;=4.6 in /workspaces/PSD/.venv/lib/python3.11/site-packages (from ipython&gt;=5.5.0-&gt;pycaret) (4.15.0)
+Requirement already satisfied: wcwidth in /workspaces/PSD/.venv/lib/python3.11/site-packages (from prompt_toolkit&lt;3.1.0,&gt;=3.0.41-&gt;ipython&gt;=5.5.0-&gt;pycaret) (0.2.13)
+Requirement already satisfied: comm&gt;=0.1.3 in /workspaces/PSD/.venv/lib/python3.11/site-packages (from ipywidgets&gt;=7.6.5-&gt;pycaret) (0.2.3)
+Collecting widgetsnbextension~=4.0.14 (from ipywidgets&gt;=7.6.5-&gt;pycaret)
+  Downloading widgetsnbextension-4.0.14-py3-none-any.whl.metadata (1.6 kB)
+Collecting jupyterlab_widgets~=3.0.15 (from ipywidgets&gt;=7.6.5-&gt;pycaret)
+  Downloading jupyterlab_widgets-3.0.15-py3-none-any.whl.metadata (20 kB)
+Requirement already satisfied: parso&lt;0.9.0,&gt;=0.8.4 in /workspaces/PSD/.venv/lib/python3.11/site-packages (from jedi&gt;=0.16-&gt;ipython&gt;=5.5.0-&gt;pycaret) (0.8.5)
+Collecting choreographer&gt;=1.0.10 (from kaleido&gt;=0.2.1-&gt;pycaret)
+  Downloading choreographer-1.0.10-py3-none-any.whl.metadata (5.6 kB)
+Collecting logistro&gt;=1.0.8 (from kaleido&gt;=0.2.1-&gt;pycaret)
+  Downloading logistro-1.1.0-py3-none-any.whl.metadata (2.6 kB)
+Collecting orjson&gt;=3.10.15 (from kaleido&gt;=0.2.1-&gt;pycaret)
+  Downloading orjson-3.11.3-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (41 kB)
+Collecting pytest-timeout&gt;=2.4.0 (from kaleido&gt;=0.2.1-&gt;pycaret)
+  Downloading pytest_timeout-2.4.0-py3-none-any.whl.metadata (20 kB)
+Collecting simplejson&gt;=3.19.3 (from choreographer&gt;=1.0.10-&gt;kaleido&gt;=0.2.1-&gt;pycaret)
+  Downloading simplejson-3.20.1-cp311-cp311-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (3.2 kB)
+Collecting fastjsonschema&gt;=2.15 (from nbformat&gt;=4.2.0-&gt;pycaret)
+  Downloading fastjsonschema-2.21.2-py3-none-any.whl.metadata (2.3 kB)
+Collecting jsonschema&gt;=2.6 (from nbformat&gt;=4.2.0-&gt;pycaret)
+  Downloading jsonschema-4.25.1-py3-none-any.whl.metadata (7.6 kB)
+Requirement already satisfied: jupyter-core!=5.0.*,&gt;=4.12 in /workspaces/PSD/.venv/lib/python3.11/site-packages (from nbformat&gt;=4.2.0-&gt;pycaret) (5.8.1)
+Collecting attrs&gt;=22.2.0 (from jsonschema&gt;=2.6-&gt;nbformat&gt;=4.2.0-&gt;pycaret)
+  Downloading attrs-25.3.0-py3-none-any.whl.metadata (10 kB)
+Collecting jsonschema-specifications&gt;=2023.03.6 (from jsonschema&gt;=2.6-&gt;nbformat&gt;=4.2.0-&gt;pycaret)
+  Downloading jsonschema_specifications-2025.9.1-py3-none-any.whl.metadata (2.9 kB)
+Collecting referencing&gt;=0.28.4 (from jsonschema&gt;=2.6-&gt;nbformat&gt;=4.2.0-&gt;pycaret)
+  Downloading referencing-0.36.2-py3-none-any.whl.metadata (2.8 kB)
+Collecting rpds-py&gt;=0.7.1 (from jsonschema&gt;=2.6-&gt;nbformat&gt;=4.2.0-&gt;pycaret)
+  Downloading rpds_py-0.27.1-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.2 kB)
+Requirement already satisfied: platformdirs&gt;=2.5 in /workspaces/PSD/.venv/lib/python3.11/site-packages (from jupyter-core!=5.0.*,&gt;=4.12-&gt;nbformat&gt;=4.2.0-&gt;pycaret) (4.4.0)
+Collecting llvmlite&lt;0.45,&gt;=0.44.0dev0 (from numba&gt;=0.55.0-&gt;pycaret)
+  Downloading llvmlite-0.44.0-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.8 kB)
+Requirement already satisfied: ptyprocess&gt;=0.5 in /workspaces/PSD/.venv/lib/python3.11/site-packages (from pexpect&gt;4.3-&gt;ipython&gt;=5.5.0-&gt;pycaret) (0.7.0)
+Collecting narwhals&gt;=1.15.1 (from plotly&gt;=5.14.0-&gt;pycaret)
+  Downloading narwhals-2.5.0-py3-none-any.whl.metadata (11 kB)
+Collecting dash&gt;=2.11.0 (from plotly-resampler&gt;=0.8.3.1-&gt;pycaret)
+  Downloading dash-3.2.0-py3-none-any.whl.metadata (10 kB)
+Collecting tsdownsample&gt;=0.1.3 (from plotly-resampler&gt;=0.8.3.1-&gt;pycaret)
+  Downloading tsdownsample-0.1.4.1-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (8.0 kB)
+Collecting Flask&lt;3.2,&gt;=1.0.4 (from dash&gt;=2.11.0-&gt;plotly-resampler&gt;=0.8.3.1-&gt;pycaret)
+  Downloading flask-3.1.2-py3-none-any.whl.metadata (3.2 kB)
+Collecting Werkzeug&lt;3.2 (from dash&gt;=2.11.0-&gt;plotly-resampler&gt;=0.8.3.1-&gt;pycaret)
+  Downloading werkzeug-3.1.3-py3-none-any.whl.metadata (3.7 kB)
+Collecting retrying (from dash&gt;=2.11.0-&gt;plotly-resampler&gt;=0.8.3.1-&gt;pycaret)
+  Downloading retrying-1.4.2-py3-none-any.whl.metadata (5.5 kB)
+Requirement already satisfied: nest-asyncio in /workspaces/PSD/.venv/lib/python3.11/site-packages (from dash&gt;=2.11.0-&gt;plotly-resampler&gt;=0.8.3.1-&gt;pycaret) (1.6.0)
+Requirement already satisfied: setuptools in /workspaces/PSD/.venv/lib/python3.11/site-packages (from dash&gt;=2.11.0-&gt;plotly-resampler&gt;=0.8.3.1-&gt;pycaret) (65.5.0)
+Collecting blinker&gt;=1.9.0 (from Flask&lt;3.2,&gt;=1.0.4-&gt;dash&gt;=2.11.0-&gt;plotly-resampler&gt;=0.8.3.1-&gt;pycaret)
+  Downloading blinker-1.9.0-py3-none-any.whl.metadata (1.6 kB)
+Collecting click&gt;=8.1.3 (from Flask&lt;3.2,&gt;=1.0.4-&gt;dash&gt;=2.11.0-&gt;plotly-resampler&gt;=0.8.3.1-&gt;pycaret)
+  Using cached click-8.2.1-py3-none-any.whl.metadata (2.5 kB)
+Collecting itsdangerous&gt;=2.2.0 (from Flask&lt;3.2,&gt;=1.0.4-&gt;dash&gt;=2.11.0-&gt;plotly-resampler&gt;=0.8.3.1-&gt;pycaret)
+  Downloading itsdangerous-2.2.0-py3-none-any.whl.metadata (1.9 kB)
+Collecting Cython!=0.29.18,!=0.29.31,&gt;=0.29 (from pmdarima&gt;=2.0.4-&gt;pycaret)
+  Downloading cython-3.1.3-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (4.7 kB)
+Collecting urllib3 (from pmdarima&gt;=2.0.4-&gt;pycaret)
+  Downloading urllib3-2.5.0-py3-none-any.whl.metadata (6.5 kB)
+Collecting pytest&gt;=7.0.0 (from pytest-timeout&gt;=2.4.0-&gt;kaleido&gt;=0.2.1-&gt;pycaret)
+  Downloading pytest-8.4.2-py3-none-any.whl.metadata (7.7 kB)
+Collecting iniconfig&gt;=1 (from pytest&gt;=7.0.0-&gt;pytest-timeout&gt;=2.4.0-&gt;kaleido&gt;=0.2.1-&gt;pycaret)
+  Downloading iniconfig-2.1.0-py3-none-any.whl.metadata (2.7 kB)
+Collecting pluggy&lt;2,&gt;=1.5 (from pytest&gt;=7.0.0-&gt;pytest-timeout&gt;=2.4.0-&gt;kaleido&gt;=0.2.1-&gt;pycaret)
+  Downloading pluggy-1.6.0-py3-none-any.whl.metadata (4.8 kB)
+Requirement already satisfied: six&gt;=1.5 in /workspaces/PSD/.venv/lib/python3.11/site-packages (from python-dateutil&gt;=2.7-&gt;matplotlib&lt;3.8.0-&gt;pycaret) (1.17.0)
+Collecting charset_normalizer&lt;4,&gt;=2 (from requests&gt;=2.27.1-&gt;pycaret)
+  Downloading charset_normalizer-3.4.3-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (36 kB)
+Collecting idna&lt;4,&gt;=2.5 (from requests&gt;=2.27.1-&gt;pycaret)
+  Downloading idna-3.10-py3-none-any.whl.metadata (10 kB)
+Collecting certifi&gt;=2017.4.17 (from requests&gt;=2.27.1-&gt;pycaret)
+  Downloading certifi-2025.8.3-py3-none-any.whl.metadata (2.4 kB)
+Requirement already satisfied: executing&gt;=1.2.0 in /workspaces/PSD/.venv/lib/python3.11/site-packages (from stack_data-&gt;ipython&gt;=5.5.0-&gt;pycaret) (2.2.1)
+Requirement already satisfied: asttokens&gt;=2.1.0 in /workspaces/PSD/.venv/lib/python3.11/site-packages (from stack_data-&gt;ipython&gt;=5.5.0-&gt;pycaret) (3.0.0)
+Requirement already satisfied: pure-eval in /workspaces/PSD/.venv/lib/python3.11/site-packages (from stack_data-&gt;ipython&gt;=5.5.0-&gt;pycaret) (0.2.3)
+Downloading pycaret-3.3.2-py3-none-any.whl (486 kB)
+Downloading schemdraw-0.15-py3-none-any.whl (106 kB)
+Downloading sktime-0.26.0-py3-none-any.whl (21.8 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">21.8/21.8 MB</span> <span class=" -Color -Color-Red">53.5 MB/s</span>  <span class=" -Color -Color-Yellow">0:00:00</span>6m0:00:01
+?25hDownloading joblib-1.3.2-py3-none-any.whl (302 kB)
+Downloading matplotlib-3.7.5-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (11.6 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">11.6/11.6 MB</span> <span class=" -Color -Color-Red">53.9 MB/s</span>  <span class=" -Color -Color-Yellow">0:00:00</span>6m0:00:01
+?25hDownloading numpy-1.26.4-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (18.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">18.3/18.3 MB</span> <span class=" -Color -Color-Red">53.0 MB/s</span>  <span class=" -Color -Color-Yellow">0:00:00</span>6m0:00:01
+?25hDownloading pandas-2.1.4-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (12.2 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">12.2/12.2 MB</span> <span class=" -Color -Color-Red">53.2 MB/s</span>  <span class=" -Color -Color-Yellow">0:00:00</span>6m0:00:01
+?25hDownloading scikit_base-0.7.8-py3-none-any.whl (130 kB)
+Downloading scikit_learn-1.4.2-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (12.1 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">12.1/12.1 MB</span> <span class=" -Color -Color-Red">52.5 MB/s</span>  <span class=" -Color -Color-Yellow">0:00:00</span>6m0:00:01
+?25hDownloading scipy-1.11.4-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (36.4 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">36.4/36.4 MB</span> <span class=" -Color -Color-Red">52.3 MB/s</span>  <span class=" -Color -Color-Yellow">0:00:00</span>6m0:00:01
+?25hDownloading category_encoders-2.7.0-py3-none-any.whl (85 kB)
+Downloading contourpy-1.3.3-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (355 kB)
+Downloading cycler-0.12.1-py3-none-any.whl (8.3 kB)
+Downloading deprecation-2.1.0-py2.py3-none-any.whl (11 kB)
+Downloading fonttools-4.59.2-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (5.0 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">5.0/5.0 MB</span> <span class=" -Color -Color-Red">47.6 MB/s</span>  <span class=" -Color -Color-Yellow">0:00:00</span>
+?25hDownloading imbalanced_learn-0.14.0-py3-none-any.whl (239 kB)
+Downloading threadpoolctl-3.6.0-py3-none-any.whl (18 kB)
+Using cached importlib_metadata-8.7.0-py3-none-any.whl (27 kB)
+Downloading ipywidgets-8.1.7-py3-none-any.whl (139 kB)
+Downloading jupyterlab_widgets-3.0.15-py3-none-any.whl (216 kB)
+Downloading widgetsnbextension-4.0.14-py3-none-any.whl (2.2 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">2.2/2.2 MB</span> <span class=" -Color -Color-Red">47.3 MB/s</span>  <span class=" -Color -Color-Yellow">0:00:00</span>
+?25hDownloading jinja2-3.1.6-py3-none-any.whl (134 kB)
+Downloading kaleido-1.1.0-py3-none-any.whl (66 kB)
+Downloading choreographer-1.0.10-py3-none-any.whl (51 kB)
+Downloading kiwisolver-1.4.9-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (1.4 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">1.4/1.4 MB</span> <span class=" -Color -Color-Red">37.5 MB/s</span>  <span class=" -Color -Color-Yellow">0:00:00</span>
+?25hDownloading lightgbm-4.6.0-py3-none-manylinux_2_28_x86_64.whl (3.6 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">3.6/3.6 MB</span> <span class=" -Color -Color-Red">40.9 MB/s</span>  <span class=" -Color -Color-Yellow">0:00:00</span>
+?25hDownloading logistro-1.1.0-py3-none-any.whl (7.9 kB)
+Downloading MarkupSafe-3.0.2-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (23 kB)
+Downloading nbformat-5.10.4-py3-none-any.whl (78 kB)
+Downloading fastjsonschema-2.21.2-py3-none-any.whl (24 kB)
+Downloading jsonschema-4.25.1-py3-none-any.whl (90 kB)
+Downloading attrs-25.3.0-py3-none-any.whl (63 kB)
+Downloading jsonschema_specifications-2025.9.1-py3-none-any.whl (18 kB)
+Downloading numba-0.61.2-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (3.8 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">3.8/3.8 MB</span> <span class=" -Color -Color-Red">64.4 MB/s</span>  <span class=" -Color -Color-Yellow">0:00:00</span>
+?25hDownloading llvmlite-0.44.0-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (42.4 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">42.4/42.4 MB</span> <span class=" -Color -Color-Red">53.4 MB/s</span>  <span class=" -Color -Color-Yellow">0:00:00</span>6m0:00:01
+?25hDownloading orjson-3.11.3-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (132 kB)
+Downloading patsy-1.0.1-py2.py3-none-any.whl (232 kB)
+Downloading pillow-11.3.0-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (6.6 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">6.6/6.6 MB</span> <span class=" -Color -Color-Red">46.6 MB/s</span>  <span class=" -Color -Color-Yellow">0:00:00</span>
+?25hDownloading plotly-6.3.0-py3-none-any.whl (9.8 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">9.8/9.8 MB</span> <span class=" -Color -Color-Red">51.0 MB/s</span>  <span class=" -Color -Color-Yellow">0:00:00</span>
+?25hDownloading narwhals-2.5.0-py3-none-any.whl (407 kB)
+Downloading plotly_resampler-0.11.0-py3-none-any.whl (82 kB)
+Downloading dash-3.2.0-py3-none-any.whl (7.9 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">7.9/7.9 MB</span> <span class=" -Color -Color-Red">59.4 MB/s</span>  <span class=" -Color -Color-Yellow">0:00:00</span>
+?25hDownloading flask-3.1.2-py3-none-any.whl (103 kB)
+Downloading werkzeug-3.1.3-py3-none-any.whl (224 kB)
+Downloading blinker-1.9.0-py3-none-any.whl (8.5 kB)
+Using cached click-8.2.1-py3-none-any.whl (102 kB)
+Downloading itsdangerous-2.2.0-py3-none-any.whl (16 kB)
+Downloading pmdarima-2.0.4-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.manylinux_2_28_x86_64.whl (2.2 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">2.2/2.2 MB</span> <span class=" -Color -Color-Red">46.1 MB/s</span>  <span class=" -Color -Color-Yellow">0:00:00</span>
+?25hDownloading cython-3.1.3-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (3.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">3.3/3.3 MB</span> <span class=" -Color -Color-Red">47.1 MB/s</span>  <span class=" -Color -Color-Yellow">0:00:00</span>
+?25hDownloading pyod-2.0.5-py3-none-any.whl (200 kB)
+Downloading pyparsing-3.2.4-py3-none-any.whl (113 kB)
+Downloading pytest_timeout-2.4.0-py3-none-any.whl (14 kB)
+Downloading pytest-8.4.2-py3-none-any.whl (365 kB)
+Downloading pluggy-1.6.0-py3-none-any.whl (20 kB)
+Downloading iniconfig-2.1.0-py3-none-any.whl (6.0 kB)
+Downloading pytz-2025.2-py2.py3-none-any.whl (509 kB)
+Downloading referencing-0.36.2-py3-none-any.whl (26 kB)
+Downloading requests-2.32.5-py3-none-any.whl (64 kB)
+Downloading charset_normalizer-3.4.3-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (150 kB)
+Downloading idna-3.10-py3-none-any.whl (70 kB)
+Downloading urllib3-2.5.0-py3-none-any.whl (129 kB)
+Downloading certifi-2025.8.3-py3-none-any.whl (161 kB)
+Downloading rpds_py-0.27.1-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (384 kB)
+Downloading scikit_plot-0.3.7-py3-none-any.whl (33 kB)
+Downloading simplejson-3.20.1-cp311-cp311-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl (144 kB)
+Downloading statsmodels-0.14.5-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (10.5 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">10.5/10.5 MB</span> <span class=" -Color -Color-Red">58.2 MB/s</span>  <span class=" -Color -Color-Yellow">0:00:00</span>
+?25hDownloading tbats-1.1.3-py3-none-any.whl (44 kB)
+Downloading tqdm-4.67.1-py3-none-any.whl (78 kB)
+Downloading tsdownsample-0.1.4.1-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (1.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">1.3/1.3 MB</span> <span class=" -Color -Color-Red">35.7 MB/s</span>  <span class=" -Color -Color-Yellow">0:00:00</span>
+?25hDownloading tzdata-2025.2-py2.py3-none-any.whl (347 kB)
+Downloading yellowbrick-1.5-py3-none-any.whl (282 kB)
+Using cached zipp-3.23.0-py3-none-any.whl (10 kB)
+Downloading cloudpickle-3.1.1-py3-none-any.whl (20 kB)
+Downloading retrying-1.4.2-py3-none-any.whl (10 kB)
+Downloading wurlitzer-3.1.1-py3-none-any.whl (8.6 kB)
+Downloading xxhash-3.5.0-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (194 kB)
+Installing collected packages: pytz, fastjsonschema, zipp, xxhash, wurlitzer, widgetsnbextension, urllib3, tzdata, tqdm, threadpoolctl, simplejson, scikit-base, schemdraw, rpds-py, retrying, pyparsing, pluggy, pillow, orjson, numpy, narwhals, markupsafe, logistro, llvmlite, kiwisolver, jupyterlab_widgets, joblib, itsdangerous, iniconfig, idna, fonttools, deprecation, Cython, cycler, cloudpickle, click, charset_normalizer, certifi, blinker, attrs, Werkzeug, tsdownsample, scipy, requests, referencing, pytest, plotly, patsy, pandas, numba, jinja2, importlib-metadata, contourpy, choreographer, statsmodels, scikit-learn, pytest-timeout, matplotlib, lightgbm, jsonschema-specifications, ipywidgets, Flask, yellowbrick, sktime, scikit-plot, pyod, pmdarima, kaleido, jsonschema, imbalanced-learn, dash, category-encoders, tbats, plotly-resampler, nbformat, pycaret
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">76/76</span> [pycaret][pycaret][plotly-resampler]]
+Successfully installed Cython-3.1.3 Flask-3.1.2 Werkzeug-3.1.3 attrs-25.3.0 blinker-1.9.0 category-encoders-2.7.0 certifi-2025.8.3 charset_normalizer-3.4.3 choreographer-1.0.10 click-8.2.1 cloudpickle-3.1.1 contourpy-1.3.3 cycler-0.12.1 dash-3.2.0 deprecation-2.1.0 fastjsonschema-2.21.2 fonttools-4.59.2 idna-3.10 imbalanced-learn-0.14.0 importlib-metadata-8.7.0 iniconfig-2.1.0 ipywidgets-8.1.7 itsdangerous-2.2.0 jinja2-3.1.6 joblib-1.3.2 jsonschema-4.25.1 jsonschema-specifications-2025.9.1 jupyterlab_widgets-3.0.15 kaleido-1.1.0 kiwisolver-1.4.9 lightgbm-4.6.0 llvmlite-0.44.0 logistro-1.1.0 markupsafe-3.0.2 matplotlib-3.7.5 narwhals-2.5.0 nbformat-5.10.4 numba-0.61.2 numpy-1.26.4 orjson-3.11.3 pandas-2.1.4 patsy-1.0.1 pillow-11.3.0 plotly-6.3.0 plotly-resampler-0.11.0 pluggy-1.6.0 pmdarima-2.0.4 pycaret-3.3.2 pyod-2.0.5 pyparsing-3.2.4 pytest-8.4.2 pytest-timeout-2.4.0 pytz-2025.2 referencing-0.36.2 requests-2.32.5 retrying-1.4.2 rpds-py-0.27.1 schemdraw-0.15 scikit-base-0.7.8 scikit-learn-1.4.2 scikit-plot-0.3.7 scipy-1.11.4 simplejson-3.20.1 sktime-0.26.0 statsmodels-0.14.5 tbats-1.1.3 threadpoolctl-3.6.0 tqdm-4.67.1 tsdownsample-0.1.4.1 tzdata-2025.2 urllib3-2.5.0 widgetsnbextension-4.0.14 wurlitzer-3.1.1 xxhash-3.5.0 yellowbrick-1.5 zipp-3.23.0
+Note: you may need to restart the kernel to use updated packages.
 </pre></div>
 </div>
 </div>
@@ -647,28 +812,8 @@ Requirement already satisfied: pure-eval in /home/codespace/.local/lib/python3.1
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">RuntimeError</span><span class="g g-Whitespace">                              </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="kn">import</span><span class="w"> </span><span class="nn">pycaret</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Python version:&quot;</span><span class="p">,</span> <span class="n">sys</span><span class="o">.</span><span class="n">version</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;PyCaret version:&quot;</span><span class="p">,</span> <span class="n">pycaret</span><span class="o">.</span><span class="n">__version__</span><span class="p">)</span>
-
-<span class="n">File</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">python</span><span class="o">/</span><span class="mf">3.12.1</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.12</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">pycaret</span><span class="o">/</span><span class="fm">__init__</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">22</span>
-<span class="g g-Whitespace">     </span><span class="mi">16</span>     <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span>
-<span class="g g-Whitespace">     </span><span class="mi">17</span>         <span class="s2">&quot;Pycaret only supports python 3.9, 3.10, 3.11. Your actual Python version: &quot;</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">18</span>         <span class="n">sys</span><span class="o">.</span><span class="n">version_info</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">19</span>         <span class="s2">&quot;Please UPGRADE your Python version.&quot;</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">20</span>     <span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">21</span> <span class="k">elif</span> <span class="n">sys</span><span class="o">.</span><span class="n">version_info</span> <span class="o">&gt;=</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">12</span><span class="p">):</span>
-<span class="ne">---&gt; </span><span class="mi">22</span>     <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span>
-<span class="g g-Whitespace">     </span><span class="mi">23</span>         <span class="s2">&quot;Pycaret only supports python 3.9, 3.10, 3.11. Your actual Python version: &quot;</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">24</span>         <span class="n">sys</span><span class="o">.</span><span class="n">version_info</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">25</span>         <span class="s2">&quot;Please DOWNGRADE your Python version.&quot;</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">26</span>     <span class="p">)</span>
-
-<span class="ne">RuntimeError</span>: (&#39;Pycaret only supports python 3.9, 3.10, 3.11. Your actual Python version: &#39;, sys.version_info(major=3, minor=12, micro=1, releaselevel=&#39;final&#39;, serial=0), &#39;Please DOWNGRADE your Python version.&#39;)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Python version: 3.11.13 (main, Jun  4 2025, 08:57:30) [GCC 13.3.0]
+PyCaret version: 3.3.2
 </pre></div>
 </div>
 </div>
