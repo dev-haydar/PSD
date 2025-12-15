@@ -60,7 +60,6 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'proyek_uas/proyek_UAS';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="prev" title="Prediksi NO2" href="../Prediksi_NO2.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -123,6 +122,8 @@
       
       
       
+        
+      
       <div class="bd-sidebar-primary bd-sidebar">
         
 
@@ -178,7 +179,7 @@
                 </a>
             </li>
         </ul>
-        <ul class="current nav bd-sidenav">
+        <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../Bussinnes_Understanding.html">Bussiness Understanding</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Data_Understanding.html">Data Understanding</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../tugas_2_psd.html">Eksplorasi Data</a></li>
@@ -194,11 +195,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../cloning_voice.html">Voice Cloning &amp; Augmentation untuk Training Dataset</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../tsfel_voice_analysis.html">Analisis Voice (Audio) menggunakan TSFEL</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Prediksi_NO2.html">Prediksi NO2</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">1. Business Understanding</a></li>
-
-
-
-
 </ul>
 
     </div>
@@ -978,6 +974,131 @@ Kelas 1 (RR Lyrae)       0.99      0.99      0.99      2305
 <li><p>Kelas 0 (Cepheid): Model gagal mengenali kelas ini (F1-Score 0.00). Fenomena ini dikenal sebagai Minority Class Overshadowing, di mana model lebih memilih menebak kelas mayoritas (Kelas 2) daripada mengambil risiko menebak kelas minoritas yang fiturnya mirip.</p></li>
 </ul>
 <p>Kesimpulan Evaluasi Meskipun terdapat kendala pada identifikasi Kelas 0, akurasi global 85% membuktikan bahwa arsitektur 1D-CNN yang dibangun sangat efektif untuk tugas klasifikasi time-series astronomi, terutama dalam memisahkan bintang tipe pulsating (RR Lyrae) dan eclipsing (Binary).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">tensorflow</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">tf</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">tensorflow.keras</span><span class="w"> </span><span class="kn">import</span> <span class="n">layers</span><span class="p">,</span> <span class="n">models</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.io</span><span class="w"> </span><span class="kn">import</span> <span class="n">arff</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.preprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">LabelEncoder</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;🔄 MELAKUKAN RETRAINING &amp; SAVING...&quot;</span><span class="p">)</span>
+
+<span class="c1"># 1. LOAD DATA</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_data</span><span class="p">():</span>
+    <span class="n">paths</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">root</span><span class="p">,</span> <span class="n">dirs</span><span class="p">,</span> <span class="n">files</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">walk</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">files</span><span class="p">:</span>
+            <span class="k">if</span> <span class="s2">&quot;StarLightCurves_TRAIN&quot;</span> <span class="ow">in</span> <span class="n">file</span> <span class="ow">and</span> <span class="n">file</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">&#39;.arff&#39;</span><span class="p">):</span>
+                <span class="n">paths</span><span class="p">[</span><span class="s2">&quot;TRAIN&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">file</span><span class="p">)</span>
+            <span class="k">if</span> <span class="s2">&quot;StarLightCurves_TEST&quot;</span> <span class="ow">in</span> <span class="n">file</span> <span class="ow">and</span> <span class="n">file</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">&#39;.arff&#39;</span><span class="p">):</span>
+                <span class="n">paths</span><span class="p">[</span><span class="s2">&quot;TEST&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">file</span><span class="p">)</span>
+    
+    <span class="c1"># Baca File</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">read</span><span class="p">(</span><span class="n">p</span><span class="p">):</span>
+        <span class="n">data</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">arff</span><span class="o">.</span><span class="n">loadarff</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+        <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+        <span class="n">X</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="nb">bytes</span><span class="p">):</span> <span class="n">y</span> <span class="o">=</span> <span class="n">y</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">paths</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;TRAIN&quot;</span><span class="p">)</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">paths</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;TEST&quot;</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;❌ File dataset tidak ditemukan! Pastikan folder dataset ada.&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span>
+
+    <span class="k">return</span> <span class="n">read</span><span class="p">(</span><span class="n">paths</span><span class="p">[</span><span class="s2">&quot;TRAIN&quot;</span><span class="p">]),</span> <span class="n">read</span><span class="p">(</span><span class="n">paths</span><span class="p">[</span><span class="s2">&quot;TEST&quot;</span><span class="p">])</span>
+
+<span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">),</span> <span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span> <span class="o">=</span> <span class="n">get_data</span><span class="p">()</span>
+
+<span class="c1"># 2. PREPROCESSING</span>
+<span class="n">le</span> <span class="o">=</span> <span class="n">LabelEncoder</span><span class="p">()</span>
+<span class="n">y_train_enc</span> <span class="o">=</span> <span class="n">le</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">y_train</span><span class="p">)</span>
+<span class="n">y_test_enc</span> <span class="o">=</span> <span class="n">le</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">y_test</span><span class="p">)</span>
+
+<span class="n">X_train_cnn</span> <span class="o">=</span> <span class="n">X_train</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">X_train</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">X_train</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">X_test_cnn</span> <span class="o">=</span> <span class="n">X_test</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">X_test</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">X_test</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># 3. BUILD MODEL</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">Sequential</span><span class="p">([</span>
+    <span class="n">layers</span><span class="o">.</span><span class="n">Conv1D</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="s1">&#39;same&#39;</span><span class="p">,</span> <span class="n">input_shape</span><span class="o">=</span><span class="p">(</span><span class="mi">1024</span><span class="p">,</span> <span class="mi">1</span><span class="p">)),</span>
+    <span class="n">layers</span><span class="o">.</span><span class="n">MaxPooling1D</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span>
+    <span class="n">layers</span><span class="o">.</span><span class="n">Conv1D</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="s1">&#39;same&#39;</span><span class="p">),</span>
+    <span class="n">layers</span><span class="o">.</span><span class="n">MaxPooling1D</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span>
+    <span class="n">layers</span><span class="o">.</span><span class="n">Conv1D</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="s1">&#39;same&#39;</span><span class="p">),</span>
+    <span class="n">layers</span><span class="o">.</span><span class="n">GlobalAveragePooling1D</span><span class="p">(),</span>
+    <span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">),</span>
+    <span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;softmax&#39;</span><span class="p">)</span>
+<span class="p">])</span>
+<span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">optimizer</span><span class="o">=</span><span class="s1">&#39;adam&#39;</span><span class="p">,</span> <span class="n">loss</span><span class="o">=</span><span class="s1">&#39;sparse_categorical_crossentropy&#39;</span><span class="p">,</span> <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;accuracy&#39;</span><span class="p">])</span>
+
+<span class="c1"># 4. TRAIN (15 Epoch cukup)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;🚀 Sedang melatih otak AI (Tunggu sebentar)...&quot;</span><span class="p">)</span>
+<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_cnn</span><span class="p">,</span> <span class="n">y_train_enc</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># 5. SAVE MODEL (INI YANG PENTING)</span>
+<span class="n">model</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">&#39;model_starlight.keras&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">✅ SUKSES! File &#39;model_starlight.keras&#39; sudah muncul.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>🔄 MELAKUKAN RETRAINING &amp; SAVING...
+🚀 Sedang melatih otak AI (Tunggu sebentar)...
+Epoch 1/20
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/local/python/3.12.1/lib/python3.12/site-packages/keras/src/layers/convolutional/base_conv.py:113: UserWarning: Do not pass an `input_shape`/`input_dim` argument to a layer. When using Sequential models, prefer using an `Input(shape)` object as the first layer in the model instead.
+  super().__init__(activity_regularizer=activity_regularizer, **kwargs)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold">32/32</span> <span class=" -Color -Color-Green">━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Bold">3s</span> 68ms/step - accuracy: 0.5420 - loss: 0.9827
+Epoch 2/20
+<span class=" -Color -Color-Bold">32/32</span> <span class=" -Color -Color-Green">━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Bold">2s</span> 71ms/step - accuracy: 0.5790 - loss: 0.9004
+Epoch 3/20
+<span class=" -Color -Color-Bold">32/32</span> <span class=" -Color -Color-Green">━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Bold">2s</span> 67ms/step - accuracy: 0.7700 - loss: 0.6491
+Epoch 4/20
+<span class=" -Color -Color-Bold">32/32</span> <span class=" -Color -Color-Green">━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Bold">2s</span> 64ms/step - accuracy: 0.8330 - loss: 0.4570
+Epoch 5/20
+<span class=" -Color -Color-Bold">32/32</span> <span class=" -Color -Color-Green">━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Bold">2s</span> 68ms/step - accuracy: 0.8300 - loss: 0.4359
+Epoch 6/20
+<span class=" -Color -Color-Bold">32/32</span> <span class=" -Color -Color-Green">━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Bold">3s</span> 86ms/step - accuracy: 0.8410 - loss: 0.4085
+Epoch 7/20
+<span class=" -Color -Color-Bold">32/32</span> <span class=" -Color -Color-Green">━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Bold">5s</span> 90ms/step - accuracy: 0.8410 - loss: 0.4022
+Epoch 8/20
+<span class=" -Color -Color-Bold">32/32</span> <span class=" -Color -Color-Green">━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Bold">3s</span> 91ms/step - accuracy: 0.8380 - loss: 0.4032
+Epoch 9/20
+<span class=" -Color -Color-Bold">32/32</span> <span class=" -Color -Color-Green">━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Bold">6s</span> 116ms/step - accuracy: 0.8410 - loss: 0.3950
+Epoch 10/20
+<span class=" -Color -Color-Bold">32/32</span> <span class=" -Color -Color-Green">━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Bold">5s</span> 146ms/step - accuracy: 0.8370 - loss: 0.4119
+Epoch 11/20
+<span class=" -Color -Color-Bold">32/32</span> <span class=" -Color -Color-Green">━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Bold">4s</span> 111ms/step - accuracy: 0.8380 - loss: 0.3954
+Epoch 12/20
+<span class=" -Color -Color-Bold">32/32</span> <span class=" -Color -Color-Green">━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Bold">3s</span> 85ms/step - accuracy: 0.8430 - loss: 0.3935
+Epoch 13/20
+<span class=" -Color -Color-Bold">32/32</span> <span class=" -Color -Color-Green">━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Bold">6s</span> 118ms/step - accuracy: 0.8400 - loss: 0.3842
+Epoch 14/20
+<span class=" -Color -Color-Bold">32/32</span> <span class=" -Color -Color-Green">━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Bold">5s</span> 121ms/step - accuracy: 0.8370 - loss: 0.3945
+Epoch 15/20
+<span class=" -Color -Color-Bold">32/32</span> <span class=" -Color -Color-Green">━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Bold">4s</span> 73ms/step - accuracy: 0.8380 - loss: 0.4057
+Epoch 16/20
+<span class=" -Color -Color-Bold">32/32</span> <span class=" -Color -Color-Green">━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Bold">2s</span> 69ms/step - accuracy: 0.8390 - loss: 0.3871
+Epoch 17/20
+<span class=" -Color -Color-Bold">32/32</span> <span class=" -Color -Color-Green">━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Bold">2s</span> 62ms/step - accuracy: 0.8410 - loss: 0.3857
+Epoch 18/20
+<span class=" -Color -Color-Bold">32/32</span> <span class=" -Color -Color-Green">━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Bold">2s</span> 67ms/step - accuracy: 0.8410 - loss: 0.3823
+Epoch 19/20
+<span class=" -Color -Color-Bold">32/32</span> <span class=" -Color -Color-Green">━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Bold">2s</span> 64ms/step - accuracy: 0.8380 - loss: 0.3838
+Epoch 20/20
+<span class=" -Color -Color-Bold">32/32</span> <span class=" -Color -Color-Green">━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Bold">2s</span> 63ms/step - accuracy: 0.8390 - loss: 0.3738
+
+✅ SUKSES! File &#39;model_starlight.keras&#39; sudah muncul.
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 </section>
 
@@ -1011,15 +1132,6 @@ Kelas 1 (RR Lyrae)       0.99      0.99      0.99      2305
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
-    <a class="left-prev"
-       href="../Prediksi_NO2.html"
-       title="previous page">
-      <i class="fa-solid fa-angle-left"></i>
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Prediksi NO2</p>
-      </div>
-    </a>
 </div>
                 </footer>
               
