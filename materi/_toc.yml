@@ -1,0 +1,19 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: intro
+chapters:
+- file: Bussinnes_Understanding
+- file: Data_Understanding
+- file: tugas_2_psd
+- file: pycaret.ipynb
+- file: adasyn & smote.ipynb
+- file: classifier.ipynb
+- file: KNIME.ipynb
+- file: cdse.ipynb
+- file: cloning_voice.ipynb
+- file: tsfel_voice_analysis.ipynb
+- file: Prediksi_NO2.ipynb
+- file: UAS.ipynb
+
